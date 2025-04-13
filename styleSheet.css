@@ -1,1 +1,15 @@
+body {
+    font-family: 'Inria Serif', serif;
+    background-color: black;
+    display: flex;
+    margin: 0;
+}
 
+
+h1 {
+    font-size: 25vw;
+    color: azure;
+    letter-spacing: -8%; 
+    line-height: 0.8;
+    margin: 0;
+}
