@@ -34,6 +34,10 @@ body {
     background-size:70vw;
 }
 
+#parrafo{
+    width: 80%;
+}
+
 
 h1 {
     font-size: 20vw;
@@ -47,7 +51,7 @@ h1 {
 }
 
 p{
-    font-size: 4vh;
+    font-size: 4.5vw;
     line-height: 0.8;
     margin: 1vh;
         margin-left: 8vh;
@@ -64,11 +68,20 @@ a:hover {
     color:rgb(255, 153, 0);
 }
 
-@media (max-width:600px) {
+@media (max-width:500px) {
 
+    #parrafo{
+        width: 90%;
+    }
+    
     h1{
         font-size: 34vw;
         background-size: 300vw;      
         background-position: 40% 30%;  
     }
+
+    p{
+        font-size: 4vh;
+    }
+
 }
