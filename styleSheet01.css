@@ -1,0 +1,228 @@
+body {
+    font-family: 'Inria Serif', serif;
+    background-color: black;
+    color: azure;
+    display: block;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+img{
+    width: 100%;
+}
+
+#bodi{
+    overflow: hidden;
+    padding: 0 2vw;
+}
+
+h1 {
+    font-size: 20vw;
+    letter-spacing: -8%; 
+    line-height: 0.8;
+    margin: 0;
+    background-image: url(Yo01.gif);
+    background-repeat: no-repeat; 
+    background-size: 200vw;      
+    background-position: 40% 20%;  
+}
+
+p{
+    font-size: 2vw;
+    line-height: 1.2;
+    margin: 2vw;
+    margin-left: 8vh;
+}
+
+#guala{
+    transition: color 0.1s ease;
+    width: 50%;
+}
+
+#guala:hover{
+    transition: color 0.1s ease;
+    color: rgba(255, 255, 255, 0);
+    background-image: url(Nombre.png);
+    background-repeat: no-repeat; 
+    background-position: 50% 50%;  
+    background-size:70vw;
+}
+
+#statment{
+    font-size: 4.5vh;
+}
+
+/* Layout switcher styles */
+.layout-switcher {
+    display: flex;
+    justify-content: center;
+    margin: 4vh 0;
+}
+
+.layout-switcher input[type="radio"] {
+    display: none;
+}
+
+.layout-switcher label {
+    padding: 0.8vh 2vw;
+    margin: 0 1vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.8vh;
+    transition: all 0.3s ease;
+}
+
+.layout-switcher label:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.layout-switcher input[type="radio"]:checked + label {
+    background-color: rgba(255, 153, 0, 0.3);
+    border-color: rgb(255, 153, 0);
+}
+
+/* Default project layout */
+.projecto {
+    display: flow-root;
+    width: 100%;
+    margin-bottom: 10vh;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.project-content {
+    position: relative;
+    z-index: 2;
+}
+
+.project-image {
+    margin-top: 2vh;
+}
+
+/* Grid layout styles */
+#layout-grid:checked ~ #works {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4vh;
+}
+
+#layout-grid:checked ~ #works .projecto {
+    margin-bottom: 0;
+}
+
+#layout-grid:checked ~ #works .projecto h2 {
+    font-size: 3vh;
+    margin: 1vh 0;
+}
+
+#layout-grid:checked ~ #works .projecto p {
+    font-size: 1.6vh;
+    margin: 1vh 0;
+    margin-left: 0;
+}
+
+/* Specific project styles */
+#cementerio .project-image {
+    display: none;
+}
+
+#cementerio {
+    background-image: url(cementerio/003.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 4vh;
+    min-height: 60vh;
+}
+
+#layout-grid:checked ~ #works #cementerio {
+    background-size: cover;
+    min-height: 40vh;
+}
+
+#contacto{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 5vh;
+    gap: 5vh;
+    text-align: center;
+}
+
+#mail{
+    grid-column: 1/-1;
+}
+
+#parrafo{
+    width: 80%;
+}
+
+a{
+    font-size: 2.5vw;
+    text-decoration: none;
+    color: azure;
+    transition: color 0.3s ease;
+}
+
+a:hover { 
+    color:rgb(255, 153, 0);
+}
+
+/* Hover effects for grid layout */
+#layout-grid:checked ~ #works .projecto {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+#layout-grid:checked ~ #works .projecto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#layout-grid:checked ~ #works .projecto .project-content {
+    padding: 2vh;
+}
+
+/* Responsive styles */
+@media (max-width:700px) {
+    #parrafo{
+        width: 90%;
+    }
+    
+    h1{
+        font-size: 34vw;
+        background-size: 300vw;      
+        background-position: 40% 30%;  
+    }
+
+    h2{
+        margin: 2vh;
+        font-size: 4vh;
+    }
+
+    #statment{
+        font-size: 4vh;
+    }
+
+    a{
+        font-size: 2.5vh;
+    }
+
+    p{
+        font-size: 2vh;
+        margin-left: 2vh;
+    }
+    
+    /* Grid layout for mobile */
+    #layout-grid:checked ~ #works {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* For larger screens, show 3 columns in grid view */
+@media (min-width: 1200px) {
+    #layout-grid:checked ~ #works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
