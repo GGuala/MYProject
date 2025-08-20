@@ -17,8 +17,8 @@ img{
 }
 
 #works{
-    padding-left: 10vw;
-    padding-right: 10vw;
+    /*padding-left: 10vw;
+    padding-right: 10vw;*/
     display: flex;
     flex-wrap: wrap;
     gap: 1vw;
@@ -39,7 +39,11 @@ h1 {
 h2{
     font-size: 3vw;
     margin: 1vw;
-    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h3{
+    margin: 0;
 }
 
 p{
@@ -66,6 +70,27 @@ p{
     font-size: 4.5vw;
 }
 
+#aboutMe{
+    margin-bottom: 5vw;
+    margin-top: 5vw;
+}
+
+#titleWorks{
+    margin-right: 8vw;
+    margin-left: 8vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.titleProject{
+    display: flex;
+    align-items: baseline;
+}
+
+.titleProject h3{
+    font-size: 3vh;
+}
+
 
 /* Default project layout */
 .projecto {
@@ -83,7 +108,7 @@ p{
 
 .projecto .textoProjecto{
     margin: 1vw;
-    /*width: 120%;*/
+    width: 65vw;
 }
 
 .projecto .ContenedorImgProjecto{
@@ -115,11 +140,23 @@ p{
     background-position: center;
 }*/
 
-#contacto{
+#titleContacto{
     display: flex;
+    justify-content: center;
+    margin-bottom: 2vw;
+}
+
+#contacto{
+    display: flow;
     /*grid-template-columns: repeat(3, 1fr);*/
     margin: 5vh;
     gap: 2vh;
+    justify-content: center;
+}
+
+#links{
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -178,7 +215,7 @@ a:hover {
     }
     .projecto .textoProjecto{
         margin-bottom: 3vh;
-
+        width: 100%;
     }
 
     .projecto .ContenedorImgProjecto{
