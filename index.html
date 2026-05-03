@@ -9,12 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
-    <link href="styleSheet001.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <link href="styleSheet01.css" rel="stylesheet" />
   </head>
   <body>
 
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- NAV -->
     <nav>
@@ -24,8 +23,12 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-bg"></div>
-      <p class="hero-index">Guala</p>
-      <h1>ARt that thinks<em> DiRection</em> thAt FEels.</h1>
+      <div class="hero-scan">
+        <img src="Yo01.gif" alt="" class="hero-scan-img" />
+        <div class="hero-scan-fade"></div>
+      </div>
+      <p class="hero-index" style="text-align: center;">Guala</p>
+      <h1>ART that <em>thinks</em> <br> <em>art</em> that FEels.</h1>
       <div class="hero-meta">
         <p class="hero-name">Artist &amp; Art Director</p>
         <p class="hero-descriptor">Sculptural art, visual direction, and the belief that the best ideas arrive before the brief.</p>
@@ -131,34 +134,7 @@
     </footer>
 
     <script>
-      const cursor = document.getElementById('cursor');
-      const ring = document.getElementById('cursorRing');
-      let mx = 0, my = 0, rx = 0, ry = 0;
 
-      document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        cursor.style.left = mx + 'px';
-        cursor.style.top = my + 'px';
-      });
-
-      (function animateRing() {
-        rx += (mx - rx) * 0.12;
-        ry += (my - ry) * 0.12;
-        ring.style.left = rx + 'px';
-        ring.style.top = ry + 'px';
-        requestAnimationFrame(animateRing);
-      })();
-
-      document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursor.style.width = '16px'; cursor.style.height = '16px';
-          ring.style.width = '48px'; ring.style.height = '48px';
-        });
-        el.addEventListener('mouseleave', () => {
-          cursor.style.width = '8px'; cursor.style.height = '8px';
-          ring.style.width = '32px'; ring.style.height = '32px';
-        });
-      });
 
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
