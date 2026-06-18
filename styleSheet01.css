@@ -223,7 +223,7 @@ h1 em {
 
 /* ── SECTIONS BASE ── */
 section {
-  padding: 120px 48px;
+  padding: 90px 48px;
   position: relative;
 }
 section + section::before {
@@ -258,7 +258,7 @@ section + section::before {
 
 .work-inner {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 1fr 450px;
   gap: 64px;
   align-items: start;
 }
@@ -299,6 +299,7 @@ section + section::before {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+  border-radius: 20px;
 }
 .work-image.visible { opacity: 1; transform: none; }
 .work-img {
