@@ -74,6 +74,10 @@ nav::after {
 }
 .nav-cta:hover { color: var(--white); }
 
+#logoGuala {
+  height: 45px;
+}
+
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
