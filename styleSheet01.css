@@ -54,6 +54,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(10,10,10,0.4);
 }
 nav::after {
   content: '';
