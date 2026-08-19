@@ -7,19 +7,16 @@
     <meta name="description" content="Ethos (2025): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol que interrogan la imagen de la divinidad como constructo. Artista uruguayo, Montevideo." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://heyguala.com/ethos/" />
-
     <!-- Open Graph -->
     <meta property="og:title" content="Ethos — Nicolás Guala" />
     <meta property="og:description" content="Instalación escultórica en tres partes. Impresión 3D PLA y aerosol. Montevideo, 2025." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://heyguala.com/ethos/" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet" />
     <link href="../styleSheet01.css" rel="stylesheet" />
-
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -27,7 +24,6 @@
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "y4utpmr1d9");
     </script>
-
     <style>
       .piece-page { max-width: 860px; margin: 0 auto; padding: 160px 48px 120px; }
       .piece-page-header { margin-bottom: 80px; }
@@ -69,6 +65,7 @@
         font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em;
         text-transform: uppercase; color: var(--grey3);
       }
+      .piece-page .photo-strip { margin-bottom: 80px; }
       .piece-page-body p {
         font-family: var(--sans); font-size: 18px; font-weight: 300;
         line-height: 1.85; color: var(--grey1);
@@ -83,7 +80,6 @@
       <a href="https://heyguala.com"> <img id="logoGuala" src="../text.png" /></a>
       <a href="mailto:guala.fajardo@gmail.com" class="nav-cta">gEt in tOuch</a>
     </nav>
-
     <main class="piece-page">
       <header class="piece-page-header">
         <a href="../" class="piece-page-back">
@@ -101,8 +97,36 @@
         </div>
       </header>
 
-      <div class="piece-page-img-placeholder">
-        <span>ethos/gif.gif</span>
+      <img class="piece-page-img" src="total01.webp" alt="Ethos — vista general de la instalación"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="piece-page-img-placeholder" style="display:none"><span>total01.webp</span></div>
+
+      <div class="photo-strip" id="photoStrip">
+        <div class="photo-item">
+          <img class="photo-media" src="total02.webp" alt="Ethos — vista general"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none"></div>
+        </div>
+        <div class="photo-item">
+          <img class="photo-media" src="total03.webp" alt="Ethos — vista general"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none"></div>
+        </div>
+        <div class="photo-item">
+          <img class="photo-media" src="001.webp" alt="Ethos — detalle"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none"></div>
+        </div>
+        <div class="photo-item">
+          <img class="photo-media" src="002.webp" alt="Ethos — detalle"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none"></div>
+        </div>
+        <div class="photo-item">
+          <img class="photo-media" src="003.webp" alt="Ethos — detalle"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none"></div>
+        </div>
       </div>
 
       <article class="piece-page-body">
@@ -123,10 +147,21 @@
         </p>
       </article>
     </main>
-
     <footer>
       <span>©Guala</span>
       <span>mAde with vIbes</span>
     </footer>
+
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.photo-item').forEach(el => observer.observe(el));
+    </script>
+    <script src="../main.js" defer></script>
+
   </body>
 </html>
