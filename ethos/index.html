@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Ethos — Nicolás Guala | Escultura 2025</title>
+    <title>Cementerio — Nicolás Guala | Instalación 2024</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Ethos (2025): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol que interrogan la imagen de la divinidad como constructo. Artista uruguayo, Montevideo." />
+    <meta name="description" content="Cementerio (2024): serie conceptual de Nicolás Guala sobre los dioses como emociones efímeras. Instalación escultórica en desarrollo. Arte contemporáneo joven, Montevideo, Uruguay." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://heyguala.com/ethos/" />
+    <link rel="canonical" href="https://heyguala.com/cementerio/" />
     <!-- Open Graph -->
-    <meta property="og:title" content="Ethos — Nicolás Guala" />
-    <meta property="og:description" content="Instalación escultórica en tres partes. Impresión 3D PLA y aerosol. Montevideo, 2025." />
+    <meta property="og:title" content="Cementerio — Nicolás Guala" />
+    <meta property="og:description" content="Serie conceptual sobre los dioses como emociones efímeras. Instalación en desarrollo, 2024." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://heyguala.com/ethos/" />
+    <meta property="og:url" content="https://heyguala.com/cementerio/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
@@ -25,7 +25,7 @@
       })(window, document, "clarity", "script", "y4utpmr1d9");
     </script>
     <style>
-      .piece-page { max-width: 860px; margin: 0 auto; padding: 160px 48px 120px; }
+      .piece-page { max-width: 860px; width: 100%; margin: 0 auto; padding: 160px 48px 120px; }
       .piece-page-header { margin-bottom: 80px; }
       .piece-page-back {
         display: inline-flex; align-items: center; gap: 10px;
@@ -49,23 +49,100 @@
         text-transform: uppercase; color: var(--grey2);
         margin-top: 32px;
       }
-      .piece-page-img {
-        width: 100%; aspect-ratio: 16/9; object-fit: cover;
-        filter: grayscale(60%) brightness(0.85);
+      /* ── IMAGE GALLERY (fills the row, no empty sides, fully fluid) ── */
+      .piece-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        grid-template-areas:
+          "g g a b"
+          "g g c d"
+          "e f h d";
+        gap: 2px;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
         margin-bottom: 80px;
-        transition: filter 0.6s ease;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-sizing: border-box;
       }
-      .piece-page-img:hover { filter: grayscale(0%) brightness(1); }
-      .piece-page-img-placeholder {
-        width: 100%; aspect-ratio: 16/9; background: var(--surface);
-        display: flex; align-items: center; justify-content: center;
-        margin-bottom: 80px; border: 1px solid var(--line);
+      .piece-gallery-item {
+        position: relative;
+        overflow: hidden;
+        background: var(--surface);
+        /* grid items default to min-width/min-height: auto, which locks the
+           track to the image's intrinsic size and stops the grid from
+           shrinking with the viewport — this override is what lets it
+           actually resize fluidly. */
+        min-width: 0;
+        min-height: 0;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
-      .piece-page-img-placeholder span {
-        font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em;
-        text-transform: uppercase; color: var(--grey3);
+      .piece-gallery-item.visible { opacity: 1; transform: none; }
+      .piece-gallery-item:nth-child(2) { transition-delay: 0.05s; }
+      .piece-gallery-item:nth-child(3) { transition-delay: 0.1s; }
+      .piece-gallery-item:nth-child(4) { transition-delay: 0.15s; }
+      .piece-gallery-item:nth-child(5) { transition-delay: 0.2s; }
+      .piece-gallery-item:nth-child(6) { transition-delay: 0.25s; }
+      .piece-gallery-item:nth-child(7) { transition-delay: 0.3s; }
+      .piece-gallery-item:nth-child(8) { transition-delay: 0.35s; }
+      .piece-gallery-item img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(100%) brightness(0.8);
+        transition: filter 0.6s ease, transform 0.8s ease;
       }
-      .piece-page .photo-strip { margin-bottom: 80px; }
+      .piece-gallery-item:hover img {
+        filter: grayscale(0%) brightness(1);
+        transform: scale(1.04);
+      }
+      .piece-gallery-placeholder {
+        width: 100%; height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--surface);
+      }
+      .piece-gallery-placeholder::after {
+        content: 'Add photo';
+        font-family: var(--sans); font-size: 10px;
+        letter-spacing: 0.2em; text-transform: uppercase;
+        color: var(--grey3);
+      }
+      .piece-gallery-item--general        { grid-area: g; }
+      .piece-gallery-item--001            { grid-area: a; }
+      .piece-gallery-item--002            { grid-area: b; }
+      .piece-gallery-item--003            { grid-area: c; }
+      .piece-gallery-item--alto           { grid-area: d; }
+      .piece-gallery-item--detalle-pieza  { grid-area: e; }
+      .piece-gallery-item--detalle-atras  { grid-area: f; }
+      .piece-gallery-item--detalle-atras02{ grid-area: h; }
+      @media (max-width: 900px) {
+        .piece-page { padding: 130px 28px 90px; }
+      }
+      @media (max-width: 720px) {
+        .piece-gallery {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows:
+            clamp(160px, 45vw, 220px)
+            clamp(140px, 40vw, 200px)
+            repeat(3, clamp(100px, 28vw, 160px));
+          grid-template-areas:
+            "g g"
+            "d d"
+            "a b"
+            "c e"
+            "f h";
+          aspect-ratio: auto;
+        }
+      }
+      @media (max-width: 480px) {
+        .piece-page { padding: 110px 20px 72px; }
+      }
       .piece-page-body p {
         font-family: var(--sans); font-size: 18px; font-weight: 300;
         line-height: 1.85; color: var(--grey1);
@@ -88,62 +165,70 @@
           </svg>
           Volver
         </a>
-        <h1 class="piece-page-title">Ethos</h1>
+        <h1 class="piece-page-title">Cementerio</h1>
         <div class="piece-page-meta">
-          <span>2025</span>
-          <span>Instalación escultórica — 3 piezas</span>
-          <span>Impresión 3D PLA + aerosol</span>
-          <span>150 × 75 × 75 cm (Pieza A)</span>
+          <span>2024</span>
+          <span>Serie conceptual — en desarrollo</span>
+          <span>Instalación escultórica</span>
         </div>
       </header>
-
-      <img class="piece-page-img" src="total01.webp" alt="Ethos — vista general de la instalación"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="piece-page-img-placeholder" style="display:none"><span>total01.webp</span></div>
-
-      <div class="photo-strip" id="photoStrip">
-        <div class="photo-item">
-          <img class="photo-media" src="total02.webp" alt="Ethos — vista general"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="photo-placeholder" style="display:none"></div>
+      <div class="piece-gallery">
+        <div class="piece-gallery-item piece-gallery-item--general">
+          <img src="general.jpg" alt="Cementerio — vista general, Nicolás Guala, 2024"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
         </div>
-        <div class="photo-item">
-          <img class="photo-media" src="total03.webp" alt="Ethos — vista general"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="photo-placeholder" style="display:none"></div>
+        <div class="piece-gallery-item piece-gallery-item--001">
+          <img src="001.jpg" alt="Cementerio — detalle 001"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
         </div>
-        <div class="photo-item">
-          <img class="photo-media" src="001.webp" alt="Ethos — detalle"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="photo-placeholder" style="display:none"></div>
+        <div class="piece-gallery-item piece-gallery-item--002">
+          <img src="002.jpg" alt="Cementerio — detalle 002"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
         </div>
-        <div class="photo-item">
-          <img class="photo-media" src="002.webp" alt="Ethos — detalle"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="photo-placeholder" style="display:none"></div>
+        <div class="piece-gallery-item piece-gallery-item--003">
+          <img src="003.jpg" alt="Cementerio — detalle 003"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
         </div>
-        <div class="photo-item">
-          <img class="photo-media" src="003.webp" alt="Ethos — detalle"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="photo-placeholder" style="display:none"></div>
+        <div class="piece-gallery-item piece-gallery-item--alto">
+          <img src="general-alto.jpg" alt="Cementerio — vista general, formato vertical"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
+        </div>
+        <div class="piece-gallery-item piece-gallery-item--detalle-pieza">
+          <img src="detalle-pieza.jpg" alt="Cementerio — detalle de la pieza"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
+        </div>
+        <div class="piece-gallery-item piece-gallery-item--detalle-atras">
+          <img src="detalle-atras.jpg" alt="Cementerio — detalle desde atrás"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
+        </div>
+        <div class="piece-gallery-item piece-gallery-item--detalle-atras02">
+          <img src="detalle-atras02.jpg" alt="Cementerio — detalle desde atrás, segunda vista"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="piece-gallery-placeholder" style="display:none"></div>
         </div>
       </div>
-
       <article class="piece-page-body">
         <p>
-          <em>Ethos</em> parte de una pregunta que no tiene respuesta cómoda: ¿qué forma adopta la divinidad cuando se la despoja de toda su iconografía heredada?
+          Los dioses no murieron de golpe. Murieron como mueren las emociones intensas: sin anuncio, sin fecha, dejando el espacio que ocupaban con una forma que todavía reconocemos pero ya no habitamos.
         </p>
         <p>
-          La instalación está compuesta por tres piezas escultóricas construidas mediante impresión 3D en plástico PLA y acabadas en aerosol. Las formas no reproducen ningún canon conocido — no hay cruces, no hay aureolas, no hay anatomía sagrada reconocible. Lo que queda es algo anterior: cuerpos que sugieren presencia sin declararla, figuras que interrumpen el espacio sin completarlo.
+          <em>Cementerio</em> es una serie de investigación en curso que parte de esa premisa. La obra propone una mitología propia: los dioses son emociones colectivas que alguna vez tuvieron cuerpo, que circularon a través de comunidades enteras, que se comunicaron sin lenguaje y sin abstracción — a través del sentir puro. Lo que queda de ellos no es doctrina ni texto sagrado. Lo que queda es la arquitectura de su ausencia.
         </p>
         <p>
-          El proceso de fabricación es parte del argumento. Las capas del filamento impreso permanecen visibles — no como defecto, sino como registro. Moldear es el gesto creador por excelencia en casi toda cosmología conocida. Aquí ese gesto queda expuesto: la divinidad no aparece ya hecha, sino haciéndose. El color terracota-rojo de la pieza central alude a la arcilla sin mencionarla, a la carne sin representarla.
+          Cada pieza de la serie ocupa el lugar de algo que ya no está. Las formas son densas pero incompletas — no empiezan ni terminan, sólo interrumpen. Esa interrupción es deliberada: el cementerio no es un espacio de duelo sino un espacio de registro. Esto estuvo aquí. Esto tuvo forma. Esto dejó de tener sentido antes de dejar de existir.
         </p>
         <p>
-          <em>Ethos</em> no propone una nueva religión ni refuta las existentes. Trabaja en el espacio anterior a la doctrina: el instante en que una presencia necesita forma y todavía no sabe qué forma es la correcta. Esa indeterminación es el tema de la obra, no un problema pendiente de resolver.
+          La serie no es religiosa. No celebra ningún sistema de creencias ni lo refuta. Opera en el territorio anterior a toda doctrina — el momento en que una necesidad colectiva necesita forma y no ha encontrado aún el nombre correcto para ella.
         </p>
         <p>
-          La serie fue concebida como sistema abierto — las tres piezas actuales son un estado de la investigación, no su conclusión. El trabajo con <em>Ethos</em> continúa.
+          <em>Cementerio</em> es un sistema abierto: puede seguir creciendo mientras sigan muriendo dioses. La investigación continúa.
         </p>
       </article>
     </main>
@@ -159,9 +244,8 @@
         });
       }, { threshold: 0.12 });
 
-      document.querySelectorAll('.photo-item').forEach(el => observer.observe(el));
+      document.querySelectorAll('.piece-gallery-item').forEach(el => observer.observe(el));
     </script>
-    <script src="../main.js" defer></script>
 
   </body>
 </html>
