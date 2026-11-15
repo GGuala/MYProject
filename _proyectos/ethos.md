@@ -1,6 +1,6 @@
 ---
 titulo: Ethos
-estado: mostrado
+estado: exhibido
 anios: "2025"
 medios:
   - Escultura

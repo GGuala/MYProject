@@ -96,7 +96,7 @@
           {%- if f.tecnica %}<dt>Técnica</dt><dd>{{ f.tecnica }}</dd>{% endif -%}
           {%- if f.medidas %}<dt>Medidas</dt><dd>{{ f.medidas }}</dd>{% endif -%}
           {%- if f.piezas %}<dt>Piezas</dt><dd>{{ f.piezas }}</dd>{% endif -%}
-          {%- if page.estado %}<dt>Estado</dt><dd>{{ page.estado | capitalize }}</dd>{% endif -%}
+          {%- if page.estado %}{%- assign est = site.data.estados | where: "clave", page.estado | first -%}{% if est %}<dt>Estado</dt><dd>{{ est.nombre }}</dd>{% endif %}{% endif -%}
         </dl>
       </section>
       {%- endif %}
