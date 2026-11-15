@@ -14,8 +14,8 @@
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 10px; text-transform: uppercase;
 }
-.estado--en-proceso { color: var(--grey1); }
-.estado--mostrado { color: var(--white); }
+.estado--produccion, .estado--inedito { color: var(--grey1); }
+.estado--exhibido { color: var(--white); }
 
 /* label de sección: texto + línea corta */
 .p-label {

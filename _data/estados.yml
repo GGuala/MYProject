@@ -1,0 +1,25 @@
+# Estados de proyecto — único lugar donde viven sus nombres.
+# Para renombrar uno, cambiá "nombre" (y el mismo label en .pages.yml).
+# No cambies "clave": es lo que guardan los proyectos.
+#
+# icono: vacio · mitad · pausa · anillo · lleno
+
+- clave: investigacion
+  nombre: En investigación
+  icono: vacio
+
+- clave: produccion
+  nombre: En producción
+  icono: mitad
+
+- clave: pausa
+  nombre: En pausa
+  icono: pausa
+
+- clave: inedito
+  nombre: Inédito
+  icono: anillo
+
+- clave: exhibido
+  nombre: Exhibido
+  icono: lleno

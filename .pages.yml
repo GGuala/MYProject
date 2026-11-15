@@ -24,8 +24,14 @@ content:
         label: Estado
         type: select
         required: true
+        description: "Inédito = terminado y disponible, todavía sin exhibir."
         options:
-          values: [semilla, en proceso, mostrado, en pausa, cerrado]
+          values:
+            - { name: investigacion, label: En investigación }
+            - { name: produccion, label: En producción }
+            - { name: pausa, label: En pausa }
+            - { name: inedito, label: Inédito }
+            - { name: exhibido, label: Exhibido }
       - name: anios
         label: Años
         type: string
