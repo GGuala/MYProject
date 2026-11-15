@@ -1,0 +1,5 @@
+{%- comment -%}
+  Versión chica de una imagen (la genera la Action: foto.webp → foto-m.webp).
+  Uso: {% include miniatura.html src=item.src %}
+{%- endcomment -%}
+{%- if include.src contains ".webp" -%}{{ include.src | replace: ".webp", "-m.webp" }}{%- else -%}{{ include.src }}{%- endif -%}

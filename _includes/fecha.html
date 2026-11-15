@@ -1,0 +1,4 @@
+{%- comment -%} Fecha corta en español: "oct 2026". Uso: {% include fecha.html f=entrada.fecha %} {%- endcomment -%}
+{%- assign meses = "ene,feb,mar,abr,may,jun,jul,ago,sep,oct,nov,dic" | split: "," -%}
+{%- assign m = include.f | date: "%-m" | minus: 1 -%}
+{{ meses[m] }} {{ include.f | date: "%Y" }}
