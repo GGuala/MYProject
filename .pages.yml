@@ -1,0 +1,141 @@
+# Pages CMS — formulario para editar heyguala.com desde el navegador o el celular.
+# Entrá en https://app.pagescms.org con tu cuenta de GitHub y elegí este repo.
+# Las fotos se suben a /img; la Action las pasa a webp sola al guardar.
+
+media:
+  input: img
+  output: /img
+
+content:
+  - name: proyectos
+    label: Proyectos
+    type: collection
+    path: _proyectos
+    filename: "{primary}.md"
+    view:
+      primary: titulo
+      fields: [titulo, estado, anios]
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: estado
+        label: Estado
+        type: select
+        required: true
+        options:
+          values: [semilla, en proceso, mostrado, en pausa, cerrado]
+      - name: anios
+        label: Años
+        type: string
+        description: "Ej.: 2025, o 2026– si sigue abierto"
+      - name: medios
+        label: Medios
+        type: string
+        list: true
+      - name: hilos
+        label: Hilos
+        type: select
+        options:
+          multiple: true
+          values: [La pausa, La forma de lo divino, Lo efímero]
+      - name: descripcion
+        label: Descripción para Google (1–2 frases)
+        type: text
+      - name: imagen
+        label: Imagen principal
+        type: image
+      - name: imagen_alt
+        label: Texto alternativo de la imagen principal
+        type: string
+      - name: imagen_pie
+        label: Pie de foto de la imagen principal
+        type: string
+        description: "Título, año. Técnica. Medidas. Contexto. Foto: nombre."
+      - name: body
+        label: Texto de obra
+        type: rich-text
+      - name: ficha
+        label: Ficha técnica
+        type: object
+        fields:
+          - { name: tipo, label: Tipo, type: string }
+          - { name: tecnica, label: Técnica, type: string }
+          - { name: medidas, label: Medidas, type: string }
+          - { name: piezas, label: Cantidad de piezas, type: string }
+      - name: piezas
+        label: Piezas de la serie
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: titulo, label: Título de la pieza, type: string }
+          - { name: formato, label: Formato, type: string }
+          - { name: medidas, label: Medidas, type: string }
+          - { name: tiras, label: Cantidad de tiras, type: string }
+          - name: imagenes
+            label: Imágenes (1 a 4)
+            type: object
+            list:
+              max: 4
+            fields:
+              - { name: src, label: Imagen, type: image }
+              - { name: alt, label: Texto alternativo, type: string }
+              - { name: pie, label: Pie de foto, type: string }
+      - name: galeria
+        label: Galería
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [obra, vista de sala, maqueta, proceso, render]
+          - { name: src, label: Imagen, type: image }
+          - { name: alt, label: Texto alternativo, type: string }
+          - { name: pie, label: Pie de foto, type: string }
+      - name: exhibiciones
+        label: Exhibiciones y convocatorias
+        type: object
+        list: true
+        fields:
+          - { name: anio, label: Año, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: lugar, label: Lugar, type: string }
+      - name: creditos
+        label: Créditos
+        type: object
+        list: true
+        fields:
+          - { name: rol, label: Rol, type: string }
+          - { name: nombre, label: Nombre, type: string }
+
+  - name: registro
+    label: Registro de taller
+    type: collection
+    path: _registro
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: texto
+      fields: [fecha, tipo, proyecto, texto]
+    fields:
+      - name: texto
+        label: Qué pasó (una línea)
+        type: string
+        required: true
+      - name: fecha
+        label: Fecha
+        type: date
+        required: true
+      - name: tipo
+        label: Tipo
+        type: select
+        options:
+          values: [proceso, prueba, muestra, convocatoria, lectura, otro]
+      - name: proyecto
+        label: Proyecto (nombre del archivo, ej. silencios-de-segundos)
+        type: string
+        required: true

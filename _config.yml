@@ -1,0 +1,29 @@
+# heyguala.com — configuración de Jekyll
+# GitHub Pages arma el sitio con esto. Las páginas HTML viejas (index.html,
+# /cementerio/, /estacionn3/) se publican tal cual: no tienen front matter.
+
+title: Nicolás Guala
+url: https://heyguala.com
+lang: es
+markdown: kramdown
+
+collections:
+  proyectos:
+    output: true
+    permalink: /:name/      # _proyectos/ethos.md  →  heyguala.com/ethos/
+  registro:
+    output: false           # entradas de taller: se muestran dentro de cada proyecto
+
+defaults:
+  - scope:
+      path: ""
+      type: proyectos
+    values:
+      layout: proyecto
+
+exclude:
+  - README.md
+  - scripts/
+  - node_modules/
+  - package.json
+  - package-lock.json
