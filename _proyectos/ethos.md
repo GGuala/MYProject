@@ -1,6 +1,7 @@
 ---
+published: true
 titulo: Ethos
-estado: cerrado
+estado: inedito
 anios: "2025"
 medios:
   - Escultura
