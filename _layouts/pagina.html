@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-{%- comment -%} Página simple de texto (CV, info…): mismo nav, estilos y footer que los proyectos. {%- endcomment -%}
-<html lang="es">
+{%- comment -%} Página simple de texto (CV, info, adquirir): mismo nav, estilos y footer que los proyectos. {%- endcomment -%}
+{% include idioma.html %}
+<html lang="{{ lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,10 +11,12 @@
     <meta property="og:description" content="{{ page.descripcion | strip_newlines | escape }}" />
     {%- endif %}
     <meta name="robots" content="index, follow, noimageai" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ site.url }}{{ ruta }}" />
+    {% include head-idioma.html %}
     <meta property="og:title" content="{{ page.titulo }} — Nicolás Guala" />
     <meta property="og:type" content="profile" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:url" content="{{ site.url }}{{ ruta }}" />
+    <meta property="og:locale" content="{% if lang == 'es' %}es_UY{% else %}en_US{% endif %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />

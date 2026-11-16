@@ -1,0 +1,135 @@
+# Textos fijos de la interfaz en los dos idiomas.
+# Inglés = idioma por defecto (heyguala.com/…). Español = heyguala.com/es/…
+# Las etiquetas de sección mantienen la convención de mayúsculas alternadas.
+
+en:
+  code: en
+  base: ""
+  otro: es
+  otro_nombre: Español
+  meses: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+  nav: { obra: wOrk, info: iNfo, cv: cV, adquirir: aCquire, contacto: cOntact }
+  volver: Back
+  ultima_actividad: "Last activity:"
+  ampliar: Enlarge image
+  visor: Image viewer
+  cerrar: Close
+  anterior: Previous
+  siguiente: Next
+  spoiler: Contains spoilers
+  spoiler_accion: Tap to view
+  reproducir: Play video
+  secciones:
+    ficha: dEtails
+    piezas: pIeces
+    galeria: gAllery
+    video: vIdeo
+    registro: sTudio log
+    exhibiciones: eXhibitions
+    creditos: cRedits
+    ediciones_obra: eDitions of this work
+    mismo_hilo: sAme thread
+    bio: bIo
+    mas: mOre
+    contacto: cOntact
+    obra_original: oRiginal work
+    ediciones: eDitions
+  ficha: { anio: Year, tipo: Type, tecnica: Medium, medidas: Dimensions, piezas: Pieces, estado: Status, formato: Format, tiras: Strips, tiraje: Edition, precio: Price }
+  pieza: Piece
+  con: with
+  de: from
+  tipos_imagen: { "obra": work, "vista de sala": installation view, "render": render, "maqueta": model, "proceso": process, "investigación": research, "registro": documentation }
+  tipos_registro: { proceso: process, prueba: test, muestra: show, convocatoria: open call, lectura: reading, otro: other }
+  tipos_edicion: { "Impresión": Print, "Libro de artista": Artist book, "Pieza pequeña": Small piece, "Fanzine": Zine, "Otro": Other }
+  hilos: { "La pausa": The pause, "La forma de lo divino": The shape of the divine, "Lo efímero": The ephemeral }
+  cv_grupos: { "Exhibiciones": Exhibitions, "Convocatorias y premios": Open calls and awards, "Residencias": Residencies, "Formación artística": Artistic training, "Formación académica": Education, "Prensa": Press }
+  cv:
+    titulo: CV
+    descargar: Download CV (PDF)
+    info_link: Bio and statement
+    actualizado: Updated
+  info:
+    titulo: Info
+  adquirir:
+    titulo: Acquire work
+    intro: "Original works and editions are sold directly. Write to me and we'll arrange availability, payment and shipping."
+    boton: Inquire by email
+    consultar: Inquire →
+    consultar_obra: Inquire about this work
+    ediciones_intro: "Prints, artist books and small pieces that grow out of the work. A way to own a part of it and to support the practice."
+    pedir: Order by email
+    pocas: Few left
+    agotado: Sold out
+    asunto_consulta: "Inquiry:"
+    asunto_pedido: "Order:"
+    asunto_general: "Inquiry: acquiring work"
+    mail_hola: "Hi Nicolás, I'm interested in"
+    mail_general: acquiring a work
+  home:
+    bio_link: bio and statement →
+
+es:
+  code: es
+  base: /es
+  otro: en
+  otro_nombre: English
+  meses: [ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+  nav: { obra: oBra, info: iNfo, cv: cV, adquirir: aDquirir, contacto: cOntacto }
+  volver: Volver
+  ultima_actividad: "Última actividad:"
+  ampliar: Ampliar imagen
+  visor: Visor de imágenes
+  cerrar: Cerrar
+  anterior: Anterior
+  siguiente: Siguiente
+  spoiler: Contiene spoilers
+  spoiler_accion: Tocá para ver
+  reproducir: Reproducir video
+  secciones:
+    ficha: fIcha técnica
+    piezas: pIezas
+    galeria: gAlería
+    video: vIdeo
+    registro: rEgistro
+    exhibiciones: eXhibiciones
+    creditos: cRéditos
+    ediciones_obra: eDiciones de esta obra
+    mismo_hilo: mIsmo hilo
+    bio: bIo
+    mas: mÁs
+    contacto: cOntacto
+    obra_original: oBra original
+    ediciones: eDiciones
+  ficha: { anio: Año, tipo: Tipo, tecnica: Técnica, medidas: Medidas, piezas: Piezas, estado: Estado, formato: Formato, tiras: Tiras, tiraje: Tiraje, precio: Precio }
+  pieza: Pieza
+  con: con
+  de: de
+  tipos_imagen: { "obra": obra, "vista de sala": vista de sala, "render": render, "maqueta": maqueta, "proceso": proceso, "investigación": investigación, "registro": registro }
+  tipos_registro: { proceso: proceso, prueba: prueba, muestra: muestra, convocatoria: convocatoria, lectura: lectura, otro: otro }
+  tipos_edicion: { "Impresión": Impresión, "Libro de artista": Libro de artista, "Pieza pequeña": Pieza pequeña, "Fanzine": Fanzine, "Otro": Otro }
+  hilos: { "La pausa": La pausa, "La forma de lo divino": La forma de lo divino, "Lo efímero": Lo efímero }
+  cv_grupos: { "Exhibiciones": Exhibiciones, "Convocatorias y premios": Convocatorias y premios, "Residencias": Residencias, "Formación artística": Formación artística, "Formación académica": Formación académica, "Prensa": Prensa }
+  cv:
+    titulo: CV
+    descargar: Descargar CV (PDF)
+    info_link: Bio y statement
+    actualizado: Actualizado
+  info:
+    titulo: Info
+  adquirir:
+    titulo: Adquirir obra
+    intro: "La obra original y las ediciones se venden de forma directa. Escribime y coordinamos disponibilidad, pago y envío."
+    boton: Consultar por mail
+    consultar: Consultar →
+    consultar_obra: Consultar por esta obra
+    ediciones_intro: "Impresiones, libros de artista y piezas pequeñas que nacen de la obra. Una forma de tener una parte de ella y de apoyar la práctica."
+    pedir: Pedir por mail
+    pocas: Quedan pocas
+    agotado: Agotado
+    asunto_consulta: "Consulta:"
+    asunto_pedido: "Pedido:"
+    asunto_general: "Consulta: adquirir obra"
+    mail_hola: "Hola Nicolás, me interesa"
+    mail_general: adquirir una obra
+  home:
+    bio_link: bio y statement →

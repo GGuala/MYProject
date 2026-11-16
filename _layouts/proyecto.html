@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 {%- comment -%}
-  Plantilla única de proyecto. Cada módulo aparece solo si tiene datos
-  (principio "sin huecos" del brief). Los datos salen del front matter de
-  _proyectos/<slug>.md, que se edita desde Pages CMS.
+  Plantilla única de proyecto, en inglés (heyguala.com/<slug>/) y en español
+  (heyguala.com/es/<slug>/). Cada módulo aparece solo si tiene datos.
+  Los datos salen de _proyectos/<slug>.md (Pages CMS). La versión en español es
+  una página mínima en es/<slug>/ que apunta al proyecto con "ref".
+  Los campos con versión en inglés terminan en _en; si falta, se usa el español.
 {%- endcomment -%}
-{%- assign titulo = page.titulo | default: page.title -%}
-{%- assign medio_principal = page.medios | first -%}
-{%- assign entradas = site.registro | where: "proyecto", page.slug | sort: "fecha" | reverse -%}
+{% include idioma.html %}
+{%- assign obra = page -%}
+{%- if page.ref -%}{%- assign obra = site.proyectos | where: "slug", page.ref | first -%}{%- endif -%}
+{%- assign titulo = obra.titulo -%}
+{%- capture descripcion_raw -%}{% include t.html o=obra c="descripcion" %}{%- endcapture -%}
+{%- assign descripcion = descripcion_raw | strip_newlines | escape -%}
+{%- assign k_medios = "medios" | append: sfx -%}
+{%- assign medios = obra[k_medios] | default: obra.medios -%}
+{%- assign medio_principal = medios | first -%}
+{%- assign entradas = site.registro | where: "proyecto", obra.slug | sort: "fecha" | reverse -%}
 {%- assign ultima = entradas | first -%}
-{%- assign primera = page.galeria | first -%}
-{%- assign portada = page.imagen | default: primera.src -%}
-{%- assign est_page = site.data.estados | where: "clave", page.estado | first -%}
+{%- assign primera = obra.galeria | first -%}
+{%- assign portada = obra.imagen | default: primera.src -%}
+{%- assign est_page = site.data.estados | where: "clave", obra.estado | first -%}
 {%- assign protegido = false -%}{%- if est_page.protegido -%}{%- assign protegido = true -%}{%- endif -%}
-<html lang="es">
+<html lang="{{ lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ titulo }} — Nicolás Guala{% if medio_principal %} | {{ medio_principal }}{% endif %}{% if page.anios %} {{ page.anios }}{% endif %}</title>
-    {%- if page.descripcion %}
-    <meta name="description" content="{{ page.descripcion | strip_newlines | escape }}" />
+    <title>{{ titulo }} — Nicolás Guala{% if medio_principal %} | {{ medio_principal }}{% endif %}{% if obra.anios %} {{ obra.anios }}{% endif %}</title>
+    {%- if descripcion != "" %}
+    <meta name="description" content="{{ descripcion }}" />
     {%- endif %}
     <meta name="robots" content="index, follow, noimageai{% if protegido %}, noimageindex{% endif %}" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ site.url }}{{ ruta }}" />
+    {% include head-idioma.html %}
     <meta property="og:title" content="{{ titulo }} — Nicolás Guala" />
-    {%- if page.descripcion %}
-    <meta property="og:description" content="{{ page.descripcion | strip_newlines | escape }}" />
+    {%- if descripcion != "" %}
+    <meta property="og:description" content="{{ descripcion }}" />
     {%- endif %}
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:url" content="{{ site.url }}{{ ruta }}" />
+    <meta property="og:locale" content="{% if lang == 'es' %}es_UY{% else %}en_US{% endif %}" />
     {%- if portada and protegido == false %}
     <meta property="og:image" content="{{ site.url }}{{ portada }}" />
     {%- endif %}
@@ -54,82 +65,86 @@
 
       {%- comment -%} 1 · Encabezado {%- endcomment -%}
       <header class="p-header">
-        <a href="/" class="p-volver">
+        <a href="{{ base }}/" class="p-volver">
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 7H1M7 1L1 7l6 6"/></svg>
-          Volver
+          {{ L.volver }}
         </a>
-        {% include estado.html valor=page.estado %}
+        {% include estado.html valor=obra.estado %}
         <h1 class="p-titulo">{{ titulo }}</h1>
         <div class="p-meta">
-          {%- if page.anios %}<span>{{ page.anios }}</span>{% endif -%}
-          {%- if page.medios and page.medios.size > 0 %}<span>{{ page.medios | join: ", " }}</span>{% endif -%}
-          {%- if page.hilos and page.hilos.size > 0 %}<span class="p-hilos">{% for h in page.hilos %}<em>{{ h }}</em>{% unless forloop.last %} · {% endunless %}{% endfor %}</span>{% endif -%}
+          {%- if obra.anios %}<span>{{ obra.anios }}</span>{% endif -%}
+          {%- if medios and medios.size > 0 %}<span>{{ medios | join: ", " }}</span>{% endif -%}
+          {%- if obra.hilos and obra.hilos.size > 0 %}<span class="p-hilos">{% for h in obra.hilos %}<em>{{ L.hilos[h] | default: h }}</em>{% unless forloop.last %} · {% endunless %}{% endfor %}</span>{% endif -%}
         </div>
         {%- if ultima %}
-        <p class="p-actividad">Última actividad: {% include fecha.html f=ultima.fecha %}</p>
+        <p class="p-actividad">{{ L.ultima_actividad }} {% include fecha.html f=ultima.fecha %}</p>
         {%- endif %}
-        {%- if page.adquirible %}
-        {%- capture asunto -%}Consulta: {{ titulo }}{%- endcapture -%}
+        {%- if obra.adquirible %}
+        {%- capture asunto -%}{{ L.adquirir.asunto_consulta }} {{ titulo }}{%- endcapture -%}
         <a class="btn-principal" href="{% include mailto.html asunto=asunto que=titulo %}">
-          Consultar por esta obra
+          {{ L.adquirir.consultar_obra }}
           <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
         </a>
         {%- endif %}
       </header>
 
       {%- comment -%} 2 · Imagen principal {%- endcomment -%}
-      {%- if page.imagen %}
+      {%- if obra.imagen %}
       <figure class="p-principal">
-        {%- assign alt = page.imagen_alt | default: titulo -%}
-        {% include media.html src=page.imagen alt=alt pie=page.imagen_pie prot=protegido %}
-        {%- if page.imagen_pie %}<figcaption class="pie">{{ page.imagen_pie }}</figcaption>{% endif %}
+        {%- capture alt -%}{% include t.html o=obra c="imagen_alt" %}{%- endcapture -%}
+        {%- if alt == "" %}{% assign alt = titulo %}{% endif -%}
+        {%- capture pie -%}{% include t.html o=obra c="imagen_pie" %}{%- endcapture -%}
+        {% include media.html src=obra.imagen alt=alt pie=pie prot=protegido %}
+        {%- if pie != "" %}<figcaption class="pie">{{ pie }}</figcaption>{% endif %}
       </figure>
       {%- endif %}
 
       {%- comment -%} 3 · Texto de obra {%- endcomment -%}
-      {%- assign texto = content | strip -%}
+      {%- capture texto -%}{% include t.html o=obra c="texto" %}{%- endcapture -%}
       {%- if texto != "" %}
       <article class="p-texto">
-        {{ content }}
+        {{ texto | markdownify }}
       </article>
       {%- endif %}
 
       {%- comment -%} 4 · Ficha técnica {%- endcomment -%}
-      {%- assign f = page.ficha -%}
-      {%- if page.anios or f.tecnica or f.medidas or f.piezas or page.estado %}
+      {%- assign f = obra.ficha -%}
+      {%- if obra.anios or f.tecnica or f.medidas or f.piezas or obra.estado %}
       <section class="p-modulo">
-        <h2 class="p-label">fIcha técnica</h2>
+        <h2 class="p-label">{{ L.secciones.ficha }}</h2>
         <dl class="ficha">
-          {%- if page.anios %}<dt>Año</dt><dd>{{ page.anios }}</dd>{% endif -%}
-          {%- if f.tipo %}<dt>Tipo</dt><dd>{{ f.tipo }}</dd>{% endif -%}
-          {%- if f.tecnica %}<dt>Técnica</dt><dd>{{ f.tecnica }}</dd>{% endif -%}
-          {%- if f.medidas %}<dt>Medidas</dt><dd>{{ f.medidas }}</dd>{% endif -%}
-          {%- if f.piezas %}<dt>Piezas</dt><dd>{{ f.piezas }}</dd>{% endif -%}
-          {%- if page.estado %}{%- assign est = site.data.estados | where: "clave", page.estado | first -%}{% if est %}<dt>Estado</dt><dd>{{ est.nombre }}</dd>{% endif %}{% endif -%}
+          {%- if obra.anios %}<dt>{{ L.ficha.anio }}</dt><dd>{{ obra.anios }}</dd>{% endif -%}
+          {%- if f.tipo %}<dt>{{ L.ficha.tipo }}</dt><dd>{% include t.html o=f c="tipo" %}</dd>{% endif -%}
+          {%- if f.tecnica %}<dt>{{ L.ficha.tecnica }}</dt><dd>{% include t.html o=f c="tecnica" %}</dd>{% endif -%}
+          {%- if f.medidas %}<dt>{{ L.ficha.medidas }}</dt><dd>{% include t.html o=f c="medidas" %}</dd>{% endif -%}
+          {%- if f.piezas %}<dt>{{ L.ficha.piezas }}</dt><dd>{{ f.piezas }}</dd>{% endif -%}
+          {%- if est_page %}<dt>{{ L.ficha.estado }}</dt><dd>{% include t.html o=est_page c="nombre" %}</dd>{% endif -%}
         </dl>
       </section>
       {%- endif %}
 
       {%- comment -%} 5 · Piezas (si es serie) {%- endcomment -%}
-      {%- if page.piezas and page.piezas.size > 0 %}
+      {%- if obra.piezas and obra.piezas.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">pIezas</h2>
-        {%- for pieza in page.piezas %}
+        <h2 class="p-label">{{ L.secciones.piezas }}</h2>
+        {%- for pieza in obra.piezas %}
         <div class="pieza">
           <div class="pieza-info">
-            <span class="lbl">Pieza {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
-            <h3 class="pieza-titulo">{{ pieza.titulo }}</h3>
+            <span class="lbl">{{ L.pieza }} {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <h3 class="pieza-titulo">{% include t.html o=pieza c="titulo" %}</h3>
             <dl class="ficha ficha--mini">
-              {%- if pieza.formato %}<dt>Formato</dt><dd>{{ pieza.formato }}</dd>{% endif -%}
-              {%- if pieza.medidas %}<dt>Medidas</dt><dd>{{ pieza.medidas }}</dd>{% endif -%}
-              {%- if pieza.tiras %}<dt>Tiras</dt><dd>{{ pieza.tiras }}</dd>{% endif -%}
+              {%- if pieza.formato %}<dt>{{ L.ficha.formato }}</dt><dd>{% include t.html o=pieza c="formato" %}</dd>{% endif -%}
+              {%- if pieza.medidas %}<dt>{{ L.ficha.medidas }}</dt><dd>{% include t.html o=pieza c="medidas" %}</dd>{% endif -%}
+              {%- if pieza.tiras %}<dt>{{ L.ficha.tiras }}</dt><dd>{{ pieza.tiras }}</dd>{% endif -%}
             </dl>
           </div>
           {%- if pieza.imagenes and pieza.imagenes.size > 0 %}
           <div class="grilla grilla--{{ pieza.imagenes.size }}">
             {%- for img in pieza.imagenes %}
-            {%- assign alt = img.alt | default: pieza.titulo -%}
-            {% include media.html src=img.src alt=alt pie=img.pie prot=protegido chica=true lazy=true %}
+            {%- capture alt -%}{% include t.html o=img c="alt" %}{%- endcapture -%}
+            {%- if alt == "" %}{% assign alt = pieza.titulo %}{% endif -%}
+            {%- capture pie -%}{% include t.html o=img c="pie" %}{%- endcapture -%}
+            {% include media.html src=img.src alt=alt pie=pie prot=protegido chica=true lazy=true %}
             {%- endfor %}
           </div>
           {%- endif %}
@@ -139,19 +154,22 @@
       {%- endif %}
 
       {%- comment -%} 6 · Galería por tipo {%- endcomment -%}
-      {%- if page.galeria and page.galeria.size > 0 %}
+      {%- if obra.galeria and obra.galeria.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">gAlería</h2>
+        <h2 class="p-label">{{ L.secciones.galeria }}</h2>
         {%- assign tipos = "obra,vista de sala,render,maqueta,proceso,investigación" | split: "," -%}
         {%- for tipo in tipos %}
-          {%- assign items = page.galeria | where: "tipo", tipo -%}
+          {%- assign items = obra.galeria | where: "tipo", tipo -%}
           {%- if items.size > 0 %}
+          {%- assign tipo_txt = L.tipos_imagen[tipo] | default: tipo -%}
         <div class="galeria-grupo">
-          <h3 class="lbl lbl--blanco">{{ tipo }}</h3>
+          <h3 class="lbl lbl--blanco">{{ tipo_txt }}</h3>
           <div class="grilla">
             {%- for img in items %}
-            {%- assign alt = img.alt | default: titulo -%}
-            {% include media.html src=img.src alt=alt pie=img.pie tipo=tipo prot=protegido chica=true lazy=true %}
+            {%- capture alt -%}{% include t.html o=img c="alt" %}{%- endcapture -%}
+            {%- if alt == "" %}{% assign alt = titulo %}{% endif -%}
+            {%- capture pie -%}{% include t.html o=img c="pie" %}{%- endcapture -%}
+            {% include media.html src=img.src alt=alt pie=pie tipo=tipo_txt prot=protegido chica=true lazy=true %}
             {%- endfor %}
           </div>
         </div>
@@ -161,12 +179,13 @@
       {%- endif %}
 
       {%- comment -%} 6b · Video (YouTube o Vimeo) {%- endcomment -%}
-      {%- if page.videos and page.videos.size > 0 %}
+      {%- if obra.videos and obra.videos.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">vIdeo</h2>
+        <h2 class="p-label">{{ L.secciones.video }}</h2>
         <div class="videos">
-          {%- for v in page.videos %}
-          {% include video.html url=v.url pie=v.pie tipo=v.tipo titulo=titulo prot=protegido %}
+          {%- for v in obra.videos %}
+          {%- capture pie -%}{% include t.html o=v c="pie" %}{%- endcapture -%}
+          {% include video.html url=v.url pie=pie tipo=v.tipo titulo=titulo prot=protegido %}
           {%- endfor %}
         </div>
       </section>
@@ -175,13 +194,13 @@
       {%- comment -%} 7 · Registro del proyecto {%- endcomment -%}
       {%- if entradas.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">rEgistro</h2>
+        <h2 class="p-label">{{ L.secciones.registro }}</h2>
         <ol class="registro">
           {%- for e in entradas %}
           <li>
             <span class="registro-fecha">{% include fecha.html f=e.fecha %}</span>
-            <span class="lbl">{{ e.tipo }}</span>
-            <span class="registro-texto">{{ e.texto }}</span>
+            <span class="lbl">{{ L.tipos_registro[e.tipo] | default: e.tipo }}</span>
+            <span class="registro-texto">{% include t.html o=e c="texto" %}</span>
           </li>
           {%- endfor %}
         </ol>
@@ -189,32 +208,32 @@
       {%- endif %}
 
       {%- comment -%} 8 · Exhibiciones y convocatorias {%- endcomment -%}
-      {%- if page.exhibiciones and page.exhibiciones.size > 0 %}
+      {%- if obra.exhibiciones and obra.exhibiciones.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">eXhibiciones</h2>
+        <h2 class="p-label">{{ L.secciones.exhibiciones }}</h2>
         <ul class="cv">
-          {%- for x in page.exhibiciones %}
-          <li><span class="cv-anio">{{ x.anio }}</span><span>{{ x.titulo }}{% if x.lugar %} <span class="cv-lugar">— {{ x.lugar }}</span>{% endif %}</span></li>
+          {%- for x in obra.exhibiciones %}
+          <li><span class="cv-anio">{{ x.anio }}</span><span>{% include t.html o=x c="titulo" %}{% if x.lugar %} <span class="cv-lugar">— {% include t.html o=x c="lugar" %}</span>{% endif %}</span></li>
           {%- endfor %}
         </ul>
       </section>
       {%- endif %}
 
       {%- comment -%} 9 · Créditos {%- endcomment -%}
-      {%- if page.creditos and page.creditos.size > 0 %}
+      {%- if obra.creditos and obra.creditos.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">cRéditos</h2>
+        <h2 class="p-label">{{ L.secciones.creditos }}</h2>
         <dl class="ficha">
-          {%- for c in page.creditos %}<dt>{{ c.rol }}</dt><dd>{{ c.nombre }}</dd>{% endfor -%}
+          {%- for c in obra.creditos %}<dt>{% include t.html o=c c="rol" %}</dt><dd>{{ c.nombre }}</dd>{% endfor -%}
         </dl>
       </section>
       {%- endif %}
 
       {%- comment -%} 9b · Ediciones de esta obra {%- endcomment -%}
-      {%- assign mis_ediciones = site.ediciones | where: "obra", page.slug | sort: "orden" -%}
+      {%- assign mis_ediciones = site.ediciones | where: "obra", obra.slug | sort: "orden" -%}
       {%- if mis_ediciones.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">eDiciones de esta obra</h2>
+        <h2 class="p-label">{{ L.secciones.ediciones_obra }}</h2>
         <div class="ediciones">
           {%- for e in mis_ediciones %}
           {% include edicion-card.html e=e %}
@@ -226,25 +245,26 @@
       {%- comment -%} 10 · Proyectos del mismo hilo {%- endcomment -%}
       {%- assign relacionados = "" | split: "" -%}
       {%- for p in site.proyectos -%}
-        {%- if p.url != page.url -%}
+        {%- if p.slug != obra.slug -%}
           {%- for h in p.hilos -%}
-            {%- if page.hilos contains h -%}{%- assign relacionados = relacionados | push: p -%}{%- break -%}{%- endif -%}
+            {%- if obra.hilos contains h -%}{%- assign relacionados = relacionados | push: p -%}{%- break -%}{%- endif -%}
           {%- endfor -%}
         {%- endif -%}
       {%- endfor -%}
       {%- if relacionados.size > 0 %}
       <section class="p-modulo">
-        <h2 class="p-label">mIsmo hilo</h2>
+        <h2 class="p-label">{{ L.secciones.mismo_hilo }}</h2>
         <div class="relacionados">
           {%- for p in relacionados %}
-          <a href="{{ p.url }}" class="card">
+          <a href="{{ base }}{{ p.url }}" class="card">
             {%- assign p_primera = p.galeria | first -%}
             {%- assign p_portada = p.imagen | default: p_primera.src -%}
             {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
-            {%- if p_portada %}<span class="card-img{% if p_est.protegido %} card-img--spoiler{% endif %}"><img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% if p_est.protegido %}<span class="spoiler-titulo">Contiene spoilers</span>{% endif %}</span>{% endif %}
+            {%- assign p_medios = p[k_medios] | default: p.medios -%}
+            {%- if p_portada %}<span class="card-img{% if p_est.protegido %} card-img--spoiler{% endif %}"><img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% if p_est.protegido %}<span class="spoiler-titulo">{{ L.spoiler }}</span>{% endif %}</span>{% endif %}
             {% include estado.html valor=p.estado %}
             <span class="card-titulo">{{ p.titulo }}</span>
-            <span class="card-meta">{{ p.anios }}{% if p.medios %} · {{ p.medios | join: ", " }}{% endif %}</span>
+            <span class="card-meta">{{ p.anios }}{% if p_medios %} · {{ p_medios | join: ", " }}{% endif %}</span>
           </a>
           {%- endfor %}
         </div>
@@ -253,11 +273,11 @@
 
     </main>
 
-    <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de imágenes">
-      <button class="lb-cerrar" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.2"/></svg></button>
-      <button class="lb-ant" aria-label="Anterior"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M18 6H2M7 1L2 6l5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+    <div class="lb" hidden role="dialog" aria-modal="true" aria-label="{{ L.visor }}">
+      <button class="lb-cerrar" aria-label="{{ L.cerrar }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <button class="lb-ant" aria-label="{{ L.anterior }}"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M18 6H2M7 1L2 6l5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
       <figure class="lb-figura"><img alt="" /><figcaption><span class="lb-pie"></span><span class="lb-cuenta"></span></figcaption></figure>
-      <button class="lb-sig" aria-label="Siguiente"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+      <button class="lb-sig" aria-label="{{ L.siguiente }}"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
     </div>
 
     <footer>

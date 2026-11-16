@@ -8,14 +8,17 @@
   "@id": "{{ site.url }}/#artista",
   "name": {{ a.nombre | jsonify }},
   "alternateName": {{ a.alias | jsonify }},
-  "jobTitle": {{ a.oficio | jsonify }},
-  "description": {{ a.bio | default: a.linea | strip_newlines | jsonify }},
+  {%- capture _ofi -%}{% include t.html o=a c="oficio" %}{%- endcapture -%}
+  {%- capture _bio -%}{% include t.html o=a c="bio" %}{%- endcapture -%}
+  {%- assign _temas_k = "temas" | append: sfx -%}
+  "jobTitle": {{ _ofi | jsonify }},
+  "description": {{ _bio | strip_newlines | jsonify }},
   "url": "{{ site.url }}/",
   "birthDate": {{ a.nacimiento_anio | jsonify }},
   "birthPlace": { "@type": "Place", "name": {{ a.nacimiento_lugar | append: ", " | append: a.pais | jsonify }} },
   "nationality": { "@type": "Country", "name": {{ a.pais | jsonify }} },
   "homeLocation": { "@type": "Place", "name": {{ a.ciudad | append: ", " | append: a.pais | jsonify }} },
-  "knowsAbout": {{ a.temas | jsonify }},
+  "knowsAbout": {{ a[_temas_k] | default: a.temas | jsonify }},
   {%- if formacion %}
   "alumniOf": [
     {%- for f in formacion.entradas %}

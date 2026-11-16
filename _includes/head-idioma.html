@@ -1,0 +1,17 @@
+{%- comment -%} Versiones por idioma (para Google) + elección automática según el navegador. {%- endcomment -%}
+    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ url_en }}" />
+    <link rel="alternate" hreflang="es" href="{{ site.url }}{{ url_es }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ url_en }}" />
+    <script>
+      // Primera visita: navegador en español → versión en español.
+      // Si la persona eligió un idioma con el selector, se respeta siempre.
+      (function () {
+        try {
+          var en = {{ url_en | jsonify }}, es = {{ url_es | jsonify }}, actual = {{ lang | jsonify }};
+          var elegido = localStorage.getItem('idioma');
+          var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+          var quiere = elegido || (actual === 'en' && nav.indexOf('es') === 0 ? 'es' : null);
+          if (quiere && quiere !== actual) location.replace((quiere === 'es' ? es : en) + location.hash);
+        } catch (e) {}
+      })();
+    </script>

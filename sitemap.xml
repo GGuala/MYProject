@@ -3,32 +3,20 @@ layout: null
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {%- assign rutas = "/,/info/,/cv/,/adquirir/" | split: "," -%}
+  {%- for p in site.proyectos -%}{%- assign rutas = rutas | push: p.url -%}{%- endfor -%}
+  {%- for r in rutas %}
+  {%- assign es = "/es" | append: r %}
   <url>
-    <loc>{{ site.url }}/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>{{ site.url }}{{ r }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ r }}" />
+    <xhtml:link rel="alternate" hreflang="es" href="{{ site.url }}{{ es }}" />
   </url>
-  {%- for p in site.proyectos %}
   <url>
-    <loc>{{ site.url }}{{ p.url }}</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>{{ site.url }}{{ es }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ r }}" />
+    <xhtml:link rel="alternate" hreflang="es" href="{{ site.url }}{{ es }}" />
   </url>
   {%- endfor %}
-  <url>
-    <loc>{{ site.url }}/info/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>{{ site.url }}/adquirir/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>{{ site.url }}/cv/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>

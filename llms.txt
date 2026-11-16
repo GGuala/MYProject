@@ -3,42 +3,46 @@ layout: null
 permalink: /llms.txt
 ---
 {%- assign a = site.data.artista -%}
+{%- assign L = site.data.i18n.en -%}
+{%- assign sfx = "_en" -%}
 # {{ a.nombre }}
 
-> {{ a.linea }} Nacido en {{ a.nacimiento_lugar }}, {{ a.pais }}, en {{ a.nacimiento_anio }}. También firma como {{ a.alias }}.
+> {{ a.linea_en | default: a.linea }} Born in {{ a.nacimiento_lugar }}, {{ a.pais }}, in {{ a.nacimiento_anio }}. Also known as {{ a.alias }}. This site is available in English ({{ site.url }}/) and Spanish ({{ site.url }}/es/).
 
-Disciplinas: {{ a.temas | join: ", " }}.
+Disciplines: {{ a.temas_en | default: a.temas | join: ", " }}.
 
 ## Bio
 
-{{ a.bio }}
+{{ a.bio_en | default: a.bio }}
 
-## Statement (en primera persona)
+## Artist statement
 
-{{ a.statement }}
+{{ a.statement_en | default: a.statement }}
 
-## Proyectos
+## Works
 
 {% for p in site.proyectos -%}
 {%- assign est = site.data.estados | where: "clave", p.estado | first -%}
-- [{{ p.titulo }}]({{ site.url }}{{ p.url }}): {% if p.anios %}{{ p.anios }}{% endif %}{% if p.medios %} · {{ p.medios | join: ", " }}{% endif %}{% if est %} · {{ est.nombre }}{% endif %}.{% if p.descripcion %} {{ p.descripcion | strip_newlines }}{% endif %}
+{%- assign m = p.medios_en | default: p.medios -%}
+- [{{ p.titulo }}]({{ site.url }}{{ p.url }}): {% if p.anios %}{{ p.anios }}{% endif %}{% if m %} · {{ m | join: ", " }}{% endif %}{% if est %} · {{ est.nombre_en | default: est.nombre }}{% endif %}.{% if p.descripcion_en or p.descripcion %} {{ p.descripcion_en | default: p.descripcion | strip_newlines }}{% endif %}
 {% endfor %}
 ## CV
 
 {% for g in site.data.cv.grupos -%}
 {%- if g.entradas and g.entradas.size > 0 -%}
-### {{ g.nombre }}
+### {{ L.cv_grupos[g.nombre] | default: g.nombre }}
 
 {% for x in g.entradas -%}
-- {{ x.anio }} — {{ x.titulo }}{% if x.lugar %}, {{ x.lugar }}{% endif %}
+- {{ x.anio }} — {{ x.titulo_en | default: x.titulo }}{% if x.lugar %}, {{ x.lugar_en | default: x.lugar }}{% endif %}
 {% endfor %}
 {% endif -%}
 {%- endfor -%}
-## Enlaces
+## Links
 
-- [Sitio]({{ site.url }}/)
+- [Website]({{ site.url }}/) · [Sitio en español]({{ site.url }}/es/)
 - [Info]({{ site.url }}/info/)
-- [CV]({{ site.url }}/cv/)
+- [CV]({{ site.url }}/cv/) · [CV (PDF)]({{ site.url }}/cv/nicolas-guala-cv.pdf)
+- [Acquire work]({{ site.url }}/adquirir/)
 {% for r in a.redes -%}
 - [{{ r.nombre }}]({{ r.url }})
 {% endfor %}

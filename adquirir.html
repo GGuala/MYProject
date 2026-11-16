@@ -1,55 +1,8 @@
 ---
 layout: pagina
+lang: en
 permalink: /adquirir/
-titulo: Adquirir
-descripcion: "Adquirir obra de Nicolás Guala: obra original disponible y ediciones (impresiones, libros de artista y piezas pequeñas). Consultas y pedidos por mail."
+titulo: Acquire
+descripcion: "Acquire work by Nicolás Guala: available original works and editions (prints, artist books and small pieces). Inquiries and orders by email."
 ---
-{%- assign originales = site.proyectos | where: "adquirible", true | sort: "orden" -%}
-{%- assign ediciones = site.ediciones | sort: "orden" -%}
-<header class="p-header">
-  <a href="/" class="p-volver">
-    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 7H1M7 1L1 7l6 6"/></svg>
-    Volver
-  </a>
-  <span class="lbl">Adquirir</span>
-  <h1 class="p-titulo">Adquirir obra</h1>
-  <p class="p-cv-linea">La obra original y las ediciones se venden de forma directa. Escribime y coordinamos disponibilidad, pago y envío.</p>
-  <a class="btn-principal" href="{% include mailto.html asunto="Consulta: adquirir obra" que="adquirir una obra" %}">
-    Consultar por mail
-    <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
-  </a>
-</header>
-
-{%- if originales.size > 0 %}
-<section class="p-modulo">
-  <h2 class="p-label">oBra original</h2>
-  <div class="relacionados">
-    {%- for p in originales %}
-      {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
-      {%- assign p_primera = p.galeria | first -%}
-      {%- assign p_portada = p.imagen | default: p_primera.src -%}
-    <div class="card">
-      <a href="{{ p.url }}" class="card-link">
-        {%- if p_portada %}<span class="card-img{% if p_est.protegido %} card-img--spoiler{% endif %}"><img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% if p_est.protegido %}<span class="spoiler-titulo">Contiene spoilers</span>{% endif %}</span>{% endif %}
-        <span class="card-titulo">{{ p.titulo }}</span>
-        <span class="card-meta">{{ p.anios }}{% if p.ficha.tecnica %} · {{ p.ficha.tecnica }}{% endif %}{% if p.ficha.medidas %} · {{ p.ficha.medidas }}{% endif %}</span>
-      </a>
-      {%- capture asunto -%}Consulta: {{ p.titulo }}{%- endcapture -%}
-      <a class="card-consulta" href="{% include mailto.html asunto=asunto que=p.titulo %}">Consultar →</a>
-    </div>
-    {%- endfor %}
-  </div>
-</section>
-{%- endif %}
-
-{%- if ediciones.size > 0 %}
-<section class="p-modulo">
-  <h2 class="p-label">eDiciones</h2>
-  <p class="p-bio" style="margin-bottom: 40px">Impresiones, libros de artista y piezas pequeñas que nacen de la obra. Una forma de tener una parte de ella y de apoyar la práctica.</p>
-  <div class="ediciones">
-    {%- for e in ediciones %}
-    {% include edicion-card.html e=e %}
-    {%- endfor %}
-  </div>
-</section>
-{%- endif %}
+{% include paginas/adquirir.html %}

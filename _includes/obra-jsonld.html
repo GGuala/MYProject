@@ -2,37 +2,39 @@
   Ficha de la obra para Google y las IA (schema.org VisualArtwork).
   Los proyectos protegidos no publican imagen acá.
 {%- endcomment -%}
-{%- assign anio_inicio = page.anios | slice: 0, 4 -%}
+{%- assign anio_inicio = obra.anios | slice: 0, 4 -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VisualArtwork",
-  "@id": "{{ site.url }}{{ page.url }}#obra",
+  "@id": "{{ site.url }}{{ obra.url }}#obra",
   "name": {{ titulo | jsonify }},
-  "url": "{{ site.url }}{{ page.url }}",
-  "inLanguage": "es",
+  "url": "{{ site.url }}{{ ruta }}",
+  "inLanguage": "{{ lang }}",
   "creator": { "@type": "Person", "@id": "{{ site.url }}/#artista", "name": {{ site.data.artista.nombre | jsonify }} }
   {%- if anio_inicio != "" %},
   "dateCreated": {{ anio_inicio | jsonify }}
   {%- endif %}
-  {%- if page.medios and page.medios.size > 0 %},
-  "artform": {{ page.medios | join: ", " | jsonify }}
+  {%- if medios and medios.size > 0 %},
+  "artform": {{ medios | join: ", " | jsonify }}
   {%- endif %}
-  {%- if page.ficha.tecnica %},
-  "artMedium": {{ page.ficha.tecnica | jsonify }}
+  {%- if obra.ficha.tecnica %},
+  {%- capture _tec -%}{% include t.html o=obra.ficha c="tecnica" %}{%- endcapture %}
+  "artMedium": {{ _tec | jsonify }}
   {%- endif %}
-  {%- if page.descripcion %},
-  "description": {{ page.descripcion | strip_newlines | jsonify }}
+  {%- if descripcion != "" %},
+  "description": {{ descripcion_raw | strip_newlines | jsonify }}
   {%- endif %}
-  {%- if page.hilos and page.hilos.size > 0 %},
-  "keywords": {{ page.hilos | join: ", " | jsonify }}
+  {%- if obra.hilos and obra.hilos.size > 0 %},
+  {%- capture _kw -%}{% for h in obra.hilos %}{{ L.hilos[h] | default: h }}{% unless forloop.last %}, {% endunless %}{% endfor %}{%- endcapture %}
+  "keywords": {{ _kw | jsonify }}
   {%- endif %}
   {%- if portada and protegido == false %},
   "image": "{{ site.url }}{{ portada }}"
   {%- endif %}
-  {%- if page.exhibiciones and page.exhibiciones.size > 0 %},
+  {%- if obra.exhibiciones and obra.exhibiciones.size > 0 %},
   "subjectOf": [
-    {%- for x in page.exhibiciones %}
+    {%- for x in obra.exhibiciones %}
     {
       "@type": "ExhibitionEvent",
       "name": {{ x.titulo | jsonify }}

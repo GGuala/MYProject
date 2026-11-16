@@ -1,52 +1,59 @@
+# CV (Pages CMS → CV). titulo_en / lugar_en solo si cambian en inglés.
+
 grupos:
-  - nombre: Exhibiciones
-    entradas:
-      - anio: "2026"
-        titulo: Open Studio
-        lugar: Taller Génesis
-      - anio: "2024"
-        titulo: Estación N°3
-        lugar: Procesa Génesis, Sagrado Estudio
-        proyecto: estacionn3
-      - anio: "2023"
-        titulo: Vol 1
-        lugar: Fischer Lab, Proyecto Casamario
-      - anio: "2022"
-        titulo: Brota
-        lugar: SODRE
-      - anio: "2022"
-        titulo: La Celebración
-        lugar: Centro de Exposiciones SUBTE
-      - anio: "2022"
-        titulo: Cuando el corazón late como un martillo
-        lugar: LATU
-      - anio: "2022"
-        titulo: Espacio Ciencia
-        lugar: LATU
-      - anio: "2019"
-        titulo: La Mostra
-        lugar: Universidad ORT
-      - anio: "2018"
-        titulo: OGNAT
-        lugar: Universidad ORT
-  - nombre: Residencias
-  - nombre: Formación artística
-    entradas:
-      - anio: "2026"
-        titulo: Laboratorio de Derivas Urbanas, Francesco Careri
-        lugar: Montevideo
-      - anio: 2023–2024
-        titulo: Taller Rita Fischer
-        lugar: Montevideo
-      - anio: "2018"
-        titulo: Taller Aldo Curto
-        lugar: Montevideo
-  - nombre: Formación académica
-    entradas:
-      - anio: 2018–2022
-        titulo: Licenciatura en Diseño, Arte y Tecnología
-        lugar: Universidad ORT Uruguay
-      - anio: 2017–2018
-        titulo: Tecnicatura en Diseño Gráfico en Comunicación Visual
-        lugar: UTU
-  - nombre: Prensa
+- nombre: Exhibiciones
+  entradas:
+  - anio: '2026'
+    titulo: Open Studio
+    lugar: Taller Génesis
+  - anio: '2024'
+    titulo: Estación N°3
+    lugar: Procesa Génesis, Sagrado Estudio
+    proyecto: estacionn3
+  - anio: '2023'
+    titulo: Vol 1
+    lugar: Fischer Lab, Proyecto Casamario
+  - anio: '2022'
+    titulo: Brota
+    lugar: SODRE
+  - anio: '2022'
+    titulo: La Celebración
+    lugar: Centro de Exposiciones SUBTE
+  - anio: '2022'
+    titulo: Cuando el corazón late como un martillo
+    lugar: LATU
+  - anio: '2022'
+    titulo: Espacio Ciencia
+    lugar: LATU
+  - anio: '2019'
+    titulo: La Mostra
+    lugar: Universidad ORT
+  - anio: '2018'
+    titulo: OGNAT
+    lugar: Universidad ORT
+- nombre: Residencias
+- nombre: Formación artística
+  entradas:
+  - anio: '2026'
+    titulo: Laboratorio de Derivas Urbanas, Francesco Careri
+    lugar: Montevideo
+    titulo_en: Urban Drifts Laboratory, Francesco Careri
+  - anio: 2023–2024
+    titulo: Taller Rita Fischer
+    lugar: Montevideo
+    titulo_en: Rita Fischer Workshop
+  - anio: '2018'
+    titulo: Taller Aldo Curto
+    lugar: Montevideo
+    titulo_en: Aldo Curto Workshop
+- nombre: Formación académica
+  entradas:
+  - anio: 2018–2022
+    titulo: Licenciatura en Diseño, Arte y Tecnología
+    lugar: Universidad ORT Uruguay
+    titulo_en: BA in Design, Art and Technology
+  - anio: 2017–2018
+    titulo: Tecnicatura en Diseño Gráfico en Comunicación Visual
+    lugar: UTU
+    titulo_en: Technical Degree in Graphic Design and Visual Communication
+- nombre: Prensa

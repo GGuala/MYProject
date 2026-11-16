@@ -41,6 +41,14 @@ Imágenes y IA: en todo el sitio, `robots.txt` deja que los rastreadores de IA l
 - **`/llms.txt`**: resumen en texto para IA, se arma solo con proyectos y CV.
 - **`/sitemap.xml`**: se arma solo con los proyectos publicados.
 
+## Idiomas
+
+- El sitio sale en **inglés** en `heyguala.com/…` y en **español** en `heyguala.com/es/…`.
+- Primera visita: si el navegador está en español, se muestra la versión en español. El selector **EN / ES** del menú guarda la elección.
+- En Pages CMS cada texto tiene su campo **(EN)**. Si un campo en inglés queda vacío, se muestra el español.
+- Los textos fijos de la interfaz (menú, etiquetas, botones) están en `_data/i18n.yml`.
+- Las páginas en español de cada proyecto (`es/obra/`) las crea la Action sola.
+
 ## Qué pasa al guardar (automático)
 
 La Action `.github/workflows/publicar.yml`:
@@ -48,7 +56,8 @@ La Action `.github/workflows/publicar.yml`:
 - convierte las fotos nuevas de `/img` a webp (máx. 2400 px) y crea una versión chica (`-m.webp`) para grillas;
 - corrige la orientación y borra los metadatos (incluida la ubicación GPS);
 - borra el original y actualiza las rutas en los proyectos;
-- arma el sitio con Jekyll y lo publica.
+- crea las páginas en español de cada proyecto publicado;
+- arma el sitio con Jekyll, genera los CV en PDF (inglés y español) y lo publica.
 
 ## Estructura
 

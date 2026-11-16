@@ -1,39 +1,34 @@
-# Datos de Nicolás Guala que usan Google y las IA (datos estructurados,
-# página de CV y llms.txt). Se editan desde Pages CMS → "Artista".
+# Datos de Nicolás Guala (Pages CMS → Artista). Campos _en = inglés.
 
 nombre: Nicolás Guala
 alias: Guala
 oficio: Artista visual
+oficio_en: Visual artist
 linea: Artista visual. Escultura, fotografía e instalación. Montevideo / Europa.
+linea_en: Visual artist. Sculpture, photography and installation. Montevideo / Europe.
 nacimiento_lugar: Montevideo
-nacimiento_anio: "1997"
+nacimiento_anio: '1997'
 ciudad: Montevideo
 pais: Uruguay
 temas:
-  - Escultura
-  - Fotografía
-  - Instalación
-  - Impresión 3D
-  - Arte contemporáneo uruguayo
+- Escultura
+- Fotografía
+- Instalación
+- Impresión 3D
+- Arte contemporáneo uruguayo
+temas_en:
+- Sculpture
+- Photography
+- Installation
+- 3D printing
+- Uruguayan contemporary art
 redes:
-  - nombre: Instagram
-    url: https://www.instagram.com/heyguala/
-  - nombre: Behance
-    url: https://www.behance.net/n_guala
-
-# Bio (tercera persona) — se usa en /info, en Google y en el resumen para IA.
-bio: >-
-  Nicolás Guala (Montevideo, 1997) es artista visual. Trabaja con fotografía,
-  escultura e instalación alrededor de una misma pregunta: cómo dar forma a lo
-  que no tiene forma sin traicionarlo. En fotografía persigue la pausa: figuras
-  de espaldas, tomadas a distancia, en blanco y negro extremo, sin reencuadre
-  posterior. En escultura construye una cosmología propia con impresión 3D,
-  donde las huellas del proceso quedan a la vista. Es licenciado en Diseño, Arte
-  y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer
-  y Aldo Curto. Expuso en el Centro de Exposiciones SUBTE, el SODRE y el LATU,
-  entre otros espacios de Montevideo.
-
-# Statement (primera persona). Párrafos separados por una línea en blanco.
+- nombre: Instagram
+  url: https://www.instagram.com/heyguala/
+- nombre: Behance
+  url: https://www.behance.net/n_guala
+bio: 'Nicolás Guala (Montevideo, 1997) es artista visual. Trabaja con fotografía, escultura e instalación alrededor de una misma pregunta: cómo dar forma a lo que no tiene forma sin traicionarlo. En fotografía persigue la pausa: figuras de espaldas, tomadas a distancia, en blanco y negro extremo, sin reencuadre posterior. En escultura construye una cosmología propia con impresión 3D, donde las huellas del proceso quedan a la vista. Es licenciado en Diseño, Arte y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer y Aldo Curto. Expuso en el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo.'
+bio_en: 'Nicolás Guala (Montevideo, 1997) is a visual artist. He works across photography, sculpture and installation around a single question: how to give form to what has no form without betraying it. In photography he pursues the pause: figures seen from behind, taken from a distance, in extreme black and white, never cropped afterwards. In sculpture he builds a cosmology of his own through 3D printing, leaving the traces of the process visible. He holds a degree in Design, Art and Technology from Universidad ORT and trained in the studios of Rita Fischer and Aldo Curto. He has exhibited at the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo.'
 statement: |-
   De chico, el mundo era mi casa. Una casa que se caía a pedazos por la humedad, con estantes inalcanzables donde cada objeto guardaba una historia. Mi obra sigue siendo ese niño tratando de entender el mundo, antes de aprender a no darle importancia a lo que sentía.
 
@@ -42,3 +37,11 @@ statement: |-
   En fotografía la busco a distancia, como quien fotografía fauna: espero, no intervengo, no me presento como fotógrafo. Disparo sin ver el resultado hasta llegar a casa y no reencuadro; dejo que el tiempo decida la imagen, como decide los momentos. Fotografío de espaldas porque no me interesan las caras: miro al humano como especie, no como retrato. En escultura trabajo la misma pregunta con otro material: cómo dar forma a lo que no tiene forma sin traicionarlo.
 
   No busco que la obra transmita un mensaje. Busco que falle en eso, y que en el error cada persona encuentre lo suyo: la obra como espejo. Fotografío el silencio para encontrarme, y para que alguien, del otro lado, también se encuentre.
+statement_en: |-
+  As a child, my world was my house. A house falling apart from damp, with shelves out of reach where every object held a story. My work is still that child trying to understand the world, before learning not to give weight to what he felt.
+
+  I work with what goes unnoticed: the instant in which something stops. In a world bound to productivity, holding a second of silence is a form of resistance. That pause is my material.
+
+  In photography I look for it from a distance, the way one photographs wildlife: I wait, I don't intervene, I don't present myself as a photographer. I shoot without seeing the result until I get home, and I don't crop; I let time decide the image, the way it decides moments. I photograph people from behind because faces don't interest me: I look at the human as a species, not as a portrait. In sculpture I work the same question with another material: how to give form to what has no form without betraying it.
+
+  I don't want the work to deliver a message. I want it to fail at that, and in the error for each person to find their own: the work as a mirror. I photograph silence to find myself, and so that someone, on the other side, can find themselves too.
