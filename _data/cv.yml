@@ -1,7 +1,3 @@
-# CV — se edita desde Pages CMS → "CV".
-# Cada grupo aparece solo si tiene entradas.
-# "proyecto" (opcional) = nombre del archivo del proyecto, para enlazarlo.
-
 grupos:
   - nombre: Exhibiciones
     entradas:
@@ -33,37 +29,24 @@ grupos:
       - anio: "2018"
         titulo: OGNAT
         lugar: Universidad ORT
-
-  - nombre: Convocatorias y premios
-    entradas:
-      - anio: "2026"
-        titulo: Premio Paul Cézanne
-        lugar: Convocatoria
-        proyecto: silencios-de-segundos
-
   - nombre: Residencias
-    entradas: []
-
   - nombre: Formación artística
     entradas:
       - anio: "2026"
         titulo: Laboratorio de Derivas Urbanas, Francesco Careri
         lugar: Montevideo
-      - anio: "2023–2024"
+      - anio: 2023–2024
         titulo: Taller Rita Fischer
         lugar: Montevideo
       - anio: "2018"
         titulo: Taller Aldo Curto
         lugar: Montevideo
-
   - nombre: Formación académica
     entradas:
-      - anio: "2018–2022"
+      - anio: 2018–2022
         titulo: Licenciatura en Diseño, Arte y Tecnología
         lugar: Universidad ORT Uruguay
-      - anio: "2017–2018"
+      - anio: 2017–2018
         titulo: Tecnicatura en Diseño Gráfico en Comunicación Visual
         lugar: UTU
-
   - nombre: Prensa
-    entradas: []
