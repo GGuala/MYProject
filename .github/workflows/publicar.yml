@@ -55,6 +55,16 @@ jobs:
           source: ./
           destination: ./_site
 
+      - name: Generar CV en PDF
+        run: |
+          python3 -m http.server 8000 --directory _site >/dev/null 2>&1 &
+          sleep 2
+          google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
+            --virtual-time-budget=10000 \
+            --print-to-pdf=/tmp/nicolas-guala-cv.pdf http://localhost:8000/cv/imprimible/
+          sudo cp /tmp/nicolas-guala-cv.pdf _site/cv/nicolas-guala-cv.pdf
+          ls -l _site/cv/
+
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
