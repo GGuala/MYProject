@@ -21,7 +21,9 @@
     <meta name="description" content="{{ page.descripcion | strip_newlines | escape }}" />
     {%- endif %}
     <meta name="robots" content="index, follow{% if protegido %}, noimageindex{% endif %}" />
+    {%- if protegido %}
     <meta name="robots" content="noai, noimageai" />
+    {%- endif %}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <meta property="og:title" content="{{ titulo }} — Nicolás Guala" />
     {%- if page.descripcion %}

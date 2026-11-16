@@ -18,12 +18,12 @@ Si un campo queda vacío, ese módulo no aparece en la página.
 Los proyectos **En investigación** o **En producción** muestran sus imágenes con blur y el cartel "Contiene spoilers"; el visitante toca para verlas. Además, en esos proyectos:
 
 - solo se publica la versión chica (900 px), también en el visor;
-- la página le pide a Google que no indexe sus imágenes (`noimageindex`);
+- la página le pide a Google que no indexe sus imágenes (`noimageindex`) y a las IA que no las usen para entrenar (`noai`, `noimageai`);
 - no hay vista previa de imagen al compartir el link.
 
 Cuando el proyecto pasa a **Inédito** o **Exhibido**, todo se muestra normal. Qué estados protegen se define en `_data/estados.yml` (`protegido: true`).
 
-`robots.txt` bloquea los rastreadores conocidos que juntan datos para entrenar IA (GPTBot, ClaudeBot, Google-Extended, CCBot, etc.). Los buscadores normales siguen entrando.
+El resto del sitio (proyectos Inédito o Exhibido, textos, CV) está abierto a buscadores y a rastreadores de IA: `robots.txt` deja entrar a todos.
 
 ## Qué pasa al guardar (automático)
 
