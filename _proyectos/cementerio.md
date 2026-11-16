@@ -1,13 +1,16 @@
 ---
+published: true
 titulo: Cementerio
-estado: produccion
-anios: "2024–"
+estado: inedito
+anios: 2024–
 medios:
   - Instalación
   - Impresión 3D
 hilos:
   - La forma de lo divino
-descripcion: "Cementerio (2024–): serie conceptual de Nicolás Guala sobre los dioses como emociones efímeras. Instalación escultórica en desarrollo. Arte contemporáneo joven, Montevideo, Uruguay."
+descripcion: "Cementerio (2024–): serie conceptual de Nicolás Guala sobre los
+  dioses como emociones efímeras. Instalación escultórica en desarrollo. Arte
+  contemporáneo joven, Montevideo, Uruguay."
 imagen: /img/cementerio/general.webp
 imagen_alt: Cementerio — vista general, Nicolás Guala, 2024
 imagen_pie: Cementerio, 2024–. Render de sala.
