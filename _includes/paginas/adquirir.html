@@ -1,0 +1,50 @@
+{%- assign originales = site.proyectos | where: "adquirible", true | sort: "orden" -%}
+{%- assign ediciones = site.ediciones | sort: "orden" -%}
+{%- assign k_medios = "medios" | append: sfx -%}
+<header class="p-header">
+  <a href="{{ base }}/" class="p-volver">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 7H1M7 1L1 7l6 6"/></svg>
+    {{ L.volver }}
+  </a>
+  <span class="lbl">{{ L.nav.adquirir | downcase }}</span>
+  <h1 class="p-titulo">{{ L.adquirir.titulo }}</h1>
+  <p class="p-cv-linea">{{ L.adquirir.intro }}</p>
+  <a class="btn-principal" href="{% include mailto.html asunto=L.adquirir.asunto_general que=L.adquirir.mail_general %}">
+    {{ L.adquirir.boton }}
+    <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+  </a>
+</header>
+
+{%- if originales.size > 0 %}
+<section class="p-modulo">
+  <h2 class="p-label">{{ L.secciones.obra_original }}</h2>
+  <div class="relacionados">
+    {%- for p in originales %}
+      {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
+      {%- assign p_primera = p.galeria | first -%}
+      {%- assign p_portada = p.imagen | default: p_primera.src -%}
+    <div class="card">
+      <a href="{{ base }}{{ p.url }}" class="card-link">
+        {%- if p_portada %}<span class="card-img{% if p_est.protegido %} card-img--spoiler{% endif %}"><img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% if p_est.protegido %}<span class="spoiler-titulo">{{ L.spoiler }}</span>{% endif %}</span>{% endif %}
+        <span class="card-titulo">{{ p.titulo }}</span>
+        <span class="card-meta">{{ p.anios }}{% if p.ficha.tecnica %} · {% include t.html o=p.ficha c="tecnica" %}{% endif %}{% if p.ficha.medidas %} · {% include t.html o=p.ficha c="medidas" %}{% endif %}</span>
+      </a>
+      {%- capture asunto -%}{{ L.adquirir.asunto_consulta }} {{ p.titulo }}{%- endcapture -%}
+      <a class="card-consulta" href="{% include mailto.html asunto=asunto que=p.titulo %}">{{ L.adquirir.consultar }}</a>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if ediciones.size > 0 %}
+<section class="p-modulo">
+  <h2 class="p-label">{{ L.secciones.ediciones }}</h2>
+  <p class="p-bio" style="margin-bottom: 40px">{{ L.adquirir.ediciones_intro }}</p>
+  <div class="ediciones">
+    {%- for e in ediciones %}
+    {% include edicion-card.html e=e %}
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

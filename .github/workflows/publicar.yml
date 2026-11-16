@@ -37,13 +37,16 @@ jobs:
       - name: Optimizar imágenes
         run: python scripts/optimizar_imagenes.py
 
-      - name: Guardar imágenes optimizadas en el repo
+      - name: Crear páginas en español de cada proyecto
+        run: python scripts/generar_paginas_es.py
+
+      - name: Guardar cambios automáticos en el repo
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Optimizar imágenes"
+            git commit -m "Optimizar imágenes y páginas en español"
             git push
           fi
 
@@ -59,11 +62,13 @@ jobs:
         run: |
           python3 -m http.server 8000 --directory _site >/dev/null 2>&1 &
           sleep 2
-          google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
-            --virtual-time-budget=10000 \
-            --print-to-pdf=/tmp/nicolas-guala-cv.pdf http://localhost:8000/cv/imprimible/
-          sudo cp /tmp/nicolas-guala-cv.pdf _site/cv/nicolas-guala-cv.pdf
-          ls -l _site/cv/
+          for idioma in "" "/es"; do
+            google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
+              --virtual-time-budget=10000 \
+              --print-to-pdf=/tmp/cv.pdf "http://localhost:8000${idioma}/cv/imprimible/"
+            sudo cp /tmp/cv.pdf "_site${idioma}/cv/nicolas-guala-cv.pdf"
+          done
+          ls -l _site/cv/ _site/es/cv/
 
       - uses: actions/upload-pages-artifact@v3
 

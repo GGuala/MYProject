@@ -12,6 +12,6 @@
     {%- when "anillo" -%}<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="3.4" stroke="currentColor" fill="none"/><circle cx="4" cy="4" r="1.5" fill="currentColor"/></svg>
     {%- else -%}<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
   {%- endcase -%}
-  {{ est.nombre }}
+  {% include t.html o=est c="nombre" %}
 </span>
 {%- endif -%}

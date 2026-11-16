@@ -1,29 +1,25 @@
-# Estados de proyecto — único lugar donde viven sus nombres.
-# Para renombrar uno, cambiá "nombre" (y el mismo label en .pages.yml).
-# No cambies "clave": es lo que guardan los proyectos.
-#
-# icono: vacio · mitad · pausa · anillo · lleno
-# protegido: true = imágenes con blur y cartel "Contiene spoilers",
-#   solo en versión chica, fuera de Google Imágenes y sin vista previa al compartir.
+# Estados de proyecto. "clave" no se cambia; "nombre" (español) y "nombre_en" (inglés) sí.
+# protegido: true = imágenes con blur y "Contiene spoilers", solo versión chica.
 
 - clave: investigacion
   nombre: En investigación
   icono: vacio
   protegido: true
-
+  nombre_en: In research
 - clave: produccion
   nombre: En producción
   icono: mitad
   protegido: true
-
+  nombre_en: In production
 - clave: pausa
   nombre: En pausa
   icono: pausa
-
+  nombre_en: On hold
 - clave: inedito
   nombre: Inédito
   icono: anillo
-
+  nombre_en: Unexhibited
 - clave: exhibido
   nombre: Exhibido
   icono: lleno
+  nombre_en: Exhibited

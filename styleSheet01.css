@@ -75,10 +75,13 @@ nav::after {
 }
 .nav-cta:hover, .nav-cta.is-activo { color: var(--white); }
 .nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-idioma { display: flex; gap: 10px; padding-left: 20px; border-left: 1px solid var(--line); }
 @media (max-width: 600px) {
   #logoGuala { height: 36px; }
   .nav-links { gap: 12px; }
   .nav-links .nav-cta { letter-spacing: 0.1em; font-size: 10px; white-space: nowrap; }
+  .nav-idioma { padding-left: 0; border-left: 0; }
+  .nav-idioma .is-activo { display: none; }
 }
 
 #logoGuala {

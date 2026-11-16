@@ -1,11 +1,23 @@
-{%- comment -%} Menú principal: igual en la home, los proyectos, Info y CV. {%- endcomment -%}
+{%- comment -%} Menú principal: igual en todas las páginas, en el idioma de la página, con selector ES / EN. {%- endcomment -%}
+{%- assign r_info = base | append: "/info/" -%}
+{%- assign r_cv = base | append: "/cv/" -%}
+{%- assign r_adq = base | append: "/adquirir/" -%}
 <nav>
-  <a href="/" aria-label="Guala, inicio"><img id="logoGuala" src="/text.png" alt="Guala" /></a>
+  <a href="{{ base }}/" aria-label="Guala"><img id="logoGuala" src="/text.png" alt="Guala" /></a>
   <div class="nav-links">
-    <a href="/#works" class="nav-cta">oBra</a>
-    <a href="/info/" class="nav-cta{% if page.url == '/info/' %} is-activo{% endif %}"{% if page.url == '/info/' %} aria-current="page"{% endif %}>iNfo</a>
-    <a href="/cv/" class="nav-cta{% if page.url == '/cv/' %} is-activo{% endif %}"{% if page.url == '/cv/' %} aria-current="page"{% endif %}>cV</a>
-    <a href="/adquirir/" class="nav-cta{% if page.url == '/adquirir/' %} is-activo{% endif %}"{% if page.url == '/adquirir/' %} aria-current="page"{% endif %}>aDquirir</a>
-    <a href="mailto:guala.fajardo@gmail.com" class="nav-cta">cOntacto</a>
+    <a href="{{ base }}/#works" class="nav-cta">{{ L.nav.obra }}</a>
+    <a href="{{ r_info }}" class="nav-cta{% if ruta == r_info %} is-activo{% endif %}"{% if ruta == r_info %} aria-current="page"{% endif %}>{{ L.nav.info }}</a>
+    <a href="{{ r_cv }}" class="nav-cta{% if ruta == r_cv %} is-activo{% endif %}"{% if ruta == r_cv %} aria-current="page"{% endif %}>{{ L.nav.cv }}</a>
+    <a href="{{ r_adq }}" class="nav-cta{% if ruta == r_adq %} is-activo{% endif %}"{% if ruta == r_adq %} aria-current="page"{% endif %}>{{ L.nav.adquirir }}</a>
+    <a href="mailto:guala.fajardo@gmail.com" class="nav-cta">{{ L.nav.contacto }}</a>
+    <span class="nav-idioma">
+      <a href="{{ url_en }}" class="nav-cta{% if lang == 'en' %} is-activo{% endif %}" hreflang="en" lang="en" data-idioma="en"{% if lang == 'en' %} aria-current="true"{% endif %}>EN</a>
+      <a href="{{ url_es }}" class="nav-cta{% if lang == 'es' %} is-activo{% endif %}" hreflang="es" lang="es" data-idioma="es"{% if lang == 'es' %} aria-current="true"{% endif %}>ES</a>
+    </span>
   </div>
 </nav>
+<script>
+  document.querySelectorAll('[data-idioma]').forEach(function (a) {
+    a.addEventListener('click', function () { try { localStorage.setItem('idioma', a.dataset.idioma); } catch (e) {} });
+  });
+</script>

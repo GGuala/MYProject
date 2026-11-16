@@ -15,13 +15,13 @@
   {%- if include.chica -%}{%- assign vista = chica_src -%}{%- else -%}{%- assign vista = include.src -%}{%- endif -%}
 {%- endif -%}
 <div class="media{% if include.prot %} media--spoiler{% endif %}">
-  <button class="lb-abrir" type="button" data-full="{{ full }}" data-pie="{{ include.pie | escape }}"{% if include.tipo %} data-tipo="{{ include.tipo }}"{% endif %} aria-label="Ampliar imagen"{% if include.prot %} inert{% endif %}>
+  <button class="lb-abrir" type="button" data-full="{{ full }}" data-pie="{{ include.pie | escape }}"{% if include.tipo %} data-tipo="{{ include.tipo }}"{% endif %} aria-label="{{ L.ampliar }}"{% if include.prot %} inert{% endif %}>
     <img src="{{ vista }}" alt="{{ include.alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %} />
   </button>
   {%- if include.prot %}
   <button class="spoiler-btn" type="button">
-    <span class="spoiler-titulo">Contiene spoilers</span>
-    <span class="spoiler-accion">Tocá para ver</span>
+    <span class="spoiler-titulo">{{ L.spoiler }}</span>
+    <span class="spoiler-accion">{{ L.spoiler_accion }}</span>
   </button>
   {%- endif %}
 </div>

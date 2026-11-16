@@ -1,0 +1,39 @@
+{%- assign a = site.data.artista -%}
+<header class="p-header">
+  <a href="{{ base }}/" class="p-volver">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 7H1M7 1L1 7l6 6"/></svg>
+    {{ L.volver }}
+  </a>
+  <span class="lbl">{{ L.info.titulo }}</span>
+  <h1 class="p-titulo">{{ a.nombre }}</h1>
+  <div class="p-meta">
+    <span>{% include t.html o=a c="oficio" %}</span>
+    <span>{{ a.nacimiento_lugar }}, {{ a.nacimiento_anio }}</span>
+  </div>
+</header>
+
+{%- capture statement -%}{% include t.html o=a c="statement" %}{%- endcapture -%}
+{%- if statement != "" %}
+<article class="p-texto">
+  {{ statement | markdownify }}
+</article>
+{%- endif %}
+
+{%- capture bio -%}{% include t.html o=a c="bio" %}{%- endcapture -%}
+{%- if bio != "" %}
+<section class="p-modulo">
+  <h2 class="p-label">{{ L.secciones.bio }}</h2>
+  <p class="p-bio">{{ bio }}</p>
+</section>
+{%- endif %}
+
+<section class="p-modulo">
+  <h2 class="p-label">{{ L.secciones.mas }}</h2>
+  <ul class="cv">
+    <li><span class="cv-anio">CV</span><span><a href="{{ base }}/cv/">{% if lang == "en" %}Exhibitions, open calls and education{% else %}Exhibiciones, convocatorias y formación{% endif %}</a></span></li>
+    <li><span class="cv-anio">Mail</span><span><a href="mailto:guala.fajardo@gmail.com">guala.fajardo@gmail.com</a></span></li>
+    {%- for r in a.redes %}
+    <li><span class="cv-anio">{{ r.nombre }}</span><span><a href="{{ r.url }}" rel="me">{{ r.url | remove: "https://www." | remove: "https://" }}</a></span></li>
+    {%- endfor %}
+  </ul>
+</section>

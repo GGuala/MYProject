@@ -1,0 +1,169 @@
+{%- comment -%} Home completa. La usan index.html (inglés) y es/index.html (español). {%- endcomment -%}
+{% include idioma.html %}
+{%- assign h = site.data.home -%}
+{%- assign a = site.data.artista -%}
+{%- capture seo_titulo -%}{% include t.html o=h.seo c="titulo" %}{%- endcapture -%}
+{%- capture seo_desc -%}{% include t.html o=h.seo c="descripcion" %}{%- endcapture -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <title>{{ seo_titulo }}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ seo_desc | escape }}" />
+    <link rel="canonical" href="{{ site.url }}{{ ruta }}" />
+    {% include head-idioma.html %}
+    <meta property="og:title" content="{{ seo_titulo | escape }}" />
+    <meta property="og:description" content="{{ seo_desc | escape }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}{{ ruta }}" />
+    <meta property="og:locale" content="{% if lang == 'es' %}es_UY{% else %}en_US{% endif %}" />
+    <link rel="icon" href="/box01.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <link href="/styleSheet01.css" rel="stylesheet" />
+    <meta name="robots" content="index, follow, noimageai" />
+    {% include persona-jsonld.html %}
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "y4utpmr1d9");
+    </script>
+  </head>
+  <body>
+
+
+    <!-- NAV -->
+    {% include nav.html %}
+
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-scan">
+        <img src="/Yo01.gif" alt="" class="hero-scan-img" />
+        <div class="hero-scan-fade"></div>
+      </div>
+      <p class="hero-index" style="text-align: center;">{{ a.nombre }}</p>
+      <h1>{% capture _t %}{% include t.html o=h.hero c="titular_1" %}{% endcapture %}{{ _t | markdownify | remove: "<p>" | remove: "</p>" | strip }} <br> {% capture _t %}{% include t.html o=h.hero c="titular_2" %}{% endcapture %}{{ _t | markdownify | remove: "<p>" | remove: "</p>" | strip }}</h1>
+      <div class="hero-meta">
+        <p class="hero-name">{% include t.html o=h.hero c="rol" %}</p>
+        <p class="hero-descriptor">{% include t.html o=h.hero c="descripcion" %}</p>
+      </div>
+      <a href="mailto:guala.fajardo@gmail.com" class="hero-cta">
+        {% include t.html o=h.hero c="boton" %}
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M1 7h12M7 1l6 6-6 6"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- QUÉ HAGO -->
+    <section id="work">
+      <p class="section-label">{% include t.html o=h.que_hago c="etiqueta" %}</p>
+      <div class="work-inner">
+        <div class="services">
+          {%- assign _k = "items" | append: sfx -%}
+          {%- assign _items = h.que_hago[_k] | default: h.que_hago.items -%}
+          {%- for item in _items %}
+          <div class="service-item">
+            <p class="service-text">{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+          </div>
+          {%- endfor %}
+        </div>
+        <div class="work-image">
+          <img src="{{ h.que_hago.imagen | default: '/img/home/working.webp' }}" alt="{% include t.html o=h.que_hago c="imagen_alt" esc=true %}" class="work-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="aboutMe">
+      <div class="about-left">
+        <p class="section-label">{% include t.html o=h.sobre_mi c="etiqueta" %}</p>
+        {%- assign _k = "columna_1" | append: sfx -%}
+        {%- assign _col = h.sobre_mi[_k] | default: h.sobre_mi.columna_1 -%}
+        {%- for t in _col %}
+        <p class="about-text">{{ t | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {%- endfor %}
+      </div>
+      <div class="about-right">
+        {%- assign _k = "columna_2" | append: sfx -%}
+        {%- assign _col = h.sobre_mi[_k] | default: h.sobre_mi.columna_2 -%}
+        {%- for t in _col %}
+        <p class="about-text">{{ t | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {%- endfor %}
+        <p class="about-detail">{% include t.html o=h.sobre_mi c="detalle" %} · <a href="{{ base }}/info/" class="about-mas">{{ L.home.bio_link }}</a></p>
+      </div>
+    </section>
+
+    <!-- OBRA: proyectos con "Mostrar en la home" activado, en orden -->
+    {%- assign destacados = site.proyectos | where: "destacado", true | sort: "orden" -%}
+    {%- if destacados.size > 0 %}
+    <section id="works">
+      <p class="section-label">{% include t.html o=h.obra c="etiqueta" %}</p>
+      <div class="pieces-grid">
+        {%- for p in destacados %}
+          {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
+          {%- assign p_primera = p.galeria | first -%}
+          {%- assign p_portada = p.imagen | default: p_primera.src -%}
+          {%- capture p_img -%}{%- if p.imagen_home -%}{{ p.imagen_home }}{%- elsif p_portada -%}{% include miniatura.html src=p_portada %}{%- endif -%}{%- endcapture -%}
+          {%- assign p_img = p_img | strip -%}
+        <a href="{{ base }}{{ p.url }}">
+          <div class="piece{% if p_est.protegido %} piece--spoiler{% endif %}">
+            {%- if p_img != "" %}
+            <img class="piece-media" src="{{ p_img }}" alt="{{ p.titulo | escape }}" loading="lazy" />
+            {%- else %}
+            <div class="piece-placeholder"><div class="piece-placeholder-inner"></div></div>
+            {%- endif %}
+            {%- if p_est.protegido %}<span class="piece-spoiler">{{ L.spoiler }}</span>{% endif %}
+            <div class="piece-info">
+              <p class="piece-title">{{ p.titulo }}</p>
+              <p class="piece-year">{{ p.anios }}{% if p_est %} · {% include t.html o=p_est c="nombre" %}{% endif %}</p>
+            </div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endif %}
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="contact-bg"></div>
+      <p class="contact-pre">{% include t.html o=h.contacto c="antetitulo" %}</p>
+      <h2 class="contact-heading">{% include t.html o=h.contacto c="titulo" %}</h2>
+      <p class="contact-sub">{% include t.html o=h.contacto c="texto" %}</p>
+      <a href="mailto:guala.fajardo@gmail.com" class="contact-email">guala.fajardo@gmail.com</a>
+      <div id="links">
+        {%- for r in a.redes %}
+        <a href="{{ r.url }}" target="_blank" rel="noopener me">{{ r.nombre }}</a>
+        {%- endfor %}
+      </div>
+    </section>
+
+    <footer>
+      <span>©Guala</span>
+      <span>mAde with vIbes</span>
+    </footer>
+
+    <script>
+
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(
+        '.service-item, .about-text, .about-detail, .piece, .contact-pre, .contact-heading, .contact-sub, .contact-email, #links, .work-image'
+      ).forEach(el => observer.observe(el));
+    </script>
+
+  </body>
+</html>

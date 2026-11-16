@@ -1,0 +1,7 @@
+{%- comment -%}
+  Texto traducible. Devuelve o.<c>_en en inglés (si existe) y o.<c> en español.
+  Uso: {% include t.html o=obra c="descripcion" %}   (agregar esc=true para atributos)
+{%- endcomment -%}
+{%- assign _k = include.c | append: sfx -%}
+{%- assign _v = include.o[_k] | default: include.o[include.c] -%}
+{%- if include.esc -%}{{ _v | strip_newlines | escape }}{%- else -%}{{ _v }}{%- endif -%}

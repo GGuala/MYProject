@@ -29,13 +29,13 @@
   <div class="video-marco{% if include.prot %} video-marco--spoiler{% endif %}">
     {%- if miniatura != "" and include.prot != true %}<img src="{{ miniatura }}" alt="" loading="lazy" />{% endif %}
     <button class="video-play" type="button" data-embed="{{ embed }}" data-titulo="{{ include.pie | default: include.titulo | escape }}">
-      {%- if include.prot %}<span class="spoiler-titulo">Contiene spoilers</span>{% endif %}
+      {%- if include.prot %}<span class="spoiler-titulo">{{ L.spoiler }}</span>{% endif %}
       <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="rgba(10,10,10,0.55)" stroke="rgba(255,255,255,0.5)"/><path d="M23 19l14 9-14 9z" fill="#fff"/></svg>
-      <span class="video-accion">Reproducir video</span>
+      <span class="video-accion">{{ L.reproducir }}</span>
     </button>
   </div>
   {%- if include.pie or include.tipo %}
-  <figcaption class="pie">{% if include.tipo %}<span class="lbl">{{ include.tipo }}</span> {% endif %}{{ include.pie }}</figcaption>
+  <figcaption class="pie">{% if include.tipo %}<span class="lbl">{{ L.tipos_imagen[include.tipo] | default: include.tipo }}</span> {% endif %}{{ include.pie }}</figcaption>
   {%- endif %}
 </figure>
 {%- endif -%}

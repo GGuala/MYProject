@@ -1,0 +1,19 @@
+{%- comment -%}
+  Define el idioma de la página. Va primero en cada layout.
+  Inglés por defecto en la raíz; español en /es/…
+  Variables que deja: lang, L (textos de interfaz), sfx ("_en" o ""), base ("" o "/es"),
+  url_en, url_es (las dos versiones de esta página).
+{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign L = site.data.i18n[lang] -%}
+{%- assign base = L.base -%}
+{%- if lang == "en" -%}{%- assign sfx = "_en" -%}{%- else -%}{%- assign sfx = "" -%}{%- endif -%}
+{%- assign ruta = page.url | replace: "index.html", "" -%}
+{%- if lang == "es" -%}
+  {%- assign url_es = ruta -%}
+  {%- assign url_en = ruta | remove_first: "/es" -%}
+  {%- if url_en == "" -%}{%- assign url_en = "/" -%}{%- endif -%}
+{%- else -%}
+  {%- assign url_en = ruta -%}
+  {%- assign url_es = "/es" | append: ruta -%}
+{%- endif -%}
