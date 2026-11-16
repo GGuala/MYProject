@@ -23,7 +23,14 @@ Los proyectos **En investigación** o **En producción** muestran sus imágenes 
 
 Cuando el proyecto pasa a **Inédito** o **Exhibido**, todo se muestra normal. Qué estados protegen se define en `_data/estados.yml` (`protegido: true`).
 
-El resto del sitio (proyectos Inédito o Exhibido, textos, CV) está abierto a buscadores y a rastreadores de IA: `robots.txt` deja entrar a todos.
+Imágenes y IA: en todo el sitio, `robots.txt` deja que los rastreadores de IA lean los textos pero no descarguen imágenes (y las páginas llevan `noimageai`). Google y los buscadores ven todo.
+
+### Para que te encuentren (Google e IA)
+
+- **CV**: `_data/cv.yml`, editable en Pages CMS → *CV*. Se publica en `/cv/`.
+- **Datos del artista**: `_data/artista.yml` (Pages CMS → *Artista*). Alimentan los datos estructurados (schema.org) de todas las páginas.
+- **`/llms.txt`**: resumen en texto para IA, se arma solo con proyectos y CV.
+- **`/sitemap.xml`**: se arma solo con los proyectos publicados.
 
 ## Qué pasa al guardar (automático)
 

@@ -1,7 +1,33 @@
 # heyguala.com
-# Todos los rastreadores son bienvenidos, incluidos los de IA.
-# Las imágenes de proyectos en investigación o producción se protegen
-# desde cada página (noimageindex, noai, solo versión chica).
+#
+# Textos: abiertos para buscadores y para IA (queremos que lean quién es
+# Nicolás Guala, su obra y su CV).
+# Imágenes: abiertas para buscadores, cerradas para rastreadores de IA.
+
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: AI2Bot
+Allow: /
+Disallow: /img/
+Disallow: /*.webp$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /*.gif$
 
 User-agent: *
 Allow: /

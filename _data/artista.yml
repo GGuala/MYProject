@@ -1,0 +1,22 @@
+# Datos de Nicolás Guala que usan Google y las IA (datos estructurados,
+# página de CV y llms.txt). Se editan desde Pages CMS → "Artista".
+
+nombre: Nicolás Guala
+alias: Guala
+oficio: Artista visual
+linea: Artista visual. Escultura, fotografía e instalación. Montevideo / Europa.
+nacimiento_lugar: Montevideo
+nacimiento_anio: "1997"
+ciudad: Montevideo
+pais: Uruguay
+temas:
+  - Escultura
+  - Fotografía
+  - Instalación
+  - Impresión 3D
+  - Arte contemporáneo uruguayo
+redes:
+  - nombre: Instagram
+    url: https://www.instagram.com/heyguala/
+  - nombre: Behance
+    url: https://www.behance.net/n_guala

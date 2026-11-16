@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%- comment -%} Página simple de texto (CV, info…): mismo nav, estilos y footer que los proyectos. {%- endcomment -%}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.titulo }} — Nicolás Guala</title>
+    {%- if page.descripcion %}
+    <meta name="description" content="{{ page.descripcion | strip_newlines | escape }}" />
+    <meta property="og:description" content="{{ page.descripcion | strip_newlines | escape }}" />
+    {%- endif %}
+    <meta name="robots" content="index, follow, noimageai" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta property="og:title" content="{{ page.titulo }} — Nicolás Guala" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet" />
+    <link href="/styleSheet01.css" rel="stylesheet" />
+    <link href="/css/proyecto.css" rel="stylesheet" />
+    {% include persona-jsonld.html %}
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "y4utpmr1d9");
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="/"><img id="logoGuala" src="/text.png" alt="Guala" /></a>
+      <a href="mailto:guala.fajardo@gmail.com" class="nav-cta">gEt in tOuch</a>
+    </nav>
+
+    <main class="proyecto">
+      {{ content }}
+    </main>
+
+    <footer>
+      <span>©Guala</span>
+      <span>mAde with vIbes</span>
+    </footer>
+  </body>
+</html>

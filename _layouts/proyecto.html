@@ -20,10 +20,7 @@
     {%- if page.descripcion %}
     <meta name="description" content="{{ page.descripcion | strip_newlines | escape }}" />
     {%- endif %}
-    <meta name="robots" content="index, follow{% if protegido %}, noimageindex{% endif %}" />
-    {%- if protegido %}
-    <meta name="robots" content="noai, noimageai" />
-    {%- endif %}
+    <meta name="robots" content="index, follow, noimageai{% if protegido %}, noimageindex{% endif %}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <meta property="og:title" content="{{ titulo }} — Nicolás Guala" />
     {%- if page.descripcion %}
@@ -40,6 +37,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet" />
     <link href="/styleSheet01.css" rel="stylesheet" />
     <link href="/css/proyecto.css" rel="stylesheet" />
+    {% include persona-jsonld.html %}
+    {% include obra-jsonld.html %}
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

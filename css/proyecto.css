@@ -177,3 +177,9 @@
   .ficha { grid-template-columns: 110px 1fr; }
   .lb { grid-template-columns: 44px minmax(0, 1fr) 44px; padding: 12px; }
 }
+
+/* página de CV */
+.p-cv-linea { max-width: 640px; font-size: 21px; font-weight: 400; line-height: 1.7; color: var(--white); }
+.cv a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.22); }
+.cv a:hover { border-color: var(--white); }
+.cv a em { font-family: var(--serif), Georgia, serif; }

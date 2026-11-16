@@ -1,0 +1,28 @@
+{%- comment -%} Ficha de Nicolás Guala para Google y las IA (schema.org Person). {%- endcomment -%}
+{%- assign a = site.data.artista -%}
+{%- assign formacion = site.data.cv.grupos | where: "nombre", "Formación académica" | first -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ site.url }}/#artista",
+  "name": {{ a.nombre | jsonify }},
+  "alternateName": {{ a.alias | jsonify }},
+  "jobTitle": {{ a.oficio | jsonify }},
+  "description": {{ a.linea | jsonify }},
+  "url": "{{ site.url }}/",
+  "birthDate": {{ a.nacimiento_anio | jsonify }},
+  "birthPlace": { "@type": "Place", "name": {{ a.nacimiento_lugar | append: ", " | append: a.pais | jsonify }} },
+  "nationality": { "@type": "Country", "name": {{ a.pais | jsonify }} },
+  "homeLocation": { "@type": "Place", "name": {{ a.ciudad | append: ", " | append: a.pais | jsonify }} },
+  "knowsAbout": {{ a.temas | jsonify }},
+  {%- if formacion %}
+  "alumniOf": [
+    {%- for f in formacion.entradas %}
+    { "@type": "EducationalOrganization", "name": {{ f.lugar | jsonify }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  {%- endif %}
+  "sameAs": [{% for r in a.redes %}{{ r.url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]
+}
+</script>
