@@ -68,6 +68,13 @@
         {%- if ultima %}
         <p class="p-actividad">Última actividad: {% include fecha.html f=ultima.fecha %}</p>
         {%- endif %}
+        {%- if page.adquirible %}
+        {%- capture asunto -%}Consulta: {{ titulo }}{%- endcapture -%}
+        <a class="btn-principal" href="{% include mailto.html asunto=asunto que=titulo %}">
+          Consultar por esta obra
+          <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+        </a>
+        {%- endif %}
       </header>
 
       {%- comment -%} 2 · Imagen principal {%- endcomment -%}
@@ -200,6 +207,19 @@
         <dl class="ficha">
           {%- for c in page.creditos %}<dt>{{ c.rol }}</dt><dd>{{ c.nombre }}</dd>{% endfor -%}
         </dl>
+      </section>
+      {%- endif %}
+
+      {%- comment -%} 9b · Ediciones de esta obra {%- endcomment -%}
+      {%- assign mis_ediciones = site.ediciones | where: "obra", page.slug | sort: "orden" -%}
+      {%- if mis_ediciones.size > 0 %}
+      <section class="p-modulo">
+        <h2 class="p-label">eDiciones de esta obra</h2>
+        <div class="ediciones">
+          {%- for e in mis_ediciones %}
+          {% include edicion-card.html e=e %}
+          {%- endfor %}
+        </div>
       </section>
       {%- endif %}
 

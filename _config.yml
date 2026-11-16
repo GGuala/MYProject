@@ -13,6 +13,8 @@ collections:
     permalink: /:name/      # _proyectos/ethos.md  →  heyguala.com/ethos/
   registro:
     output: false           # entradas de taller: se muestran dentro de cada proyecto
+  ediciones:
+    output: false           # impresiones, libros de artista y piezas pequeñas (/adquirir/)
 
 defaults:
   - scope:

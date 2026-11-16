@@ -208,3 +208,20 @@
 .video-accion { font-size: 13px; font-weight: 300; color: var(--grey1); }
 .video-play:hover svg circle, .video-play:focus-visible svg circle { stroke: #fff; }
 .video .pie .lbl { margin-right: 8px; }
+
+/* adquirir: tarjetas de obra disponible y de ediciones */
+.card-link { display: flex; flex-direction: column; gap: 10px; color: var(--white); text-decoration: none; }
+.card-consulta { align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; font-weight: 400; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.22); }
+.card-consulta:hover { border-color: var(--white); }
+.ediciones { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 48px 24px; }
+.edicion { display: flex; flex-direction: column; gap: 16px; }
+.edicion-img { aspect-ratio: 4 / 5; background: var(--surface); overflow: hidden; border-radius: 20px; }
+.edicion-img img { width: 100%; height: 100%; object-fit: cover; }
+.edicion-info { display: flex; flex-direction: column; gap: 10px; }
+.edicion-titulo { font-family: var(--serif), Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.15; }
+.edicion-obra { font-size: 14px; color: var(--grey1); }
+.edicion-obra a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.22); }
+.edicion-desc { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--grey1); }
+.edicion-estado { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey2); }
+.edicion--agotada .edicion-img img { opacity: .45; }
+.p-header .btn-principal { margin-top: 8px; }

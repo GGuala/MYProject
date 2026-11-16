@@ -1,0 +1,32 @@
+{%- comment -%} Tarjeta de una edición (impresión, libro de artista, pieza pequeña). Parámetro: e {%- endcomment -%}
+{%- assign e = include.e -%}
+{%- assign e_obra = nil -%}
+{%- if e.obra -%}{%- assign e_obra = site.proyectos | where: "slug", e.obra | first -%}{%- endif -%}
+{%- assign e_agotado = false -%}{%- if e.disponibilidad == "agotado" -%}{%- assign e_agotado = true -%}{%- endif -%}
+<article class="edicion{% if e_agotado %} edicion--agotada{% endif %}">
+  {%- if e.imagen %}
+  <div class="edicion-img"><img src="{% include miniatura.html src=e.imagen %}" alt="{{ e.titulo | escape }}" loading="lazy" /></div>
+  {%- endif %}
+  <div class="edicion-info">
+    {%- if e.tipo %}<span class="lbl">{{ e.tipo }}</span>{% endif %}
+    <h3 class="edicion-titulo">{{ e.titulo }}</h3>
+    {%- if e_obra %}<span class="edicion-obra">de <a href="{{ e_obra.url }}"><em>{{ e_obra.titulo }}</em></a></span>{% endif %}
+    {%- if e.descripcion %}<p class="edicion-desc">{{ e.descripcion }}</p>{% endif %}
+    <dl class="ficha ficha--mini">
+      {%- if e.medidas %}<dt>Medidas</dt><dd>{{ e.medidas }}</dd>{% endif -%}
+      {%- if e.tiraje %}<dt>Tiraje</dt><dd>{{ e.tiraje }}</dd>{% endif -%}
+      {%- if e.precio %}<dt>Precio</dt><dd>{{ e.precio }}</dd>{% endif -%}
+    </dl>
+    {%- if e_agotado %}
+    <span class="edicion-estado">Agotado</span>
+    {%- else %}
+    {%- if e.disponibilidad == "pocas" %}<span class="edicion-estado">Quedan pocas</span>{% endif %}
+    {%- capture asunto -%}Pedido: {{ e.titulo }}{%- endcapture -%}
+    {%- capture que -%}{{ e.titulo }}{% if e_obra %} ({{ e_obra.titulo }}){% endif %}{%- endcapture -%}
+    <a class="btn-principal" href="{% include mailto.html asunto=asunto que=que %}">
+      Pedir por mail
+      <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+    </a>
+    {%- endif %}
+  </div>
+</article>
