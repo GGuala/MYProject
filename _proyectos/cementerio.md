@@ -2,7 +2,7 @@
 published: true
 titulo: Cementerio
 estado: inedito
-anios: 2024–
+anios: "2024"
 medios:
   - Instalación
   - Impresión 3D
