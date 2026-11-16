@@ -55,8 +55,9 @@ content:
         label: Descripción para Google (1–2 frases)
         type: text
       - name: imagen
-        label: Imagen principal
+        label: Imagen principal (opcional)
         type: image
+        description: "Podés dejarla vacía o usar una foto de proceso si la obra todavía no se mostró. Sin imagen principal, la portada del proyecto es la primera foto de la galería."
       - name: imagen_alt
         label: Texto alternativo de la imagen principal
         type: string
@@ -86,7 +87,7 @@ content:
           - { name: medidas, label: Medidas, type: string }
           - { name: tiras, label: Cantidad de tiras, type: string }
           - name: imagenes
-            label: Imágenes (1 a 4)
+            label: Imágenes (opcional, hasta 4)
             type: object
             list:
               max: 4
@@ -95,7 +96,8 @@ content:
               - { name: alt, label: Texto alternativo, type: string }
               - { name: pie, label: Pie de foto, type: string }
       - name: galeria
-        label: Galería
+        label: Galería (opcional)
+        description: "Elegí el tipo de cada foto. En investigación o producción podés subir solo proceso, maqueta o investigación."
         type: object
         list:
           collapsible: true
@@ -104,7 +106,7 @@ content:
             label: Tipo
             type: select
             options:
-              values: [obra, vista de sala, maqueta, proceso, render]
+              values: [obra, vista de sala, render, maqueta, proceso, investigación]
           - { name: src, label: Imagen, type: image }
           - { name: alt, label: Texto alternativo, type: string }
           - { name: pie, label: Pie de foto, type: string }
