@@ -1,55 +1,45 @@
-# Home (Pages CMS → Home). Campos _en = inglés. *Cursiva* con asteriscos.
-
 seo:
   titulo: Nicolás Guala — Artista visual | Escultura, fotografía e instalación
-  descripcion: 'Nicolás Guala (Montevideo, 1997), artista visual. Escultura, fotografía e instalación en torno a una búsqueda: encontrar la pausa en un mundo con prisa.'
-  titulo_en: Nicolás Guala — Visual artist | Sculpture, photography and installation
-  descripcion_en: 'Nicolás Guala (Montevideo, 1997), visual artist. Sculpture, photography and installation around one pursuit: finding the pause in a world in a hurry.'
+  descripcion: "Nicolás Guala (Montevideo, 1997), artista visual. Escultura,
+    fotografía e instalación en torno a una búsqueda: encontrar la pausa en un
+    mundo con prisa."
 hero:
   titular_1: ART that *thinks*
-  titular_2: '*art* that FEels.'
+  titular_2: "*art* that FEels."
   rol: Artista y director de arte
-  descripcion: Arte escultórico, dirección visual y la convicción de que las mejores ideas llegan antes que el brief.
+  descripcion: Arte escultórico, dirección visual y la convicción de que las
+    mejores ideas llegan antes que el brief.
   boton: hAblemos
-  rol_en: Artist & Art Director
-  descripcion_en: Sculptural art, visual direction, and the belief that the best ideas arrive before the brief.
-  boton_en: gEt in touch
 que_hago:
   etiqueta: qUé hago
   items:
-  - Hago *arte escultórico* que pregunta dónde vive lo espiritual en el mundo físico.
-  - '*Dirijo el lenguaje visual* de marcas y campañas: construyo universos antes que piezas.'
-  - 'Trabajo en *instalaciones y experiencias espaciales*, también las técnicamente complejas. Robótica, entornos inmersivos, restricciones de ingeniería: esa es la parte interesante.'
-  imagen: /img/home/working.webp
+    - Hago *arte escultórico* que pregunta dónde vive lo espiritual en el mundo
+      físico.
+    - "*Dirijo el lenguaje visual* de marcas y campañas: construyo universos
+      antes que piezas."
+    - "Trabajo en *instalaciones y experiencias espaciales*, también las
+      técnicamente complejas. Robótica, entornos inmersivos, restricciones de
+      ingeniería: esa es la parte interesante."
+  imagen: /img/WhatsApp Image 2026-11-16 at 17.32.47.jpeg
   imagen_alt: Mesa de trabajo con bocetos, planos y cuadernos
-  etiqueta_en: wHat I do
-  items_en:
-  - I make *sculptural art* that asks where the spiritual lives in the physical world.
-  - I *direct the visual language* of brands and campaigns — building universes before assets.
-  - I work on *installations and spatial experiences*, including technically complex ones. Robotics, immersive environments, engineering constraints — these are the interesting part.
-  imagen_alt_en: Work table with sketches, plans and notebooks
 sobre_mi:
   etiqueta: sObre mí
   columna_1:
-  - 'Mi práctica cruza escultura, fotografía y tecnología alrededor de una sola búsqueda: encontrar la pausa en un mundo con prisa.'
-  - 'Busco destellos en lo cotidiano: una luz, un gesto, un silencio que interrumpe el ruido. Esa sensibilidad es el motor de mi obra y la experiencia que busco provocar en quien se encuentra con ella.'
+    - "Mi práctica cruza escultura, fotografía y tecnología alrededor de una
+      sola búsqueda: encontrar la pausa en un mundo con prisa."
+    - "Busco destellos en lo cotidiano: una luz, un gesto, un silencio que
+      interrumpe el ruido. Esa sensibilidad es el motor de mi obra y la
+      experiencia que busco provocar en quien se encuentra con ella."
   columna_2:
-  - 'Trabajo desde dos gestos: la escultura, que construye e invoca esos momentos, y la fotografía, que los captura y los construye cuando aparecen. En todos los casos busco crear las condiciones para que quien mira se detenga y, con ese segundo de pausa, quizás cambiar el mundo.'
+    - "Trabajo desde dos gestos: la escultura, que construye e invoca esos
+      momentos, y la fotografía, que los captura y los construye cuando
+      aparecen. En todos los casos busco crear las condiciones para que quien
+      mira se detenga y, con ese segundo de pausa, quizás cambiar el mundo."
   detalle: Actualmente entre Uruguay y Europa
-  etiqueta_en: aBout
-  columna_1_en:
-  - 'My practice spans sculpture, photography, and technology around a single pursuit: finding the pause in a world in a hurry.'
-  - I look for flashes in the ordinary — a light, a gesture, a silence that interrupts the noise. That sensibility is the engine of my work and the experience I seek to provoke in those who encounter it.
-  columna_2_en:
-  - 'I operate from two gestures: sculpture that builds and invokes those moments, and photography that captures and constructs them when they appear. In every case, I seek to create the conditions for the viewer to stop — and with that second of pause, perhaps change the world.'
-  detalle_en: Currently between Uruguay and Europe
 obra:
   etiqueta: oBra seleccionada
-  etiqueta_en: sElected work
 contacto:
   antetitulo: Hablemos
   titulo: Escribime.
-  texto: 'Si tenés un proyecto en mente, querés adquirir una obra o simplemente empezar una conversación: te leo.'
-  antetitulo_en: Let's talk
-  titulo_en: Get in touch.
-  texto_en: Whether you have a project in mind, want to acquire a piece, or just want to start a conversation — I'm listening.
+  texto: "Si tenés un proyecto en mente, querés adquirir una obra o simplemente
+    empezar una conversación: te leo."
