@@ -1,3 +1,6 @@
+---
+# Home escrita a mano. El front matter solo activa los datos estructurados.
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     <link href="styleSheet01.css" rel="stylesheet" />
+    <meta name="robots" content="index, follow, noimageai" />
+    {% include persona-jsonld.html %}
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

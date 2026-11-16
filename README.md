@@ -13,6 +13,26 @@ Para anotar algo del taller: **Registro de taller** → *Add entry* → fecha, t
 
 Si un campo queda vacío, ese módulo no aparece en la página.
 
+### Imágenes protegidas (spoilers)
+
+Los proyectos **En investigación** o **En producción** muestran sus imágenes con blur y el cartel "Contiene spoilers"; el visitante toca para verlas. Además, en esos proyectos:
+
+- solo se publica la versión chica (900 px), también en el visor;
+- la página le pide a Google que no indexe sus imágenes (`noimageindex`) y a las IA que no las usen para entrenar (`noai`, `noimageai`);
+- no hay vista previa de imagen al compartir el link.
+
+Cuando el proyecto pasa a **Inédito** o **Exhibido**, todo se muestra normal. Qué estados protegen se define en `_data/estados.yml` (`protegido: true`).
+
+Imágenes y IA: en todo el sitio, `robots.txt` deja que los rastreadores de IA lean los textos pero no descarguen imágenes (y las páginas llevan `noimageai`). Google y los buscadores ven todo.
+
+### Para que te encuentren (Google e IA)
+
+- **CV**: `_data/cv.yml`, editable en Pages CMS → *CV*. Se publica en `/cv/`.
+- **Info, bio y statement**: también en `_data/artista.yml` (Pages CMS → *Artista*). Se publican en `/info/`.
+- **Datos del artista**: `_data/artista.yml` (Pages CMS → *Artista*). Alimentan los datos estructurados (schema.org) de todas las páginas.
+- **`/llms.txt`**: resumen en texto para IA, se arma solo con proyectos y CV.
+- **`/sitemap.xml`**: se arma solo con los proyectos publicados.
+
 ## Qué pasa al guardar (automático)
 
 La Action `.github/workflows/publicar.yml`:

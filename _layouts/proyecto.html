@@ -10,6 +10,8 @@
 {%- assign ultima = entradas | first -%}
 {%- assign primera = page.galeria | first -%}
 {%- assign portada = page.imagen | default: primera.src -%}
+{%- assign est_page = site.data.estados | where: "clave", page.estado | first -%}
+{%- assign protegido = false -%}{%- if est_page.protegido -%}{%- assign protegido = true -%}{%- endif -%}
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -18,7 +20,7 @@
     {%- if page.descripcion %}
     <meta name="description" content="{{ page.descripcion | strip_newlines | escape }}" />
     {%- endif %}
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, noimageai{% if protegido %}, noimageindex{% endif %}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <meta property="og:title" content="{{ titulo }} — Nicolás Guala" />
     {%- if page.descripcion %}
@@ -26,7 +28,7 @@
     {%- endif %}
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    {%- if portada %}
+    {%- if portada and protegido == false %}
     <meta property="og:image" content="{{ site.url }}{{ portada }}" />
     {%- endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +37,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet" />
     <link href="/styleSheet01.css" rel="stylesheet" />
     <link href="/css/proyecto.css" rel="stylesheet" />
+    {% include persona-jsonld.html %}
+    {% include obra-jsonld.html %}
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -49,7 +53,7 @@
       <a href="mailto:guala.fajardo@gmail.com" class="nav-cta">gEt in tOuch</a>
     </nav>
 
-    <main class="proyecto">
+    <main class="proyecto{% if protegido %} es-protegido{% endif %}">
 
       {%- comment -%} 1 · Encabezado {%- endcomment -%}
       <header class="p-header">
@@ -72,9 +76,8 @@
       {%- comment -%} 2 · Imagen principal {%- endcomment -%}
       {%- if page.imagen %}
       <figure class="p-principal">
-        <button class="lb-abrir" data-full="{{ page.imagen }}" data-pie="{{ page.imagen_pie | escape }}" aria-label="Ampliar imagen">
-          <img src="{{ page.imagen }}" alt="{{ page.imagen_alt | default: titulo | escape }}" />
-        </button>
+        {%- assign alt = page.imagen_alt | default: titulo -%}
+        {% include media.html src=page.imagen alt=alt pie=page.imagen_pie prot=protegido %}
         {%- if page.imagen_pie %}<figcaption class="pie">{{ page.imagen_pie }}</figcaption>{% endif %}
       </figure>
       {%- endif %}
@@ -121,9 +124,8 @@
           {%- if pieza.imagenes and pieza.imagenes.size > 0 %}
           <div class="grilla grilla--{{ pieza.imagenes.size }}">
             {%- for img in pieza.imagenes %}
-            <button class="lb-abrir" data-full="{{ img.src }}" data-pie="{{ img.pie | escape }}" aria-label="Ampliar imagen">
-              <img src="{% include miniatura.html src=img.src %}" alt="{{ img.alt | default: pieza.titulo | escape }}" loading="lazy" />
-            </button>
+            {%- assign alt = img.alt | default: pieza.titulo -%}
+            {% include media.html src=img.src alt=alt pie=img.pie prot=protegido chica=true lazy=true %}
             {%- endfor %}
           </div>
           {%- endif %}
@@ -144,9 +146,8 @@
           <h3 class="lbl lbl--blanco">{{ tipo }}</h3>
           <div class="grilla">
             {%- for img in items %}
-            <button class="lb-abrir" data-full="{{ img.src }}" data-pie="{{ img.pie | escape }}" data-tipo="{{ tipo }}" aria-label="Ampliar imagen">
-              <img src="{% include miniatura.html src=img.src %}" alt="{{ img.alt | default: titulo | escape }}" loading="lazy" />
-            </button>
+            {%- assign alt = img.alt | default: titulo -%}
+            {% include media.html src=img.src alt=alt pie=img.pie tipo=tipo prot=protegido chica=true lazy=true %}
             {%- endfor %}
           </div>
         </div>
@@ -210,7 +211,8 @@
           <a href="{{ p.url }}" class="card">
             {%- assign p_primera = p.galeria | first -%}
             {%- assign p_portada = p.imagen | default: p_primera.src -%}
-            {%- if p_portada %}<img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% endif %}
+            {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
+            {%- if p_portada %}<span class="card-img{% if p_est.protegido %} card-img--spoiler{% endif %}"><img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% if p_est.protegido %}<span class="spoiler-titulo">Contiene spoilers</span>{% endif %}</span>{% endif %}
             {% include estado.html valor=p.estado %}
             <span class="card-titulo">{{ p.titulo }}</span>
             <span class="card-meta">{{ p.anios }}{% if p.medios %} · {{ p.medios | join: ", " }}{% endif %}</span>
@@ -234,5 +236,6 @@
       <span>mAde with vIbes</span>
     </footer>
     <script src="/js/lightbox.js" defer></script>
+    <script src="/js/spoiler.js" defer></script>
   </body>
 </html>

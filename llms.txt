@@ -1,0 +1,44 @@
+---
+layout: null
+permalink: /llms.txt
+---
+{%- assign a = site.data.artista -%}
+# {{ a.nombre }}
+
+> {{ a.linea }} Nacido en {{ a.nacimiento_lugar }}, {{ a.pais }}, en {{ a.nacimiento_anio }}. También firma como {{ a.alias }}.
+
+Disciplinas: {{ a.temas | join: ", " }}.
+
+## Bio
+
+{{ a.bio }}
+
+## Statement (en primera persona)
+
+{{ a.statement }}
+
+## Proyectos
+
+{% for p in site.proyectos -%}
+{%- assign est = site.data.estados | where: "clave", p.estado | first -%}
+- [{{ p.titulo }}]({{ site.url }}{{ p.url }}): {% if p.anios %}{{ p.anios }}{% endif %}{% if p.medios %} · {{ p.medios | join: ", " }}{% endif %}{% if est %} · {{ est.nombre }}{% endif %}.{% if p.descripcion %} {{ p.descripcion | strip_newlines }}{% endif %}
+{% endfor %}
+## CV
+
+{% for g in site.data.cv.grupos -%}
+{%- if g.entradas and g.entradas.size > 0 -%}
+### {{ g.nombre }}
+
+{% for x in g.entradas -%}
+- {{ x.anio }} — {{ x.titulo }}{% if x.lugar %}, {{ x.lugar }}{% endif %}
+{% endfor %}
+{% endif -%}
+{%- endfor -%}
+## Enlaces
+
+- [Sitio]({{ site.url }}/)
+- [Info]({{ site.url }}/info/)
+- [CV]({{ site.url }}/cv/)
+{% for r in a.redes -%}
+- [{{ r.nombre }}]({{ r.url }})
+{% endfor %}

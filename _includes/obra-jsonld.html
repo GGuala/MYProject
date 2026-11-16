@@ -1,0 +1,46 @@
+{%- comment -%}
+  Ficha de la obra para Google y las IA (schema.org VisualArtwork).
+  Los proyectos protegidos no publican imagen acá.
+{%- endcomment -%}
+{%- assign anio_inicio = page.anios | slice: 0, 4 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  "@id": "{{ site.url }}{{ page.url }}#obra",
+  "name": {{ titulo | jsonify }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "inLanguage": "es",
+  "creator": { "@type": "Person", "@id": "{{ site.url }}/#artista", "name": {{ site.data.artista.nombre | jsonify }} }
+  {%- if anio_inicio != "" %},
+  "dateCreated": {{ anio_inicio | jsonify }}
+  {%- endif %}
+  {%- if page.medios and page.medios.size > 0 %},
+  "artform": {{ page.medios | join: ", " | jsonify }}
+  {%- endif %}
+  {%- if page.ficha.tecnica %},
+  "artMedium": {{ page.ficha.tecnica | jsonify }}
+  {%- endif %}
+  {%- if page.descripcion %},
+  "description": {{ page.descripcion | strip_newlines | jsonify }}
+  {%- endif %}
+  {%- if page.hilos and page.hilos.size > 0 %},
+  "keywords": {{ page.hilos | join: ", " | jsonify }}
+  {%- endif %}
+  {%- if portada and protegido == false %},
+  "image": "{{ site.url }}{{ portada }}"
+  {%- endif %}
+  {%- if page.exhibiciones and page.exhibiciones.size > 0 %},
+  "subjectOf": [
+    {%- for x in page.exhibiciones %}
+    {
+      "@type": "ExhibitionEvent",
+      "name": {{ x.titulo | jsonify }}
+      {%- if x.anio %}, "startDate": {{ x.anio | jsonify }}{% endif %}
+      {%- if x.lugar %}, "location": { "@type": "Place", "name": {{ x.lugar | jsonify }} }{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+  {%- endif %}
+}
+</script>

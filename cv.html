@@ -1,0 +1,48 @@
+---
+layout: pagina
+permalink: /cv/
+titulo: CV
+descripcion: "CV de Nicolás Guala, artista visual uruguayo (Montevideo, 1997): exhibiciones, convocatorias y formación. Escultura, fotografía e instalación."
+---
+{%- assign a = site.data.artista -%}
+<header class="p-header">
+  <a href="/" class="p-volver">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 7H1M7 1L1 7l6 6"/></svg>
+    Volver
+  </a>
+  <span class="lbl">CV</span>
+  <h1 class="p-titulo">{{ a.nombre }}</h1>
+  <div class="p-meta">
+    <span>{{ a.nacimiento_lugar }}, {{ a.nacimiento_anio }}</span>
+  </div>
+  <p class="p-cv-linea">{{ a.linea }}</p>
+</header>
+
+{%- for g in site.data.cv.grupos %}
+  {%- if g.entradas and g.entradas.size > 0 %}
+<section class="p-modulo">
+  <h2 class="p-label">{{ g.nombre }}</h2>
+  <ul class="cv">
+    {%- for x in g.entradas %}
+      {%- assign obra = nil -%}
+      {%- if x.proyecto -%}{%- assign obra = site.proyectos | where: "slug", x.proyecto | first -%}{%- endif -%}
+    <li>
+      <span class="cv-anio">{{ x.anio }}</span>
+      <span>{{ x.titulo }}{% if x.lugar %} <span class="cv-lugar">— {{ x.lugar }}</span>{% endif %}{% if obra and obra.titulo != x.titulo %} <span class="cv-lugar">— con <a href="{{ obra.url }}"><em>{{ obra.titulo }}</em></a></span>{% elsif obra %} <a href="{{ obra.url }}" class="cv-lugar">→</a>{% endif %}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+  {%- endif %}
+{%- endfor %}
+
+<section class="p-modulo">
+  <h2 class="p-label">cOntacto</h2>
+  <ul class="cv">
+    <li><span class="cv-anio">Info</span><span><a href="/info/">Bio y statement</a></span></li>
+    <li><span class="cv-anio">Mail</span><span><a href="mailto:guala.fajardo@gmail.com">guala.fajardo@gmail.com</a></span></li>
+    {%- for r in a.redes %}
+    <li><span class="cv-anio">{{ r.nombre }}</span><span><a href="{{ r.url }}" rel="me">{{ r.url | remove: "https://www." | remove: "https://" }}</a></span></li>
+    {%- endfor %}
+  </ul>
+</section>

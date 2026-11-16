@@ -152,3 +152,56 @@ content:
         label: Proyecto (nombre del archivo, ej. silencios-de-segundos)
         type: string
         required: true
+
+  - name: cv
+    label: CV
+    type: file
+    path: _data/cv.yml
+    format: yaml
+    fields:
+      - name: grupos
+        label: Grupos
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - name: nombre
+            label: Grupo
+            type: select
+            options:
+              values: [Exhibiciones, Convocatorias y premios, Residencias, Formación artística, Formación académica, Prensa]
+          - name: entradas
+            label: Entradas
+            type: object
+            list:
+              collapsible: true
+            fields:
+              - { name: anio, label: Año, type: string, description: "Ej.: 2024 o 2023–2024" }
+              - { name: titulo, label: Título, type: string }
+              - { name: lugar, label: Lugar, type: string }
+              - { name: proyecto, label: "Proyecto vinculado (opcional, ej. estacionn3)", type: string }
+
+  - name: artista
+    label: Artista (datos para Google e IA)
+    type: file
+    path: _data/artista.yml
+    format: yaml
+    fields:
+      - { name: nombre, label: Nombre, type: string }
+      - { name: alias, label: Alias, type: string }
+      - { name: oficio, label: Oficio, type: string }
+      - { name: linea, label: Línea de presentación, type: string }
+      - { name: bio, label: "Bio (tercera persona, ~100 palabras)", type: text }
+      - { name: statement, label: "Statement (primera persona; párrafos separados por una línea en blanco)", type: text }
+      - { name: nacimiento_lugar, label: Lugar de nacimiento, type: string }
+      - { name: nacimiento_anio, label: Año de nacimiento, type: string }
+      - { name: ciudad, label: Ciudad, type: string }
+      - { name: pais, label: País, type: string }
+      - { name: temas, label: Temas y disciplinas, type: string, list: true }
+      - name: redes
+        label: Redes
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Red, type: string }
+          - { name: url, label: Link, type: string }
