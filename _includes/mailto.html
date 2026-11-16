@@ -1,0 +1,5 @@
+{%- comment -%}
+  Link de mail con asunto armado. Uso: {% include mailto.html asunto="Consulta: Ethos" %}
+{%- endcomment -%}
+{%- assign cuerpo = "Hola Nicolás, me interesa " | append: include.que | append: "." -%}
+mailto:guala.fajardo@gmail.com?subject={{ include.asunto | uri_escape | replace: "&", "%26" | replace: "+", "%2B" }}&amp;body={{ cuerpo | uri_escape | replace: "&", "%26" | replace: "+", "%2B" }}

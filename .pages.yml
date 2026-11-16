@@ -36,6 +36,11 @@ content:
         label: Imagen para la home (opcional, puede ser un gif)
         type: image
         description: "Si la dejás vacía, se usa la imagen principal o la primera de la galería."
+      - name: adquirible
+        label: Obra disponible para adquirir
+        type: boolean
+        default: false
+        description: "Muestra el botón 'Consultar por esta obra' y la suma a la página Adquirir."
       - name: estado
         label: Estado
         type: select
@@ -177,6 +182,40 @@ content:
         label: Proyecto (nombre del archivo, ej. silencios-de-segundos)
         type: string
         required: true
+
+  - name: ediciones
+    label: Ediciones (impresiones, libros, piezas pequeñas)
+    type: collection
+    path: _ediciones
+    filename: "{primary}.md"
+    view:
+      primary: titulo
+      fields: [titulo, tipo, disponibilidad, precio]
+    fields:
+      - { name: titulo, label: Título, type: string, required: true }
+      - name: tipo
+        label: Tipo
+        type: select
+        options:
+          values: [Impresión, Libro de artista, Pieza pequeña, Fanzine, Otro]
+      - { name: obra, label: "Obra de la que nace (nombre del archivo, ej. ethos)", type: string }
+      - name: imagen
+        label: Imagen
+        type: image
+      - { name: descripcion, label: Descripción corta, type: text }
+      - { name: medidas, label: Medidas, type: string, description: "Ej.: 21 × 29,7 cm" }
+      - { name: tiraje, label: Tiraje, type: string, description: "Ej.: Edición de 20, firmada y numerada" }
+      - { name: precio, label: Precio, type: string, description: "Ej.: USD 40 · o dejalo vacío para 'consultar'" }
+      - name: disponibilidad
+        label: Disponibilidad
+        type: select
+        default: disponible
+        options:
+          values:
+            - { name: disponible, label: Disponible }
+            - { name: pocas, label: Quedan pocas }
+            - { name: agotado, label: Agotado }
+      - { name: orden, label: Orden, type: number }
 
   - name: cv
     label: CV

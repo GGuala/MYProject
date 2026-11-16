@@ -27,6 +27,12 @@ Cuando el proyecto pasa a **Inédito** o **Exhibido**, todo se muestra normal. Q
 
 Imágenes y IA: en todo el sitio, `robots.txt` deja que los rastreadores de IA lean los textos pero no descarguen imágenes (y las páginas llevan `noimageai`). Google y los buscadores ven todo.
 
+### Adquirir (venta directa por mail)
+
+- **Obra original**: en el proyecto, activá *Obra disponible para adquirir*. Aparece el botón "Consultar por esta obra" y la obra se suma a `/adquirir/`.
+- **Ediciones** (impresiones, libros de artista, piezas pequeñas): Pages CMS → *Ediciones*. Cada una puede indicar de qué obra nace; en ese caso también aparece en la página de esa obra.
+- Todos los botones abren un mail con el asunto ya escrito. Pago y envío se coordinan por mail.
+
 ### Para que te encuentren (Google e IA)
 
 - **CV**: `_data/cv.yml`, editable en Pages CMS → *CV*. Se publica en `/cv/` y, en cada publicación, se genera solo el PDF descargable (`/cv/nicolas-guala-cv.pdf`) a partir de `/cv/imprimible/`.
