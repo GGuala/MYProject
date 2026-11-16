@@ -1,0 +1,4 @@
+# Home — se edita desde Pages CMS → "Home".
+# Imagen de la sección "wHat I do". Si queda vacía, se usa la original (/img/home/working.webp).
+que_hago_imagen: /img/home/working.webp
+que_hago_alt: Mesa de trabajo con bocetos, planos y cuadernos

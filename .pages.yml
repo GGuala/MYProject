@@ -219,3 +219,15 @@ content:
         fields:
           - { name: nombre, label: Red, type: string }
           - { name: url, label: Link, type: string }
+
+  - name: home
+    label: Home
+    type: file
+    path: _data/home.yml
+    format: yaml
+    fields:
+      - name: que_hago_imagen
+        label: Imagen de "What I do"
+        type: image
+        description: "Subila tal cual; se convierte a webp sola. Si la dejás vacía, vuelve la imagen original."
+      - { name: que_hago_alt, label: "Descripción de la imagen (para accesibilidad y Google)", type: string }
