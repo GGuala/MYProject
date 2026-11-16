@@ -17,6 +17,11 @@ permalink: /sitemap.xml
   </url>
   {%- endfor %}
   <url>
+    <loc>{{ site.url }}/info/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>{{ site.url }}/cv/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

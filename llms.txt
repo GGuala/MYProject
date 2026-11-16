@@ -9,6 +9,14 @@ permalink: /llms.txt
 
 Disciplinas: {{ a.temas | join: ", " }}.
 
+## Bio
+
+{{ a.bio }}
+
+## Statement (en primera persona)
+
+{{ a.statement }}
+
 ## Proyectos
 
 {% for p in site.proyectos -%}
@@ -29,6 +37,7 @@ Disciplinas: {{ a.temas | join: ", " }}.
 ## Enlaces
 
 - [Sitio]({{ site.url }}/)
+- [Info]({{ site.url }}/info/)
 - [CV]({{ site.url }}/cv/)
 {% for r in a.redes -%}
 - [{{ r.nombre }}]({{ r.url }})

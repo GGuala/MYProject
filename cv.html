@@ -39,6 +39,7 @@ descripcion: "CV de Nicolás Guala, artista visual uruguayo (Montevideo, 1997): 
 <section class="p-modulo">
   <h2 class="p-label">cOntacto</h2>
   <ul class="cv">
+    <li><span class="cv-anio">Info</span><span><a href="/info/">Bio y statement</a></span></li>
     <li><span class="cv-anio">Mail</span><span><a href="mailto:guala.fajardo@gmail.com">guala.fajardo@gmail.com</a></span></li>
     {%- for r in a.redes %}
     <li><span class="cv-anio">{{ r.nombre }}</span><span><a href="{{ r.url }}" rel="me">{{ r.url | remove: "https://www." | remove: "https://" }}</a></span></li>

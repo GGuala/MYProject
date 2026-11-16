@@ -20,3 +20,25 @@ redes:
     url: https://www.instagram.com/heyguala/
   - nombre: Behance
     url: https://www.behance.net/n_guala
+
+# Bio (tercera persona) — se usa en /info, en Google y en el resumen para IA.
+bio: >-
+  Nicolás Guala (Montevideo, 1997) es artista visual. Trabaja con fotografía,
+  escultura e instalación alrededor de una misma pregunta: cómo dar forma a lo
+  que no tiene forma sin traicionarlo. En fotografía persigue la pausa: figuras
+  de espaldas, tomadas a distancia, en blanco y negro extremo, sin reencuadre
+  posterior. En escultura construye una cosmología propia con impresión 3D,
+  donde las huellas del proceso quedan a la vista. Es licenciado en Diseño, Arte
+  y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer
+  y Aldo Curto. Expuso en el Centro de Exposiciones SUBTE, el SODRE y el LATU,
+  entre otros espacios de Montevideo.
+
+# Statement (primera persona). Párrafos separados por una línea en blanco.
+statement: |-
+  De chico, el mundo era mi casa. Una casa que se caía a pedazos por la humedad, con estantes inalcanzables donde cada objeto guardaba una historia. Mi obra sigue siendo ese niño tratando de entender el mundo, antes de aprender a no darle importancia a lo que sentía.
+
+  Trabajo con lo que pasa desapercibido: el instante en que algo se detiene. En un mundo atado a la productividad, sostener un segundo de silencio es una forma de resistencia. Esa pausa es mi material.
+
+  En fotografía la busco a distancia, como quien fotografía fauna: espero, no intervengo, no me presento como fotógrafo. Disparo sin ver el resultado hasta llegar a casa y no reencuadro; dejo que el tiempo decida la imagen, como decide los momentos. Fotografío de espaldas porque no me interesan las caras: miro al humano como especie, no como retrato. En escultura trabajo la misma pregunta con otro material: cómo dar forma a lo que no tiene forma sin traicionarlo.
+
+  No busco que la obra transmita un mensaje. Busco que falle en eso, y que en el error cada persona encuentre lo suyo: la obra como espejo. Fotografío el silencio para encontrarme, y para que alguien, del otro lado, también se encuentre.

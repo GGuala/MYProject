@@ -191,6 +191,8 @@ content:
       - { name: alias, label: Alias, type: string }
       - { name: oficio, label: Oficio, type: string }
       - { name: linea, label: Línea de presentación, type: string }
+      - { name: bio, label: "Bio (tercera persona, ~100 palabras)", type: text }
+      - { name: statement, label: "Statement (primera persona; párrafos separados por una línea en blanco)", type: text }
       - { name: nacimiento_lugar, label: Lugar de nacimiento, type: string }
       - { name: nacimiento_anio, label: Año de nacimiento, type: string }
       - { name: ciudad, label: Ciudad, type: string }

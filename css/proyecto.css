@@ -183,3 +183,4 @@
 .cv a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.22); }
 .cv a:hover { border-color: var(--white); }
 .cv a em { font-family: var(--serif), Georgia, serif; }
+.p-bio { max-width: 640px; font-size: 18px; font-weight: 300; line-height: 1.85; color: var(--grey1); }
