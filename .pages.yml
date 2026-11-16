@@ -110,6 +110,20 @@ content:
           - { name: src, label: Imagen, type: image }
           - { name: alt, label: Texto alternativo, type: string }
           - { name: pie, label: Pie de foto, type: string }
+      - name: videos
+        label: Videos (YouTube o Vimeo)
+        description: "Pegá el link del video. Puede estar como 'no listado' en YouTube o Vimeo."
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: url, label: Link, type: string, description: "Ej.: https://youtu.be/… o https://vimeo.com/…" }
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [obra, vista de sala, proceso, registro]
+          - { name: pie, label: Pie del video, type: string }
       - name: exhibiciones
         label: Exhibiciones y convocatorias
         type: object

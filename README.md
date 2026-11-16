@@ -13,6 +13,8 @@ Para anotar algo del taller: **Registro de taller** → *Add entry* → fecha, t
 
 Si un campo queda vacío, ese módulo no aparece en la página.
 
+**Videos:** subilos a YouTube o Vimeo (pueden ser "no listados") y pegá el link en el campo *Videos* del proyecto. El reproductor carga recién cuando alguien toca "reproducir". No subas videos al repo: es público y GitHub rechaza archivos de más de 100 MB.
+
 ### Imágenes protegidas (spoilers)
 
 Los proyectos **En investigación** o **En producción** muestran sus imágenes con blur y el cartel "Contiene spoilers"; el visitante toca para verlas. Además, en esos proyectos:

@@ -153,6 +153,18 @@
       </section>
       {%- endif %}
 
+      {%- comment -%} 6b · Video (YouTube o Vimeo) {%- endcomment -%}
+      {%- if page.videos and page.videos.size > 0 %}
+      <section class="p-modulo">
+        <h2 class="p-label">vIdeo</h2>
+        <div class="videos">
+          {%- for v in page.videos %}
+          {% include video.html url=v.url pie=v.pie tipo=v.tipo titulo=titulo prot=protegido %}
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+
       {%- comment -%} 7 · Registro del proyecto {%- endcomment -%}
       {%- if entradas.size > 0 %}
       <section class="p-modulo">
@@ -234,5 +246,6 @@
     </footer>
     <script src="/js/lightbox.js" defer></script>
     <script src="/js/spoiler.js" defer></script>
+    <script src="/js/video.js" defer></script>
   </body>
 </html>

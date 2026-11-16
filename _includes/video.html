@@ -1,0 +1,41 @@
+{%- comment -%}
+  Video de YouTube o Vimeo. No carga nada de YouTube/Vimeo hasta que la persona
+  toca "reproducir" (más rápido y sin rastreo). En proyectos protegidos muestra
+  el cartel "Contiene spoilers" y no muestra la miniatura.
+  Parámetros: url, pie, tipo, titulo, prot
+  Acepta: youtu.be/ID · youtube.com/watch?v=ID · youtube.com/shorts/ID ·
+          vimeo.com/ID · vimeo.com/ID/HASH (videos no listados)
+{%- endcomment -%}
+{%- assign u = include.url | strip -%}
+{%- assign embed = "" -%}
+{%- assign miniatura = "" -%}
+{%- if u contains "youtu" -%}
+  {%- if u contains "youtu.be/" -%}
+    {%- assign vid = u | split: "youtu.be/" | last | split: "?" | first -%}
+  {%- elsif u contains "/shorts/" -%}
+    {%- assign vid = u | split: "/shorts/" | last | split: "?" | first -%}
+  {%- else -%}
+    {%- assign vid = u | split: "v=" | last | split: "&" | first -%}
+  {%- endif -%}
+  {%- capture embed -%}https://www.youtube-nocookie.com/embed/{{ vid }}?autoplay=1&rel=0{%- endcapture -%}
+  {%- capture miniatura -%}https://i.ytimg.com/vi/{{ vid }}/hqdefault.jpg{%- endcapture -%}
+{%- elsif u contains "vimeo.com/" -%}
+  {%- assign partes = u | split: "vimeo.com/" | last | split: "?" | first | split: "/" -%}
+  {%- assign vid = partes[0] -%}
+  {%- capture embed -%}https://player.vimeo.com/video/{{ vid }}?autoplay=1&dnt=1{% if partes.size > 1 %}&h={{ partes[1] }}{% endif %}{%- endcapture -%}
+{%- endif -%}
+{%- if embed != "" %}
+<figure class="video">
+  <div class="video-marco{% if include.prot %} video-marco--spoiler{% endif %}">
+    {%- if miniatura != "" and include.prot != true %}<img src="{{ miniatura }}" alt="" loading="lazy" />{% endif %}
+    <button class="video-play" type="button" data-embed="{{ embed }}" data-titulo="{{ include.pie | default: include.titulo | escape }}">
+      {%- if include.prot %}<span class="spoiler-titulo">Contiene spoilers</span>{% endif %}
+      <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="rgba(10,10,10,0.55)" stroke="rgba(255,255,255,0.5)"/><path d="M23 19l14 9-14 9z" fill="#fff"/></svg>
+      <span class="video-accion">Reproducir video</span>
+    </button>
+  </div>
+  {%- if include.pie or include.tipo %}
+  <figcaption class="pie">{% if include.tipo %}<span class="lbl">{{ include.tipo }}</span> {% endif %}{{ include.pie }}</figcaption>
+  {%- endif %}
+</figure>
+{%- endif -%}
