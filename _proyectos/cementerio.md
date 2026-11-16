@@ -1,4 +1,7 @@
 ---
+destacado: true
+orden: 2
+imagen_home: /cementerio/gif.gif
 published: true
 titulo: Cementerio
 estado: inedito

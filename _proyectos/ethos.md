@@ -1,4 +1,7 @@
 ---
+destacado: true
+orden: 1
+imagen_home: /ethos/gif.gif
 published: true
 titulo: Ethos
 estado: inedito
