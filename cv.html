@@ -16,6 +16,10 @@ descripcion: "CV de Nicolás Guala, artista visual uruguayo (Montevideo, 1997): 
     <span>{{ a.nacimiento_lugar }}, {{ a.nacimiento_anio }}</span>
   </div>
   <p class="p-cv-linea">{{ a.linea }}</p>
+  <a href="/cv/nicolas-guala-cv.pdf" class="btn-principal" download>
+    Descargar CV (PDF)
+    <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+  </a>
 </header>
 
 {%- for g in site.data.cv.grupos %}

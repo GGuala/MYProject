@@ -27,7 +27,7 @@ Imágenes y IA: en todo el sitio, `robots.txt` deja que los rastreadores de IA l
 
 ### Para que te encuentren (Google e IA)
 
-- **CV**: `_data/cv.yml`, editable en Pages CMS → *CV*. Se publica en `/cv/`.
+- **CV**: `_data/cv.yml`, editable en Pages CMS → *CV*. Se publica en `/cv/` y, en cada publicación, se genera solo el PDF descargable (`/cv/nicolas-guala-cv.pdf`) a partir de `/cv/imprimible/`.
 - **Info, bio y statement**: también en `_data/artista.yml` (Pages CMS → *Artista*). Se publican en `/info/`.
 - **Datos del artista**: `_data/artista.yml` (Pages CMS → *Artista*). Alimentan los datos estructurados (schema.org) de todas las páginas.
 - **`/llms.txt`**: resumen en texto para IA, se arma solo con proyectos y CV.
