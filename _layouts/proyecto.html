@@ -8,6 +8,8 @@
 {%- assign medio_principal = page.medios | first -%}
 {%- assign entradas = site.registro | where: "proyecto", page.slug | sort: "fecha" | reverse -%}
 {%- assign ultima = entradas | first -%}
+{%- assign primera = page.galeria | first -%}
+{%- assign portada = page.imagen | default: primera.src -%}
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -24,8 +26,8 @@
     {%- endif %}
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    {%- if page.imagen %}
-    <meta property="og:image" content="{{ site.url }}{{ page.imagen }}" />
+    {%- if portada %}
+    <meta property="og:image" content="{{ site.url }}{{ portada }}" />
     {%- endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,7 +136,7 @@
       {%- if page.galeria and page.galeria.size > 0 %}
       <section class="p-modulo">
         <h2 class="p-label">gAlería</h2>
-        {%- assign tipos = "obra,vista de sala,maqueta,proceso,render" | split: "," -%}
+        {%- assign tipos = "obra,vista de sala,render,maqueta,proceso,investigación" | split: "," -%}
         {%- for tipo in tipos %}
           {%- assign items = page.galeria | where: "tipo", tipo -%}
           {%- if items.size > 0 %}
@@ -206,7 +208,9 @@
         <div class="relacionados">
           {%- for p in relacionados %}
           <a href="{{ p.url }}" class="card">
-            {%- if p.imagen %}<img src="{% include miniatura.html src=p.imagen %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% endif %}
+            {%- assign p_primera = p.galeria | first -%}
+            {%- assign p_portada = p.imagen | default: p_primera.src -%}
+            {%- if p_portada %}<img src="{% include miniatura.html src=p_portada %}" alt="{{ p.titulo | escape }}" loading="lazy" />{% endif %}
             {% include estado.html valor=p.estado %}
             <span class="card-titulo">{{ p.titulo }}</span>
             <span class="card-meta">{{ p.anios }}{% if p.medios %} · {{ p.medios | join: ", " }}{% endif %}</span>
