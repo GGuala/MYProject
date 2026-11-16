@@ -1,0 +1,27 @@
+{%- comment -%}
+  Una imagen que abre el lightbox. Si el proyecto está protegido (estado en
+  investigación o producción), se muestra con blur y el cartel "Contiene
+  spoilers", y solo se publica la versión chica (900 px), también en el visor.
+
+  Parámetros: src, alt, pie, tipo, prot (protegido), chica (usar versión -m), lazy
+{%- endcomment -%}
+{%- capture chica_src -%}{% include miniatura.html src=include.src %}{%- endcapture -%}
+{%- assign chica_src = chica_src | strip -%}
+{%- if include.prot -%}
+  {%- assign full = chica_src -%}
+  {%- assign vista = chica_src -%}
+{%- else -%}
+  {%- assign full = include.src -%}
+  {%- if include.chica -%}{%- assign vista = chica_src -%}{%- else -%}{%- assign vista = include.src -%}{%- endif -%}
+{%- endif -%}
+<div class="media{% if include.prot %} media--spoiler{% endif %}">
+  <button class="lb-abrir" type="button" data-full="{{ full }}" data-pie="{{ include.pie | escape }}"{% if include.tipo %} data-tipo="{{ include.tipo }}"{% endif %} aria-label="Ampliar imagen"{% if include.prot %} inert{% endif %}>
+    <img src="{{ vista }}" alt="{{ include.alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %} />
+  </button>
+  {%- if include.prot %}
+  <button class="spoiler-btn" type="button">
+    <span class="spoiler-titulo">Contiene spoilers</span>
+    <span class="spoiler-accion">Tocá para ver</span>
+  </button>
+  {%- endif %}
+</div>

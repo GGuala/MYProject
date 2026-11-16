@@ -3,14 +3,18 @@
 # No cambies "clave": es lo que guardan los proyectos.
 #
 # icono: vacio · mitad · pausa · anillo · lleno
+# protegido: true = imágenes con blur y cartel "Contiene spoilers",
+#   solo en versión chica, fuera de Google Imágenes y sin vista previa al compartir.
 
 - clave: investigacion
   nombre: En investigación
   icono: vacio
+  protegido: true
 
 - clave: produccion
   nombre: En producción
   icono: mitad
+  protegido: true
 
 - clave: pausa
   nombre: En pausa
