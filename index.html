@@ -2,18 +2,23 @@
 # Home escrita a mano. El front matter solo activa los datos estructurados.
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <title>Guala :)</title>
+    <title>{{ site.data.home.seo.titulo }}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Art that thinks. Direction that feels. Sculptural art, visual direction, and installations by Nicolás Guala." />
-    <link rel="icon" href="box01.ico" type="image/x-icon" />
+    <meta name="description" content="{{ site.data.home.seo.descripcion | escape }}" />
+    <link rel="canonical" href="{{ site.url }}/" />
+    <meta property="og:title" content="{{ site.data.home.seo.titulo | escape }}" />
+    <meta property="og:description" content="{{ site.data.home.seo.descripcion | escape }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}/" />
+    <link rel="icon" href="/box01.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
-    <link href="styleSheet01.css" rel="stylesheet" />
+    <link href="/styleSheet01.css" rel="stylesheet" />
     <meta name="robots" content="index, follow, noimageai" />
     {% include persona-jsonld.html %}
     <script type="text/javascript">
@@ -30,115 +35,105 @@
     <!-- NAV -->
     {% include nav.html %}
 
+    {%- assign h = site.data.home -%}
+    {%- assign a = site.data.artista -%}
+
     <!-- HERO -->
     <section id="hero">
       <div class="hero-bg"></div>
       <div class="hero-scan">
-        <img src="Yo01.gif" alt="" class="hero-scan-img" />
+        <img src="/Yo01.gif" alt="" class="hero-scan-img" />
         <div class="hero-scan-fade"></div>
       </div>
-      <p class="hero-index" style="text-align: center;">Guala</p>
-      <h1>ART that <em>thinks</em> <br> <em>art</em> that FEels.</h1>
+      <p class="hero-index" style="text-align: center;">{{ a.nombre }}</p>
+      <h1>{{ h.hero.titular_1 | markdownify | remove: "<p>" | remove: "</p>" | strip }} <br> {{ h.hero.titular_2 | markdownify | remove: "<p>" | remove: "</p>" | strip }}</h1>
       <div class="hero-meta">
-        <p class="hero-name">Artist &amp; Art Director</p>
-        <p class="hero-descriptor">Sculptural art, visual direction, and the belief that the best ideas arrive before the brief.</p>
+        <p class="hero-name">{{ h.hero.rol }}</p>
+        <p class="hero-descriptor">{{ h.hero.descripcion }}</p>
       </div>
       <a href="mailto:guala.fajardo@gmail.com" class="hero-cta">
-        gEt in touch
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+        {{ h.hero.boton }}
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path d="M1 7h12M7 1l6 6-6 6"/>
         </svg>
       </a>
     </section>
 
-    <!-- WHAT I DO -->
+    <!-- QUÉ HAGO -->
     <section id="work">
-      <p class="section-label">wHat I do</p>
+      <p class="section-label">{{ h.que_hago.etiqueta }}</p>
       <div class="work-inner">
         <div class="services">
+          {%- for item in h.que_hago.items %}
           <div class="service-item">
-            <p class="service-text">I make <em>sculptural art</em> that asks where the spiritual lives in the physical world.</p>
+            <p class="service-text">{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
           </div>
-          <div class="service-item">
-            <p class="service-text">I <em>direct the visual language</em> of brands and campaigns — building universes before assets.</p>
-          </div>
-          <div class="service-item">
-            <p class="service-text">I work on <em>installations and spatial experiences</em>, including technically complex ones. Robotics, immersive environments, engineering constraints — these are the interesting part.</p>
-          </div>
+          {%- endfor %}
         </div>
         <div class="work-image">
-          <img src="working.webp" alt="" class="work-img">
+          <img src="{{ h.que_hago.imagen | default: '/img/home/working.webp' }}" alt="{{ h.que_hago.imagen_alt | escape }}" class="work-img">
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-<section id="aboutMe">
-  <div class="about-left">
-    <p class="section-label">aBout</p>
-    <p class="about-text">My practice spans sculpture, photography, and technology around a single pursuit: finding the pause in a world in a hurry.</p>
-    <p class="about-text">I look for flashes in the ordinary — a light, a gesture, a silence that interrupts the noise. That sensibility is the engine of my work and the experience I seek to provoke in those who encounter it.</p>
-  </div>
-  <div class="about-right">
-    <p class="about-text">I operate from two gestures: sculpture that builds and invokes those moments, and photography that captures and constructs them when they appear. In every case, I seek to create the conditions for the viewer to stop — and with that second of pause, perhaps change the world.</p>
-    <p class="about-detail">Currently between Uruguay and Europe</p>
-  </div>
-</section>
-
-    <!-- WORK FLASH -->
-    <section id="works">
-      <p class="section-label">Selected work</p>
-      <div class="pieces-grid">
-
-        <a href="https://www.heyguala.com/ethos">
-          <div class="piece">
-          <img class="piece-media" src="ethos/gif.gif" alt="Ethos"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="piece-placeholder" style="display:none"><div class="piece-placeholder-inner"></div></div>
-          <div class="piece-info">
-            <p class="piece-title">Ethos</p>
-            <p class="piece-year">2025</p>
-          </div>
-          </div>
-        </a>
-
-        <a href="https://www.heyguala.com/cementerio">
-          <div class="piece">
-          <img class="piece-media" src="cementerio/gif.gif" alt="Cementerio"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="piece-placeholder" style="display:none"><div class="piece-placeholder-inner"></div></div>
-          <div class="piece-info">
-            <p class="piece-title">Cementerio</p>
-            <p class="piece-year">2024</p>
-          </div>
-          </div>
-        </a>
-
-        <a href="https://www.heyguala.com/estacionn3">
-          <div class="piece">
-          <img class="piece-media" src="estacionn3/gif.gif" alt="Estación N3"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="piece-placeholder" style="display:none"><div class="piece-placeholder-inner"></div></div>
-          <div class="piece-info">
-            <p class="piece-title">Estación N3</p>
-            <p class="piece-year">2024</p>
-          </div>
-          </div>
-        </a>
-
+    <!-- SOBRE MÍ -->
+    <section id="aboutMe">
+      <div class="about-left">
+        <p class="section-label">{{ h.sobre_mi.etiqueta }}</p>
+        {%- for t in h.sobre_mi.columna_1 %}
+        <p class="about-text">{{ t | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {%- endfor %}
+      </div>
+      <div class="about-right">
+        {%- for t in h.sobre_mi.columna_2 %}
+        <p class="about-text">{{ t | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {%- endfor %}
+        <p class="about-detail">{{ h.sobre_mi.detalle }} · <a href="/info/" class="about-mas">bio y statement →</a></p>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- OBRA: proyectos con "Mostrar en la home" activado, en orden -->
+    {%- assign destacados = site.proyectos | where: "destacado", true | sort: "orden" -%}
+    {%- if destacados.size > 0 %}
+    <section id="works">
+      <p class="section-label">{{ h.obra.etiqueta }}</p>
+      <div class="pieces-grid">
+        {%- for p in destacados %}
+          {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}
+          {%- assign p_primera = p.galeria | first -%}
+          {%- assign p_portada = p.imagen | default: p_primera.src -%}
+          {%- capture p_img -%}{%- if p.imagen_home -%}{{ p.imagen_home }}{%- elsif p_portada -%}{% include miniatura.html src=p_portada %}{%- endif -%}{%- endcapture -%}
+          {%- assign p_img = p_img | strip -%}
+        <a href="{{ p.url }}">
+          <div class="piece{% if p_est.protegido %} piece--spoiler{% endif %}">
+            {%- if p_img != "" %}
+            <img class="piece-media" src="{{ p_img }}" alt="{{ p.titulo | escape }}" loading="lazy" />
+            {%- else %}
+            <div class="piece-placeholder"><div class="piece-placeholder-inner"></div></div>
+            {%- endif %}
+            {%- if p_est.protegido %}<span class="piece-spoiler">Contiene spoilers</span>{% endif %}
+            <div class="piece-info">
+              <p class="piece-title">{{ p.titulo }}</p>
+              <p class="piece-year">{{ p.anios }}{% if p_est %} · {{ p_est.nombre }}{% endif %}</p>
+            </div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endif %}
+
+    <!-- CONTACTO -->
     <section id="contacto">
       <div class="contact-bg"></div>
-      <p class="contact-pre">Let's talk</p>
-      <h2 class="contact-heading">Get in touch.</h2>
-      <p class="contact-sub">Whether you have a project in mind, want to acquire a piece, or just want to start a conversation — I'm listening.</p>
+      <p class="contact-pre">{{ h.contacto.antetitulo }}</p>
+      <h2 class="contact-heading">{{ h.contacto.titulo }}</h2>
+      <p class="contact-sub">{{ h.contacto.texto }}</p>
       <a href="mailto:guala.fajardo@gmail.com" class="contact-email">guala.fajardo@gmail.com</a>
       <div id="links">
-        <a href="https://www.instagram.com/heyguala/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.behance.net/n_guala" target="_blank" rel="noopener">Behance</a>
+        {%- for r in a.redes %}
+        <a href="{{ r.url }}" target="_blank" rel="noopener me">{{ r.nombre }}</a>
+        {%- endfor %}
       </div>
     </section>
 

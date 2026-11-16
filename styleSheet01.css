@@ -387,10 +387,20 @@ section + section::before {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(100%) brightness(0.75);
+  filter: brightness(0.8);
   transition: filter 0.6s ease, transform 0.8s ease;
 }
-.piece:hover .piece-media { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
+.piece:hover .piece-media { filter: brightness(1); transform: scale(1.04); }
+/* proyectos en investigación o producción: blur + cartel */
+.piece--spoiler .piece-media, .piece--spoiler:hover .piece-media { filter: blur(24px) brightness(0.8); transform: scale(1.15); }
+.piece-spoiler {
+  position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%);
+  font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--white); padding: 8px 14px; border: 1px solid rgba(255,255,255,0.4); border-radius: 10px;
+  background: rgba(10,10,10,0.45); white-space: nowrap;
+}
+.about-mas { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.22); }
+.about-mas:hover { color: var(--white); border-color: var(--white); }
 .piece-placeholder {
   width: 100%; height: 100%;
   background: var(--surface);

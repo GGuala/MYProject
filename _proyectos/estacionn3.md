@@ -1,4 +1,7 @@
 ---
+destacado: true
+orden: 3
+imagen_home: /estacionn3/gif.gif
 titulo: Estación N°3
 estado: exhibido
 anios: "2024"

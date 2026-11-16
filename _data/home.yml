@@ -1,0 +1,40 @@
+# Home — se edita desde Pages CMS → "Home".
+# Para cursiva usá *asteriscos*: "Hago *arte escultórico* que…"
+
+seo:
+  titulo: "Nicolás Guala — Artista visual | Escultura, fotografía e instalación"
+  descripcion: "Nicolás Guala (Montevideo, 1997), artista visual. Escultura, fotografía e instalación en torno a una búsqueda: encontrar la pausa en un mundo con prisa."
+
+hero:
+  titular_1: ART that *thinks*
+  titular_2: "*art* that FEels."
+  rol: Artista y director de arte
+  descripcion: Arte escultórico, dirección visual y la convicción de que las mejores ideas llegan antes que el brief.
+  boton: hAblemos
+
+que_hago:
+  etiqueta: qUé hago
+  items:
+    - Hago *arte escultórico* que pregunta dónde vive lo espiritual en el mundo físico.
+    - "*Dirijo el lenguaje visual* de marcas y campañas: construyo universos antes que piezas."
+    - "Trabajo en *instalaciones y experiencias espaciales*, también las técnicamente complejas. Robótica, entornos inmersivos, restricciones de ingeniería: esa es la parte interesante."
+  # Imagen de la sección. Si queda vacía, se usa la original.
+  imagen: /img/home/working.webp
+  imagen_alt: Mesa de trabajo con bocetos, planos y cuadernos
+
+sobre_mi:
+  etiqueta: sObre mí
+  columna_1:
+    - "Mi práctica cruza escultura, fotografía y tecnología alrededor de una sola búsqueda: encontrar la pausa en un mundo con prisa."
+    - "Busco destellos en lo cotidiano: una luz, un gesto, un silencio que interrumpe el ruido. Esa sensibilidad es el motor de mi obra y la experiencia que busco provocar en quien se encuentra con ella."
+  columna_2:
+    - "Trabajo desde dos gestos: la escultura, que construye e invoca esos momentos, y la fotografía, que los captura y los construye cuando aparecen. En todos los casos busco crear las condiciones para que quien mira se detenga y, con ese segundo de pausa, quizás cambiar el mundo."
+  detalle: Actualmente entre Uruguay y Europa
+
+obra:
+  etiqueta: oBra seleccionada
+
+contacto:
+  antetitulo: Hablemos
+  titulo: Escribime.
+  texto: "Si tenés un proyecto en mente, querés adquirir una obra o simplemente empezar una conversación: te leo."

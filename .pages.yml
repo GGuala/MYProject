@@ -25,6 +25,17 @@ content:
         label: Título
         type: string
         required: true
+      - name: destacado
+        label: Mostrar en la home
+        type: boolean
+        default: false
+      - name: orden
+        label: Orden en la home (1 = primero)
+        type: number
+      - name: imagen_home
+        label: Imagen para la home (opcional, puede ser un gif)
+        type: image
+        description: "Si la dejás vacía, se usa la imagen principal o la primera de la galería."
       - name: estado
         label: Estado
         type: select
@@ -110,6 +121,20 @@ content:
           - { name: src, label: Imagen, type: image }
           - { name: alt, label: Texto alternativo, type: string }
           - { name: pie, label: Pie de foto, type: string }
+      - name: videos
+        label: Videos (YouTube o Vimeo)
+        description: "Pegá el link del video. Puede estar como 'no listado' en YouTube o Vimeo."
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: url, label: Link, type: string, description: "Ej.: https://youtu.be/… o https://vimeo.com/…" }
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [obra, vista de sala, proceso, registro]
+          - { name: pie, label: Pie del video, type: string }
       - name: exhibiciones
         label: Exhibiciones y convocatorias
         type: object
@@ -205,3 +230,56 @@ content:
         fields:
           - { name: nombre, label: Red, type: string }
           - { name: url, label: Link, type: string }
+
+  - name: home
+    label: Home
+    type: file
+    path: _data/home.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Google (título y descripción de la home)
+        type: object
+        fields:
+          - { name: titulo, label: Título de la pestaña y de Google, type: string }
+          - { name: descripcion, label: Descripción para Google, type: text }
+      - name: hero
+        label: Portada
+        type: object
+        fields:
+          - { name: titular_1, label: "Titular, línea 1 (*cursiva* con asteriscos)", type: string }
+          - { name: titular_2, label: "Titular, línea 2", type: string }
+          - { name: rol, label: Rol, type: string }
+          - { name: descripcion, label: Descripción, type: text }
+          - { name: boton, label: Texto del botón, type: string }
+      - name: que_hago
+        label: Qué hago
+        type: object
+        fields:
+          - { name: etiqueta, label: Etiqueta de sección, type: string }
+          - { name: items, label: "Frases (*cursiva* con asteriscos)", type: string, list: true }
+          - name: imagen
+            label: Imagen
+            type: image
+            description: "Subila tal cual; se convierte a webp sola. Si la dejás vacía, vuelve la original."
+          - { name: imagen_alt, label: "Descripción de la imagen (accesibilidad y Google)", type: string }
+      - name: sobre_mi
+        label: Sobre mí
+        type: object
+        fields:
+          - { name: etiqueta, label: Etiqueta de sección, type: string }
+          - { name: columna_1, label: Párrafos columna izquierda, type: text, list: true }
+          - { name: columna_2, label: Párrafos columna derecha, type: text, list: true }
+          - { name: detalle, label: Línea final, type: string }
+      - name: obra
+        label: Obra
+        type: object
+        fields:
+          - { name: etiqueta, label: Etiqueta de sección, type: string }
+      - name: contacto
+        label: Contacto
+        type: object
+        fields:
+          - { name: antetitulo, label: Antetítulo, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, type: text }
