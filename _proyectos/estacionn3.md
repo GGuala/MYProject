@@ -5,8 +5,8 @@ imagen_home: /estacionn3/gif.gif
 titulo: Estación N°3
 estado: exhibido
 anios: '2024'
-descripcion: 'Estación N°3 (2024): instalación espacial de Nicolás Guala. Entorno inmersivo donde las decisiones de ingeniería son decisiones formales. Procesa Génesis, Sagrado Estudio, Montevideo.'
-descripcion_en: 'Estación N°3 (2024): spatial installation by Nicolás Guala. An immersive environment where engineering decisions are formal decisions. Procesa Génesis, Sagrado Estudio, Montevideo.'
+descripcion: 'Estación N°3 (2024): instalación espacial inmersiva de Nicolás Guala, donde las decisiones de ingeniería son decisiones formales. Procesa Génesis, Montevideo.'
+descripcion_en: 'Estación N°3 (2024): immersive spatial installation by Nicolás Guala, where engineering decisions are formal decisions. Procesa Génesis, Montevideo.'
 imagen: /estacionn3/gif.gif
 imagen_alt: Estación N°3 — Nicolás Guala, 2024
 imagen_alt_en: Estación N°3 — Nicolás Guala, 2024

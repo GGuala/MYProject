@@ -14,8 +14,8 @@ medios_en:
 - 3D printing
 hilos:
 - La forma de lo divino
-descripcion: 'Ethos (2024): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol que interrogan la imagen de la divinidad como constructo. Artista uruguayo, Montevideo.'
-descripcion_en: 'Ethos (2024): sculptural installation by Nicolás Guala. Three 3D-printed PLA and spray-paint pieces that question the image of divinity as a construct. Uruguayan artist, Montevideo.'
+descripcion: 'Ethos (2024): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol que interrogan la imagen de la divinidad.'
+descripcion_en: 'Ethos (2024): sculptural installation by Nicolás Guala. Three 3D-printed PLA and spray-paint pieces that question the image of divinity.'
 imagen: /img/ethos/total01.webp
 imagen_alt: Ethos — vista general de la instalación, Nicolás Guala, 2024
 imagen_alt_en: Ethos — general view of the installation, Nicolás Guala, 2024
@@ -52,32 +52,32 @@ ficha:
 galeria:
 - tipo: render
   src: /img/ethos/total02.webp
-  alt: Ethos — vista general
+  alt: 'Ethos — render de sala: pieza roja de formas ramificadas y pieza blanca texturada sobre la pared de una sala de exposición'
   pie: Ethos, 2024. Render de sala.
-  alt_en: Ethos — general view
+  alt_en: 'Ethos — room render: red branching piece and white textured piece on the wall of an exhibition room'
   pie_en: Ethos, 2024. Room render.
 - tipo: render
   src: /img/ethos/total03.webp
-  alt: Ethos — vista general
+  alt: 'Ethos — render de sala con la pared de texto de la muestra y las tres piezas en el muro'
   pie: Ethos, 2024. Render de sala.
-  alt_en: Ethos — general view
+  alt_en: 'Ethos — room render showing the exhibition text wall and the three pieces on the wall'
   pie_en: Ethos, 2024. Room render.
 - tipo: obra
   src: /img/ethos/001.webp
-  alt: Ethos — detalle 001
+  alt: 'Ethos — detalle de la pieza amarilla en impresión 3D, con la textura porosa y las capas visibles'
   pie: Ethos, 2024. Detalle.
-  alt_en: Ethos — detail 001
+  alt_en: 'Ethos — detail of the yellow 3D-printed piece, showing its porous texture and visible layers'
   pie_en: Ethos, 2024. Detail.
 - tipo: obra
   src: /img/ethos/002.webp
-  alt: Ethos — detalle 002
+  alt: 'Ethos — detalle de la pieza roja en impresión 3D, con las capas del filamento visibles'
   pie: Ethos, 2024. Detalle.
-  alt_en: Ethos — detail 002
+  alt_en: 'Ethos — detail of the red 3D-printed piece, with the filament layers visible'
   pie_en: Ethos, 2024. Detail.
 - tipo: obra
   src: /img/ethos/003.webp
-  alt: Ethos — detalle 003
+  alt: 'Ethos — detalle de la pieza roja con prolongaciones en forma de dedos, vista frontal'
   pie: Ethos, 2024. Detalle.
-  alt_en: Ethos — detail 003
+  alt_en: 'Ethos — detail of the red piece with its finger-like extensions, front view'
   pie_en: Ethos, 2024. Detail.
 ---

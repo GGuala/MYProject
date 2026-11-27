@@ -225,3 +225,8 @@
 .edicion-estado { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey2); }
 .edicion--agotada .edicion-img img { opacity: .45; }
 .p-header .btn-principal { margin-top: 8px; }
+
+/* ── Preguntas y respuestas (/info/) ── */
+.p-faq h3 { font-size: 18px; font-weight: 500; margin: 32px 0 8px; color: var(--grey1); }
+.p-faq p { max-width: 640px; font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--grey1); margin: 0; }
+.p-faq a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
