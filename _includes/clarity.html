@@ -1,0 +1,18 @@
+{%- comment -%}
+  Microsoft Clarity. Para que no registre tus propias visitas: entrá una vez a
+  heyguala.com/?noclarity=1 en cada navegador que uses (para volver a activarlo: ?noclarity=0).
+  La marca se guarda en ese navegador, así que sirve aunque cambie tu IP.
+{%- endcomment -%}
+<script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = l.location.search;
+      if (/[?&]noclarity=1(&|$)/.test(q)) c.localStorage.setItem("noClarity", "1");
+      if (/[?&]noclarity=0(&|$)/.test(q)) c.localStorage.removeItem("noClarity");
+      if (c.localStorage.getItem("noClarity")) return;
+    } catch (e) {}
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "y4utpmr1d9");
+</script>
