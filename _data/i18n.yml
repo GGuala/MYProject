@@ -66,6 +66,16 @@ en:
     asunto_general: "Inquiry: acquiring work"
     mail_hola: "Hi Nicolás, I'm interested in"
     mail_general: acquiring a work
+    form_titulo: "I'm interested in"
+    form_nombre: Name
+    form_email: Email
+    form_mensaje: Message (optional)
+    form_aviso: "I'll only use your email to reply to this inquiry."
+    form_enviar: Send
+    form_enviando: Sending…
+    form_ok: "Thanks, I got your message. I'll write back soon."
+    form_error: "It didn't go through. Try again or write by email."
+    form_respaldo: Write by email instead
   home:
     bio_link: bio and statement →
 
@@ -133,5 +143,15 @@ es:
     asunto_general: "Consulta: adquirir obra"
     mail_hola: "Hola Nicolás, me interesa"
     mail_general: adquirir una obra
+    form_titulo: Me interesa
+    form_nombre: Nombre
+    form_email: Email
+    form_mensaje: Mensaje (opcional)
+    form_aviso: Uso tu mail solo para responder a esta consulta.
+    form_enviar: Enviar
+    form_enviando: Enviando…
+    form_ok: Gracias, me llegó tu mensaje. Te respondo pronto.
+    form_error: No se pudo enviar. Probá de nuevo o escribime por mail.
+    form_respaldo: Escribir por mail
   home:
     bio_link: bio y statement →

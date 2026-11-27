@@ -1,0 +1,27 @@
+{%- comment -%}
+  Formulario "Me interesa" de cada pieza. Solo se activa si hay URL en
+  Pages CMS → Textos de páginas → Consultas. Sin URL, los botones abren el mail
+  como siempre. Se incluye en las páginas con botones de consulta.
+{%- endcomment -%}
+{%- assign _url = site.data.paginas.consultas.url | strip -%}
+{%- if _url != "" and _url %}
+<dialog class="consulta" id="consulta" aria-labelledby="consulta-titulo" data-url="{{ _url }}" data-lang="{{ lang }}" data-enviando="{{ L.adquirir.form_enviando | escape }}" data-ok="{{ L.adquirir.form_ok | escape }}" data-error="{{ L.adquirir.form_error | escape }}">
+  <button type="button" class="consulta-cerrar" data-cerrar aria-label="{{ L.cerrar }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.2"/></svg></button>
+  <p class="consulta-lbl" id="consulta-titulo">{{ L.adquirir.form_titulo }}</p>
+  <p class="consulta-pieza"></p>
+  <form method="post" action="#">
+    <input type="hidden" name="pieza" />
+    <input type="hidden" name="idioma" />
+    <input type="hidden" name="pagina" />
+    <div class="consulta-trampa" aria-hidden="true"><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off" /></label></div>
+    <label>{{ L.adquirir.form_nombre }}<input type="text" name="nombre" required maxlength="100" autocomplete="name" /></label>
+    <label>{{ L.adquirir.form_email }}<input type="email" name="email" required maxlength="150" autocomplete="email" /></label>
+    <label>{{ L.adquirir.form_mensaje }}<textarea name="mensaje" rows="4" maxlength="1500"></textarea></label>
+    <p class="consulta-aviso">{{ L.adquirir.form_aviso }}</p>
+    <button type="submit" class="btn-principal">{{ L.adquirir.form_enviar }}</button>
+  </form>
+  <p class="consulta-estado" role="status" aria-live="polite"></p>
+  <a class="consulta-respaldo" href="#">{{ L.adquirir.form_respaldo }}</a>
+</dialog>
+<script src="/js/consulta.js" defer></script>
+{%- endif %}

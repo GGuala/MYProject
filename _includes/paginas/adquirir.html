@@ -31,7 +31,7 @@
         <span class="card-meta">{{ p.anios }}{% if p.ficha.tecnica %} · {% include t.html o=p.ficha c="tecnica" %}{% endif %}{% if p.ficha.medidas %} · {% include t.html o=p.ficha c="medidas" %}{% endif %}</span>
       </a>
       {%- capture asunto -%}{{ L.adquirir.asunto_consulta }} {{ p.titulo }}{%- endcapture -%}
-      <a class="card-consulta" href="{% include mailto.html asunto=asunto que=p.titulo %}">{{ L.adquirir.consultar }}</a>
+      <a class="card-consulta" href="{% include mailto.html asunto=asunto que=p.titulo %}" data-consulta="{{ p.titulo | escape }}">{{ L.adquirir.consultar }}</a>
     </div>
     {%- endfor %}
   </div>

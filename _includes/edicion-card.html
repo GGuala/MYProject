@@ -24,7 +24,7 @@
     {%- if e.disponibilidad == "pocas" %}<span class="edicion-estado">{{ L.adquirir.pocas }}</span>{% endif %}
     {%- capture asunto -%}{{ L.adquirir.asunto_pedido }} {{ e_titulo }}{%- endcapture -%}
     {%- capture que -%}{{ e_titulo }}{% if e_obra %} ({{ e_obra.titulo }}){% endif %}{%- endcapture -%}
-    <a class="btn-principal" href="{% include mailto.html asunto=asunto que=que %}">
+    <a class="btn-principal" href="{% include mailto.html asunto=asunto que=que %}" data-consulta="{{ que | escape }}">
       {{ L.adquirir.pedir }}
       <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
     </a>

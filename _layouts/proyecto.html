@@ -85,7 +85,7 @@
         {%- endif %}
         {%- if obra.adquirible %}
         {%- capture asunto -%}{{ L.adquirir.asunto_consulta }} {{ titulo }}{%- endcapture -%}
-        <a class="btn-principal" href="{% include mailto.html asunto=asunto que=titulo %}">
+        <a class="btn-principal" href="{% include mailto.html asunto=asunto que=titulo %}" data-consulta="{{ titulo | escape }}">
           {{ L.adquirir.consultar_obra }}
           <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
         </a>
@@ -283,6 +283,8 @@
       <figure class="lb-figura"><img alt="" /><figcaption><span class="lb-pie"></span><span class="lb-cuenta"></span></figcaption></figure>
       <button class="lb-sig" aria-label="{{ L.siguiente }}"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
     </div>
+
+    {% include consulta-dialog.html %}
 
     <footer>
       <span>©Guala</span>
