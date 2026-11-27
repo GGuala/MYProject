@@ -11,6 +11,8 @@ medios_en:
 - Installation
 descripcion: 'Silencios de segundos (2026–): serie de Nicolás Guala. Fotografías en blanco y negro en tiras de papel térmico de 80 mm que cuelgan del techo.'
 descripcion_en: 'Silencios de segundos (2026–): series by Nicolás Guala. Black-and-white photographs on 80 mm thermal paper strips hanging from the ceiling.'
+resumen: 'Silencios de segundos (2026–) es una serie de fotografías en blanco y negro impresas en tiras de papel térmico de 80 mm que cuelgan del techo. Está en producción.'
+resumen_en: 'Silencios de segundos (2026–) is a series of black-and-white photographs printed on 80 mm thermal paper strips that hang from the ceiling. It is in production.'
 texto: |-
   *Silencios de segundos* es una serie de fotografías en blanco y negro impresas en tiras de papel térmico de 80 mm, el papel de los tickets de caja, hecho para registrar una compra y terminar en la basura. Cada fotografía se divide en tiras verticales que cuelgan del techo y se mueven con el aire. Varias de estas imágenes ocupan una misma sala, y ninguna aparece entera: hay que recorrer el espacio entre ellas para reconstruirlas. Son fotos tomadas en derivas por la ciudad, como siluetas al atardecer, una figura mínima frente al mar o un edificio que se curva sobre la calle. Instantes que casi nadie se detiene a mirar, sostenidos en un soporte que no fue hecho para durar.
 texto_en: |-

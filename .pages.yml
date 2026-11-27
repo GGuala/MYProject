@@ -89,6 +89,12 @@ content:
   - name: descripcion_en
     label: Descripción para Google (1–2 frases) (EN)
     type: text
+  - name: resumen
+    label: Resumen de la obra (lo que se ve arriba de la página; qué es, de qué está hecha, estado)
+    type: text
+  - name: resumen_en
+    label: Resumen de la obra (EN)
+    type: text
   - name: imagen
     label: Imagen principal (opcional)
     type: image

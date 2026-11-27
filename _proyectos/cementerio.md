@@ -16,6 +16,8 @@ hilos:
 - La forma de lo divino
 descripcion: 'Cementerio (2024–): serie conceptual de Nicolás Guala sobre los dioses como emociones efímeras. Instalación escultórica en desarrollo. Montevideo, Uruguay.'
 descripcion_en: 'Cementerio (2024–): conceptual series by Nicolás Guala about gods as ephemeral emotions. Sculptural installation in progress. Montevideo, Uruguay.'
+resumen: 'Cementerio (2024–) es una serie conceptual de instalación escultórica sobre los dioses como emociones efímeras: seres sin forma definida, intensos y breves. Está en desarrollo y todavía no fue exhibida.'
+resumen_en: 'Cementerio (2024–) is a conceptual series of sculptural installation about gods as ephemeral emotions: beings without a defined form, intense and brief. It is in development and has not been exhibited yet.'
 imagen: /img/cementerio/general.webp
 imagen_alt: Cementerio — vista general, Nicolás Guala, 2024
 imagen_alt_en: Cementerio — general view, Nicolás Guala, 2024
