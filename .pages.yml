@@ -701,10 +701,3 @@ content:
     - name: resumen_en
       label: Resumen en prosa (EN)
       type: text
-  - name: consultas
-    label: Formulario "Me interesa"
-    type: object
-    fields:
-    - name: url
-      label: URL de la aplicación web de Google (Apps Script). Vacío = los botones abren el mail.
-      type: string

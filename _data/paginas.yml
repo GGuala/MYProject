@@ -5,6 +5,3 @@ adquirir:
 cv:
   resumen: Nicolás Guala es licenciado en Diseño, Arte y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer y Aldo Curto. Expuso en el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo.
   resumen_en: Nicolás Guala holds a degree in Design, Art and Technology from Universidad ORT and trained in the studios of Rita Fischer and Aldo Curto. He has exhibited at the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo.
-# Formulario "Me interesa": pegá acá la URL de la aplicación web de Google Apps Script. Vacío = los botones abren el mail.
-consultas:
-  url: ""

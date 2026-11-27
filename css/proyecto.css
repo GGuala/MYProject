@@ -233,19 +233,3 @@
 
 /* Resumen de la obra (primera frase factual, para lectores y buscadores) */
 .p-resumen { max-width: 640px; margin: 28px 0 0; font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--grey1); }
-
-/* ── Formulario "Me interesa" ── */
-.consulta { margin: auto; width: min(480px, calc(100vw - 32px)); padding: 40px 32px 32px; background: var(--bg2); color: var(--white); border: 1px solid var(--line); border-radius: 0; }
-.consulta::backdrop { background: rgba(0,0,0,0.7); }
-.consulta-cerrar { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 0; color: var(--white); cursor: pointer; }
-.consulta-lbl { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--grey2); margin: 0 0 8px; }
-.consulta-pieza { font-size: 24px; font-weight: 400; margin: 0 0 28px; }
-.consulta form label { display: block; font-size: 14px; color: var(--grey1); margin-bottom: 18px; }
-.consulta input[type=text], .consulta input[type=email], .consulta textarea { display: block; width: 100%; margin-top: 6px; padding: 12px; font: inherit; font-size: 16px; color: var(--white); background: transparent; border: 1px solid rgba(255,255,255,0.22); border-radius: 0; }
-.consulta input:focus, .consulta textarea:focus { outline: 1px solid var(--white); }
-.consulta-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.consulta-aviso { font-size: 13px; color: var(--grey2); margin: 0 0 24px; }
-.consulta-estado { min-height: 1.4em; margin: 20px 0 0; font-size: 15px; color: var(--grey1); }
-.consulta-estado.es-error { color: var(--white); }
-.consulta-respaldo { display: inline-block; margin-top: 12px; font-size: 14px; color: var(--grey1); text-decoration: underline; text-underline-offset: 3px; }
-.consulta button.btn-principal { border: 0; cursor: pointer; margin-top: 0; }
