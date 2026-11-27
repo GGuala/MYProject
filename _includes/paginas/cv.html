@@ -10,6 +10,10 @@
     <span>{{ a.nacimiento_lugar }}, {{ a.nacimiento_anio }}</span>
   </div>
   <p class="p-cv-linea">{% include t.html o=a c="linea" %}</p>
+  {%- capture _resumen -%}{% include t.html o=site.data.paginas.cv c="resumen" %}{%- endcapture %}
+  {%- if _resumen != "" %}
+  <p class="p-resumen">{{ _resumen }}</p>
+  {%- endif %}
   <a href="{{ base }}/cv/nicolas-guala-cv.pdf" class="btn-principal" download>
     {{ L.cv.descargar }}
     <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>

@@ -496,6 +496,24 @@ content:
   - name: pais
     label: País
     type: string
+  - name: faq
+    label: Preguntas y respuestas de la página Info (para Google y asistentes de IA)
+    type: object
+    list:
+      collapsible: true
+    fields:
+    - name: pregunta
+      label: Pregunta
+      type: string
+    - name: respuesta
+      label: Respuesta (1–3 frases; para enlazar usá [texto]({base}/cv/))
+      type: text
+    - name: pregunta_en
+      label: Pregunta (EN)
+      type: string
+    - name: respuesta_en
+      label: Respuesta (EN)
+      type: text
   - name: temas
     label: Temas y disciplinas
     type: string
@@ -656,4 +674,30 @@ content:
       type: text
     - name: texto_en
       label: Texto (EN)
+      type: text
+- name: paginas
+  label: Textos de páginas (Adquirir y CV)
+  type: file
+  path: _data/paginas.yml
+  format: yaml
+  fields:
+  - name: adquirir
+    label: Página Adquirir
+    type: object
+    fields:
+    - name: intro
+      label: Texto de presentación
+      type: text
+    - name: intro_en
+      label: Texto de presentación (EN)
+      type: text
+  - name: cv
+    label: Página CV
+    type: object
+    fields:
+    - name: resumen
+      label: Resumen en prosa (formación y exposiciones, 2–3 frases)
+      type: text
+    - name: resumen_en
+      label: Resumen en prosa (EN)
       type: text

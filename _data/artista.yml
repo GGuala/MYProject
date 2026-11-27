@@ -45,3 +45,26 @@ statement_en: |-
   In photography I look for it from a distance, the way one photographs wildlife: I wait, I don't intervene, I don't present myself as a photographer. I shoot without seeing the result until I get home, and I don't crop; I let time decide the image, the way it decides moments. I photograph people from behind because faces don't interest me: I look at the human as a species, not as a portrait. In sculpture I work the same question with another material: how to give form to what has no form without betraying it.
 
   I don't want the work to deliver a message. I want it to fail at that, and in the error for each person to find their own: the work as a mirror. I photograph silence to find myself, and so that someone, on the other side, can find themselves too.
+
+# Preguntas y respuestas de /info/ (Pages CMS → Artista). {base} se reemplaza por /es en la versión en español.
+faq:
+- pregunta: ¿Quién es Nicolás Guala?
+  respuesta: Nicolás Guala (Montevideo, 1997) es un artista visual uruguayo que trabaja con fotografía, escultura e instalación, entre Uruguay y Europa.
+  pregunta_en: Who is Nicolás Guala?
+  respuesta_en: Nicolás Guala (Montevideo, 1997) is a Uruguayan visual artist who works across photography, sculpture and installation, based between Uruguay and Europe.
+- pregunta: ¿Con qué trabaja?
+  respuesta: En fotografía retrata figuras de espaldas, a distancia, en blanco y negro extremo y sin reencuadre posterior. En escultura usa impresión 3D y deja las huellas del proceso a la vista. Sus instalaciones pueden ser técnicamente complejas, con robótica y entornos inmersivos.
+  pregunta_en: What does he work with?
+  respuesta_en: In photography he shoots figures from behind, from a distance, in extreme black and white and without cropping afterwards. In sculpture he uses 3D printing and leaves the traces of the process visible. His installations can be technically complex, involving robotics and immersive environments.
+- pregunta: ¿Dónde estudió?
+  respuesta: Es licenciado en Diseño, Arte y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer y Aldo Curto.
+  pregunta_en: Where did he study?
+  respuesta_en: He holds a degree in Design, Art and Technology from Universidad ORT and trained in the studios of Rita Fischer and Aldo Curto.
+- pregunta: ¿Dónde expuso?
+  respuesta: En el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo. La lista completa está en el [CV]({base}/cv/).
+  pregunta_en: Where has he exhibited?
+  respuesta_en: At the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo. The full list is in the [CV]({base}/cv/).
+- pregunta: ¿Cómo adquirir una obra o contactarlo?
+  respuesta: Las obras originales y las ediciones se venden directamente. Mirá [Adquirir obra]({base}/adquirir/) o escribile a [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
+  pregunta_en: How can I acquire a work or contact him?
+  respuesta_en: Original works and editions are sold directly. See [Acquire work]({base}/adquirir/) or write to [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
