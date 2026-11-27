@@ -61,8 +61,8 @@ en:
     pedir: Order by email
     pocas: Few left
     agotado: Sold out
-    asunto_consulta: "Inquiry:"
-    asunto_pedido: "Order:"
+    asunto_consulta: "Interested in piece:"
+    asunto_pedido: "Interested in piece:"
     asunto_general: "Inquiry: acquiring work"
     mail_hola: "Hi Nicolás, I'm interested in"
     mail_general: acquiring a work
@@ -128,8 +128,8 @@ es:
     pedir: Pedir por mail
     pocas: Quedan pocas
     agotado: Agotado
-    asunto_consulta: "Consulta:"
-    asunto_pedido: "Pedido:"
+    asunto_consulta: "Interesado en pieza:"
+    asunto_pedido: "Interesado en pieza:"
     asunto_general: "Consulta: adquirir obra"
     mail_hola: "Hola Nicolás, me interesa"
     mail_general: adquirir una obra
