@@ -64,7 +64,7 @@
 
     <!-- QUÉ HAGO -->
     <section id="work">
-      <p class="section-label">{% include t.html o=h.que_hago c="etiqueta" %}</p>
+      <h2 class="section-label">{% include t.html o=h.que_hago c="etiqueta" %}</h2>
       <div class="work-inner">
         <div class="services">
           {%- assign _k = "items" | append: sfx -%}
@@ -84,7 +84,7 @@
     <!-- SOBRE MÍ -->
     <section id="aboutMe">
       <div class="about-left">
-        <p class="section-label">{% include t.html o=h.sobre_mi c="etiqueta" %}</p>
+        <h2 class="section-label">{% include t.html o=h.sobre_mi c="etiqueta" %}</h2>
         {%- assign _k = "columna_1" | append: sfx -%}
         {%- assign _col = h.sobre_mi[_k] | default: h.sobre_mi.columna_1 -%}
         {%- for t in _col %}
@@ -105,7 +105,7 @@
     {%- assign destacados = site.proyectos | where: "destacado", true | sort: "orden" -%}
     {%- if destacados.size > 0 %}
     <section id="works">
-      <p class="section-label">{% include t.html o=h.obra c="etiqueta" %}</p>
+      <h2 class="section-label">{% include t.html o=h.obra c="etiqueta" %}</h2>
       <div class="pieces-grid">
         {%- for p in destacados %}
           {%- assign p_est = site.data.estados | where: "clave", p.estado | first -%}

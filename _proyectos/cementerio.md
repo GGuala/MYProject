@@ -14,8 +14,8 @@ medios_en:
 - 3D printing
 hilos:
 - La forma de lo divino
-descripcion: 'Cementerio (2024–): serie conceptual de Nicolás Guala sobre los dioses como emociones efímeras. Instalación escultórica en desarrollo. Arte contemporáneo joven, Montevideo, Uruguay.'
-descripcion_en: 'Cementerio (2024–): conceptual series by Nicolás Guala about gods as ephemeral emotions. Sculptural installation in progress. Young contemporary art, Montevideo, Uruguay.'
+descripcion: 'Cementerio (2024–): serie conceptual de Nicolás Guala sobre los dioses como emociones efímeras. Instalación escultórica en desarrollo. Montevideo, Uruguay.'
+descripcion_en: 'Cementerio (2024–): conceptual series by Nicolás Guala about gods as ephemeral emotions. Sculptural installation in progress. Montevideo, Uruguay.'
 imagen: /img/cementerio/general.webp
 imagen_alt: Cementerio — vista general, Nicolás Guala, 2024
 imagen_alt_en: Cementerio — general view, Nicolás Guala, 2024
@@ -53,21 +53,21 @@ galeria:
   pie_en: Cementerio, 2024–. Room render.
 - tipo: render
   src: /img/cementerio/001.webp
-  alt: Cementerio — detalle 001
+  alt: 'Cementerio — escultura plateada de formas retorcidas sobre una base de tierra oscura, vista lateral'
   pie: Cementerio, 2024–. Render, detalle.
-  alt_en: Cementerio — detail 001
+  alt_en: 'Cementerio — silver sculpture of twisting forms on a dark earth base, side view'
   pie_en: Cementerio, 2024–. Render, detail.
 - tipo: render
   src: /img/cementerio/002.webp
-  alt: Cementerio — detalle 002
+  alt: 'Cementerio — la escultura plateada desde otro ángulo, con fondo oscuro'
   pie: Cementerio, 2024–. Render, detalle.
-  alt_en: Cementerio — detail 002
+  alt_en: 'Cementerio — the silver sculpture from another angle, against a dark background'
   pie_en: Cementerio, 2024–. Render, detail.
 - tipo: render
   src: /img/cementerio/003.webp
-  alt: Cementerio — detalle 003
+  alt: 'Cementerio — la escultura plateada ante un fondo de franjas blancas y negras'
   pie: Cementerio, 2024–. Render, detalle.
-  alt_en: Cementerio — detail 003
+  alt_en: 'Cementerio — the silver sculpture in front of a black-and-white striped backdrop'
   pie_en: Cementerio, 2024–. Render, detail.
 - tipo: render
   src: /img/cementerio/detalle-pieza.webp
