@@ -34,7 +34,7 @@
   {%- for f in a.faq %}
   <h3>{% include t.html o=f c="pregunta" %}</h3>
   {%- capture _r -%}{% include t.html o=f c="respuesta" %}{%- endcapture %}
-  {{ _r | replace: "{base}", base | markdownify }}
+  {{ _r | replace: "$base", base | markdownify }}
   {%- endfor %}
 </section>
 {%- endif %}

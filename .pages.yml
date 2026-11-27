@@ -506,7 +506,7 @@ content:
       label: Pregunta
       type: string
     - name: respuesta
-      label: Respuesta (1–3 frases; para enlazar usá [texto]({base}/cv/))
+      label: Respuesta (1–3 frases; para enlazar usá [texto]($base/cv/))
       type: text
     - name: pregunta_en
       label: Pregunta (EN)

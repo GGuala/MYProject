@@ -46,7 +46,7 @@ statement_en: |-
 
   I don't want the work to deliver a message. I want it to fail at that, and in the error for each person to find their own: the work as a mirror. I photograph silence to find myself, and so that someone, on the other side, can find themselves too.
 
-# Preguntas y respuestas de /info/ (Pages CMS → Artista). {base} se reemplaza por /es en la versión en español.
+# Preguntas y respuestas de /info/ (Pages CMS → Artista). $base se reemplaza por /es en la versión en español.
 faq:
 - pregunta: ¿Quién es Nicolás Guala?
   respuesta: Nicolás Guala (Montevideo, 1997) es un artista visual uruguayo que trabaja con fotografía, escultura e instalación, entre Uruguay y Europa.
@@ -61,10 +61,10 @@ faq:
   pregunta_en: Where did he study?
   respuesta_en: He holds a degree in Design, Art and Technology from Universidad ORT and trained in the studios of Rita Fischer and Aldo Curto.
 - pregunta: ¿Dónde expuso?
-  respuesta: En el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo. La lista completa está en el [CV]({base}/cv/).
+  respuesta: En el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo. La lista completa está en el [CV]($base/cv/).
   pregunta_en: Where has he exhibited?
-  respuesta_en: At the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo. The full list is in the [CV]({base}/cv/).
+  respuesta_en: At the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo. The full list is in the [CV]($base/cv/).
 - pregunta: ¿Cómo adquirir una obra o contactarlo?
-  respuesta: Las obras originales y las ediciones se venden directamente. Mirá [Adquirir obra]({base}/adquirir/) o escribile a [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
+  respuesta: Las obras originales y las ediciones se venden directamente. Mirá [Adquirir obra]($base/adquirir/) o escribile a [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
   pregunta_en: How can I acquire a work or contact him?
-  respuesta_en: Original works and editions are sold directly. See [Acquire work]({base}/adquirir/) or write to [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
+  respuesta_en: Original works and editions are sold directly. See [Acquire work]($base/adquirir/) or write to [guala.fajardo@gmail.com](mailto:guala.fajardo@gmail.com).
