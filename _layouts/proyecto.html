@@ -76,6 +76,10 @@
           {%- if medios and medios.size > 0 %}<span>{{ medios | join: ", " }}</span>{% endif -%}
           {%- if obra.hilos and obra.hilos.size > 0 %}<span class="p-hilos">{% for h in obra.hilos %}<em>{{ L.hilos[h] | default: h }}</em>{% unless forloop.last %} · {% endunless %}{% endfor %}</span>{% endif -%}
         </div>
+        {%- capture resumen -%}{% include t.html o=obra c="resumen" %}{%- endcapture -%}
+        {%- if resumen != "" %}
+        <p class="p-resumen">{{ resumen }}</p>
+        {%- endif %}
         {%- if ultima %}
         <p class="p-actividad">{{ L.ultima_actividad }} {% include fecha.html f=ultima.fecha %}</p>
         {%- endif %}

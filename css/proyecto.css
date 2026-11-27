@@ -230,3 +230,6 @@
 .p-faq h3 { font-size: 18px; font-weight: 500; margin: 32px 0 8px; color: var(--grey1); }
 .p-faq p { max-width: 640px; font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--grey1); margin: 0; }
 .p-faq a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Resumen de la obra (primera frase factual, para lectores y buscadores) */
+.p-resumen { max-width: 640px; margin: 28px 0 0; font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--grey1); }

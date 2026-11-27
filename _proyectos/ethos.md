@@ -14,8 +14,10 @@ medios_en:
 - 3D printing
 hilos:
 - La forma de lo divino
-descripcion: 'Ethos (2024): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol que interrogan la imagen de la divinidad.'
-descripcion_en: 'Ethos (2024): sculptural installation by Nicolás Guala. Three 3D-printed PLA and spray-paint pieces that question the image of divinity.'
+descripcion: 'Ethos (2024): instalación escultórica de Nicolás Guala. Tres piezas en impresión 3D PLA y aerosol sobre la imagen de la divinidad como constructo.'
+descripcion_en: 'Ethos (2024): sculptural installation by Nicolás Guala. Three 3D-printed PLA and spray-paint pieces about the image of divinity as a construct.'
+resumen: 'Ethos (2024) es una instalación escultórica de tres piezas, impresas en 3D en PLA y terminadas con aerosol, sobre la imagen de la divinidad como constructo. Todavía no fue exhibida. Las capas del filamento quedan a la vista como registro del proceso.'
+resumen_en: 'Ethos (2024) is a sculptural installation of three pieces, 3D-printed in PLA and finished with spray paint, about the image of divinity as a construct. It has not been exhibited yet. The filament layers stay visible as a record of the process.'
 imagen: /img/ethos/total01.webp
 imagen_alt: Ethos — vista general de la instalación, Nicolás Guala, 2024
 imagen_alt_en: Ethos — general view of the installation, Nicolás Guala, 2024

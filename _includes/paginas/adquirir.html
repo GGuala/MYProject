@@ -8,7 +8,8 @@
   </a>
   <span class="lbl">{{ L.nav.adquirir | downcase }}</span>
   <h1 class="p-titulo">{{ L.adquirir.titulo }}</h1>
-  <p class="p-cv-linea">{{ L.adquirir.intro }}</p>
+  {%- capture _intro -%}{% include t.html o=site.data.paginas.adquirir c="intro" %}{%- endcapture %}
+  <p class="p-cv-linea">{{ _intro | strip | default: L.adquirir.intro }}</p>
   <a class="btn-principal" href="{% include mailto.html asunto=L.adquirir.asunto_general que=L.adquirir.mail_general %}">
     {{ L.adquirir.boton }}
     <svg class="btn-flecha" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>

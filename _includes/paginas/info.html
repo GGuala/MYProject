@@ -12,6 +12,14 @@
   </div>
 </header>
 
+{%- capture bio -%}{% include t.html o=a c="bio" %}{%- endcapture -%}
+{%- if bio != "" %}
+<section class="p-modulo">
+  <h2 class="p-label">{{ L.secciones.bio }}</h2>
+  <p class="p-bio">{{ bio }}</p>
+</section>
+{%- endif %}
+
 {%- capture statement -%}{% include t.html o=a c="statement" %}{%- endcapture -%}
 {%- if statement != "" %}
 <article class="p-texto">
@@ -19,11 +27,15 @@
 </article>
 {%- endif %}
 
-{%- capture bio -%}{% include t.html o=a c="bio" %}{%- endcapture -%}
-{%- if bio != "" %}
-<section class="p-modulo">
-  <h2 class="p-label">{{ L.secciones.bio }}</h2>
-  <p class="p-bio">{{ bio }}</p>
+
+{%- if a.faq and a.faq.size > 0 %}
+<section class="p-modulo p-faq">
+  <h2 class="p-label">{{ L.secciones.faq }}</h2>
+  {%- for f in a.faq %}
+  <h3>{% include t.html o=f c="pregunta" %}</h3>
+  {%- capture _r -%}{% include t.html o=f c="respuesta" %}{%- endcapture %}
+  {{ _r | replace: "{base}", base | markdownify }}
+  {%- endfor %}
 </section>
 {%- endif %}
 
@@ -36,31 +48,4 @@
     <li><span class="cv-anio">{{ r.nombre }}</span><span><a href="{{ r.url }}" rel="me">{{ r.url | remove: "https://www." | remove: "https://" }}</a></span></li>
     {%- endfor %}
   </ul>
-</section>
-
-<section class="p-modulo p-faq">
-  <h2 class="p-label">{{ L.secciones.faq }}</h2>
-  {%- if lang == "en" %}
-  <h3>Who is Nicolás Guala?</h3>
-  <p>Nicolás Guala (Montevideo, 1997) is a Uruguayan visual artist who works across photography, sculpture and installation, based between Uruguay and Europe.</p>
-  <h3>What does he work with?</h3>
-  <p>In photography he shoots figures from behind, from a distance, in extreme black and white and without cropping afterwards. In sculpture he uses 3D printing and leaves the traces of the process visible. His installations can be technically complex, involving robotics and immersive environments.</p>
-  <h3>Where did he study?</h3>
-  <p>He holds a degree in Design, Art and Technology from Universidad ORT and trained in the studios of Rita Fischer and Aldo Curto.</p>
-  <h3>Where has he exhibited?</h3>
-  <p>At the Centro de Exposiciones SUBTE, SODRE and LATU, among other venues in Montevideo. The full list is in the <a href="{{ base }}/cv/">CV</a>.</p>
-  <h3>How can I acquire a work or contact him?</h3>
-  <p>Original works and editions are sold directly. See <a href="{{ base }}/adquirir/">Acquire work</a> or write to <a href="mailto:guala.fajardo@gmail.com">guala.fajardo@gmail.com</a>.</p>
-  {%- else %}
-  <h3>¿Quién es Nicolás Guala?</h3>
-  <p>Nicolás Guala (Montevideo, 1997) es un artista visual uruguayo que trabaja con fotografía, escultura e instalación, entre Uruguay y Europa.</p>
-  <h3>¿Con qué trabaja?</h3>
-  <p>En fotografía retrata figuras de espaldas, a distancia, en blanco y negro extremo y sin reencuadre posterior. En escultura usa impresión 3D y deja las huellas del proceso a la vista. Sus instalaciones pueden ser técnicamente complejas, con robótica y entornos inmersivos.</p>
-  <h3>¿Dónde estudió?</h3>
-  <p>Es licenciado en Diseño, Arte y Tecnología por la Universidad ORT y se formó en los talleres de Rita Fischer y Aldo Curto.</p>
-  <h3>¿Dónde expuso?</h3>
-  <p>En el Centro de Exposiciones SUBTE, el SODRE y el LATU, entre otros espacios de Montevideo. La lista completa está en el <a href="{{ base }}/cv/">CV</a>.</p>
-  <h3>¿Cómo adquirir una obra o contactarlo?</h3>
-  <p>Las obras originales y las ediciones se venden directamente. Mirá <a href="{{ base }}/adquirir/">Adquirir obra</a> o escribile a <a href="mailto:guala.fajardo@gmail.com">guala.fajardo@gmail.com</a>.</p>
-  {%- endif %}
 </section>
